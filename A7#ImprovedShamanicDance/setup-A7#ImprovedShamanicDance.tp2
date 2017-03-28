@@ -1,0 +1,91 @@
+BACKUP ~A7#ImprovedShamanicDance/backup~
+AUTHOR ~Argent77~
+VERSION ~1.2.1~
+
+README ~A7#ImprovedShamanicDance/readme/readme-%LANGUAGE%.txt~
+       ~A7#ImprovedShamanicDance/readme/readme.txt~
+
+LANGUAGE ~English~
+         ~english~
+         ~A7#ImprovedShamanicDance/language/english/setup.tra~
+         ~A7#ImprovedShamanicDance/language/english/mod.tra~
+LANGUAGE ~German~
+         ~german~
+         ~A7#ImprovedShamanicDance/language/german/setup.tra~
+         ~A7#ImprovedShamanicDance/language/german/mod.tra~
+LANGUAGE ~Italian (Translation by Aedan)~
+         ~italian~
+         ~A7#ImprovedShamanicDance/language/italian/setup.tra~
+         ~A7#ImprovedShamanicDance/language/italian/mod.tra~
+LANGUAGE ~Polish (Translation by Cahir)~
+         ~polish~
+         ~A7#ImprovedShamanicDance/language/polish/setup.tra~
+         ~A7#ImprovedShamanicDance/language/polish/mod.tra~
+
+BEGIN @1  // Improved Shamanic Dance
+  REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @2   // Enhanced Edition game is required.
+  REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~spsh003.spl~ AND 
+                     FILE_EXISTS_IN_GAME ~spsh004.spl~ AND
+                     FILE_EXISTS_IN_GAME ~bdshunsu.bcs~) @3 // No shaman class available.
+
+  COPY_EXISTING ~spsh003.spl~ ~override~
+    PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+      LPF ADD_SPELL_EFFECT
+        INT_VAR
+          opcode = 126  // Movement rate bonus
+          target = 1    // Self
+          parameter1 = 50
+          parameter2 = 2  // Set % of
+          duration = 7
+      END
+    END
+  BUT_ONLY
+
+  COPY_EXISTING ~spsh004.spl~ ~override~
+    PATCH_IF (SOURCE_SIZE > 0x71) BEGIN
+      LPF DELETE_SPELL_EFFECT
+        INT_VAR opcode_to_delete = 363  // Movement rate check
+      END
+    END
+  BUT_ONLY
+
+  // Rebalancing spirit creature script
+  COPY_EXISTING ~bdshunsu.bcs~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+      REPLACE_TEXTUALLY CASE_INSENSITIVE
+        ~!CheckSpellState(Player[2-6],.+)~ ~~
+      REPLACE_TEXTUALLY CASE_INSENSITIVE
+        ~!CheckSpellState(Player1,\(.+\))~ ~!CheckSpellState(LastSummonerOf(Myself),\1)~
+      REPLACE_TEXTUALLY CASE_INSENSITIVE
+        ~\[.+\.0\.0\.SHAMAN\]~ ~LastSummonerOf(Myself)~
+    END
+  BUT_ONLY
+
+  // Updating class description
+  INCLUDE ~A7#ImprovedShamanicDance/lib/campaigns.tph~
+  LAF CAMPAIGN_EXISTS RET exists END
+  ACTION_IF (exists) BEGIN
+    LAF GET_CAMPAIGN_INFO RET cmp_clastext END
+    ACTION_DEFINE_ARRAY classTextArray BEGIN ~CLASTEXT.2DA~ ~%cmp_clastext%.2DA~ END
+  END ELSE BEGIN
+    ACTION_DEFINE_ARRAY classTextArray BEGIN ~CLASTEXT.2DA~ END
+  END
+
+  ACTION_PHP_EACH classTextArray AS _ => descFile BEGIN
+    COPY_EXISTING ~%descFile%~ ~override~
+      COUNT_2DA_COLS numCols
+      COUNT_2DA_ROWS numCols numRows
+      SET found = 0
+      FOR (row = 0; row < numRows AND found = 0; ++row) BEGIN
+        READ_2DA_ENTRY row 0 numCols className
+        PATCH_IF (~%className%~ STRING_EQUAL_CASE ~SHAMAN~) BEGIN
+          READ_2DA_ENTRY row 4 numCols descStrref
+          PATCH_IF (descStrref >= 0) BEGIN
+            SET newDescStrref = RESOLVE_STR_REF(@100)
+            SET_2DA_ENTRY row 4 numCols ~%newDescStrref%~
+          END
+          SET found = 1
+        END
+      END
+    BUT_ONLY
+  END

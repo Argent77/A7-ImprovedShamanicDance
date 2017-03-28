@@ -1,0 +1,30 @@
+// -*- coding: utf-8 -*- 
+
+@100 = ~SZAMAN: Szamani utrzymują nadprzyrodzoną więź ze światem natury, podobnie jak czynią to druidzi, lecz w przeciwieństwie do nich, więź ta ma charakter duchowy, a nie pierwotny. Czerpią oni energię wprost z ziemi oraz powietrza, poprzez rośliny czy też zwierzęta, a nawet od zmarłych, kształtując ją następnie wedle własnej woli. Jest to szczególnie widoczne, gdy korzystają z mocy przyzywania potężnych duchów, które służą im za obrońców i strażników. Będąc stworzeniami z pogranicza obu światów, szamani od dominacji wyżej cenią sobie równowagę. 
+
+CECHY KLASOWE:
+
+– Może nosić jedynie zbroję skórzaną, zbroję skórzaną grubą i zbroję skórzaną ćwiekowaną.
+– Nie może używać tarczy większej niż puklerz.
+– Może używać tylko następujących typów broni: sztylet, maczuga, włócznia, topór, kij, strzałka, proca, krótki łuk. 
+– Może osiągnąć stopień Wyszkolony (jeden punkt biegłości) w dowolnym rodzaju broni. 
+– Może osiągnąć stopień Wyszkolony (jeden punkt biegłości) w każdym stylu walki. 
+– Może rzucać zaklęcia druida.
+– W odróżnieniu od druida nie uczy się automatycznie wszystkich zaklęć danego poziomu. Zamiast tego, gdy awansuje na kolejny poziom, wybiera nowe zaklęcia, które chce poznać, a gdy już to uczyni może je rzucać codziennie bez konieczności ich zapamiętywania.
+– Oprócz możliwości uczenia się co poziom nowych zaklęć zyskuje również automatyczny dostęp do następujących czarów szamańskich, które może rzucać jak dowolne inne zaklęcia ze swego repertuaru: Osłona przed duchami, Skłębiona mgła, Duchowa jasność umysłu, Duchowy ogień, Sprowadzenie ducha, Duchowy zamek i Eteryczne wrota.
+– Może używać zdolności Wykrycie iluzji, rozpoczynając grę od wartości 20 punktów i otrzymując dodatkowe 4 punkty na poziom, aż do uzyskania maksimum 100 punktów na 20. poziomie.
+– Może używać zdolności Szamański taniec.
+
+SZAMAŃSKI TANIEC: Szamani mogą, poprzez wykonanie rytualnego tańca, przywoływać duchowych sojuszników. Podczas tańca, szaman otrzymuje karę -4 do Klasy Pancerza, porusza się ze zmniejszoną prędkością i nie może atakować, rzucać zaklęć, używać przedmiotów, korzystać ze specjalnych zdolności, czy też wykonywać innych czynności. W każdej rundzie tańca istnieje 35% szans plus 2% na poziom szamana, że duch odpowie na jego wezwanie. Szansa ta wzrasta maksymalnie do 75% na 20. poziomie. Wezwany duch natychmiast zniknie, jeśli szaman przestanie tańczyć lub jeśli duch wyjdzie poza zasięg jego wzroku. Wraz z kolejnymi poziomami w klasie szamana, duch staje się potężniejszy:
+Poziom 1: Pomniejsze duchy zwierząt (wąż, lis, pies), maksymalnie dwa duchy w tym samym czasie.
+Poziom 6: Większe duchy zwierząt (niedźwiedź, pantera, dzik), maksymalnie trzy duchy w tym samym czasie.
+Poziom 12: Pomniejsze duchy natury (mniejszy duch powietrza, mniejszy duch ziemi, mniejszy duch ognia), maksymalnie cztery duchy w tym samym czasie.
+Poziom 18: Większe duchy natury (duch powietrza, duch ziemi, duch ognia), maksymalnie pięć duchów w tym samym czasie.
+
+Rodzaj przyzwanego ducha jest określany losowo spośród wszystkich rodzajów duchów dostępnych na danym poziomie szamana. Przykładowo, 12. poziomowy szaman przyzwie pomniejszego ducha natury, większego ducha zwierzęcia lub pomniejszego ducha zwierzęcia, nie może jednak wybrać, którego z nich przyzwie. Duchy będą ze wszystkich sił bronić szamana, lecz nie będą znajdować się pod jego bezpośrednią kontrolą.
+
+– Nie otrzymuje dodatkowych zaklęć na dzień ze względu na wysoką Mądrość.
+– Musi mieć charakter neutralny dobry, neutralny lub neutralny zły.
+– Nie może być dwuklasowcem lub wieloklasowcem. 
+– Brak dostępu do twierdzy: szaman nie może posiadać własnej twierdzy. (Dotyczy to jedynie kampanii Cienie Amn w grze Baldur's Gate II: Enhanced Edition).
+– Kostka Wytrzymałości: k8~
