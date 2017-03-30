@@ -19,7 +19,7 @@ practically disabled while the dance is performed. This mod makes an attempt to 
 allowing the shaman to move at reduced speed while performing the dance to give him more tactical options against 
 opponents. To counteract this improvement somewhat, spirits won't listen to any shamans anymore but their own master.
 
-Available languages: English, German, Italian, Polish
+Available languages: English, French, German, Italian, Polish
 
 
 Installation
@@ -85,6 +85,7 @@ Writing, coding and testing: Argent77
 
 Polish translation: Cahir
 Italian translation: Aedan
+French translation: LamaPatate
 
 
 Copyright Notice
