@@ -37,3 +37,27 @@ LAF UPDATE_CLASS_DESC
   INT_VAR newDesc = RESOLVE_STR_REF(@100)
   STR_VAR className = "SHAMAN"
 END
+
+
+// Making changes to Advanced AI scripts to support new dance behavior
+COPY_EXISTING - ~partyai.2da~ ~override~
+  READ_2DA_ENTRY 1 0 1 defScript
+
+ACTION_IF (FILE_EXISTS_IN_GAME ~%defScript%.BCS~) BEGIN
+  // patching default AI script
+  COPY_EXISTING ~%defScript%.BCS~ ~override~
+    DECOMPILE_AND_PATCH BEGIN
+      SET startIndex = INDEX_BUFFER ( ~IF[ %TAB%%WNL%]+ModalState(SHAMANDANCE)~ )
+      PATCH_IF (startIndex >= 0) BEGIN
+        SET endIndex = INDEX_BUFFER ( ~[%WNL%]END[%WNL%]~ startIndex)
+        PATCH_IF (endIndex > startIndex) BEGIN
+          TEXT_SPRINT searchText ~NoAction()~
+          SET searchLen = STRING_LENGTH ~%searchText%~
+          SET curIndex = INDEX_BUFFER ( ~%searchText%~ startIndex )
+          PATCH_IF (curIndex > startIndex && curIndex < endIndex) BEGIN
+            DELETE_BYTES curIndex searchLen
+          END
+        END
+      END
+    END
+END
