@@ -1,5 +1,8 @@
 // -*- coding: us-ascii -*- 
 
 @1 = ~Danza Sciamanica Migliorata~
-@2 = ~Ãˆ richiesta la versione Enhanced Edition.~
-@3 = ~La classe dello sciamano non Ã¨ disponibile.~
+@2 = ~Potenzia la Danza Sciamanica per personaggi di alto livello~
+
+@50 = ~È richiesta la versione Enhanced Edition.~
+@51 = ~La classe dello sciamano non è disponibile.~
+@52 = ~Richiede Componente Principale~

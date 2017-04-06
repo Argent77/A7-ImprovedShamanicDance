@@ -1,5 +1,8 @@
 // -*- coding: us-ascii -*- 
 
 @1 = ~Verbesserter Schamanentanz~
-@2 = ~Diese Komponente benötigt ein Enhanced Edition Spiel.~
-@3 = ~Die Schamanenklasse konnte nicht gefunden werden.~
+@2 = ~Schamanentanz für hochstufige Schamanen erweitern~
+
+@50 = ~Diese Komponente benötigt ein Enhanced Edition Spiel.~
+@51 = ~Die Schamanenklasse konnte nicht gefunden werden.~
+@52 = ~Benötigt Hauptkomponente der Mod~

@@ -24,5 +24,41 @@ Le type d'esprit invoqué est déterminé aléatoirement parmi les esprits dispo
 
 - Aucun bonus de sorts par jour lié à une grande Sagesse.
 - Doit être d'alignement neutre bon, neutre strict ou neutre mauvais.
+- Ne peut pas être bi-classé ou multi-classé.
 - Le Chaman n'est pas éligible pour une forteresse (Cela concerne uniquement la Campagne the Shadows of Amn dans Baldu's Gate II: Enhanced Edition.)
 - Dés de vie : d8~
+
+@101 = ~CHAMAN : Les Chamans forgent une connexion divine avec le monde naturel, semblable à la voie empruntée par les Druides avec la nature, mais les Chamans sont plus spirituels que primitifs. Ils puisent directement dans les énergies qui circulent à travers la terre et l'air, à travers les plantes et les animaux, et même à travers les morts, et ils façonnent ces énergies pour obéir à leur volonté. Leur capacité d'invoquer des esprits puissants comme gardiens et défenseurs, en est un parfait exemple. Partagés entre les deux mondes, les Chamans privilégient l'équilibre à la domination. 
+
+CAPACITÉS :
+
+– Peut porter uniquement l'armure de cuir, la besantine et l'armure de peau.
+– Ne peut utiliser de bouclier plus lourd que la targe.
+– Ne peut utiliser que les armes suivantes : dague, gourdin, lance, hache, bâton, fléchette, fronde et arc court.
+– Ne peut être que compétent (une étoile) dans le maniement des armes.
+– Ne peut être que compétent (une étoile) dans les styles de combat.
+– Peut lancer des sorts de Druide.
+- Le Chaman n'apprend pas tous les sorts du niveau comme un Druide. À la place, il sélectionne de nouveaux sorts à apprendre à chaque niveau ; un Chaman peut lancer des sorts sans avoir besoin de les mémoriser.
+- Le Chaman a un accès immédiat à un nombre de sorts spécifiques à sa classe, qu'il peut lancer comme n'importe quel autre sort : Protection de l'Esprit, Brouillard Putride, Lucidité Spirituelle, Feu Spirituel, Rappel de l'Esprit, Verrou Spirituel et Portail Éthéré.
+- Il acquiert la compétence Détection des illusions en débutant avec 20 %. Puis il gagne 4 % par niveau pour atteindre un maximum de 100 % au niveau 20.
+- Il peut utiliser la Danse Chamanique à volonté.
+
+DANSE CHAMANIQUE : Les Chamans peuvent invoquer des esprits alliés grâce à une danse rituelle. Durant la danse, le Chaman subit une pénalité de -4 à la classe d'armure, il se déplace à vitesse réduite et il ne peut attaquer, lancer des sorts, utiliser des objets ou des capacités spéciales, ou effectuer toute autre activité. À chaque round, tandis que le Chaman danse, il a 35 % de chance de base plus 2 % pour chaque niveau supplémentaire qu'un esprit réponde à l'appel, avec un maximum de 95 % au niveau 30. Tous les esprits invoqués disparaîtront si le Chaman arrête de danser, ou si l'esprit quitte le champ de vision. Les esprits augmentent en puissance au fur et à mesure que le Chaman gagne des niveaux supplémentaires :
+  Niveau 1 : Esprits animal mineurs (serpent, renard, limier), jusqu'à 2 esprits en même temps.
+  Niveau 6 : Esprits animal majeurs (ours, panthère, sanglier), jusqu'à 3 esprits en même temps.
+  Niveau 12 : Esprits de la nature mineurs (esprit d'air mineur, esprit de terre mineur, esprit de feu mineur), jusqu'à 4 esprits en même temps.
+  Niveau 18 : Esprits de la nature majeurs (esprit d'air, esprit de terre, esprit de feu), jusqu'à 5 esprits en même temps.
+Le type d'esprit invoqué est déterminé aléatoirement parmi les esprits disponibles en fonction du niveau du Chaman. Par exemple, au niveau 12 le Chaman invoquera soit un esprit de la nature mineur, un esprit animal majeur ou un esprit animal mineur, mais il ne pourra pas choisir ceux qui apparaîtront. Les esprits feront de leur mieux pour protéger le Chaman, mais il ne les contrôle pas directement. 
+The Shaman will also be protected by spirits at level 24 and higher. The spirits grant the Shaman immunity to normal weapons and protection against all 1st- and 2nd-level spell effects.
+
+- Aucun bonus de sorts par jour lié à une grande Sagesse.
+- Doit être d'alignement neutre bon, neutre strict ou neutre mauvais.
+- Ne peut pas être bi-classé ou multi-classé.
+- Le Chaman n'est pas éligible pour une forteresse (Cela concerne uniquement la Campagne the Shadows of Amn dans Baldu's Gate II: Enhanced Edition.)
+- Dés de vie : d8~
+
+@200 = ~A grand nature spirit answers your call.~
+@201 = ~Greater Fire Spirit~
+@202 = ~Greater Air Spirit~
+@203 = ~Greater Earth Spirit~
+@204 = ~Protected by spirits~

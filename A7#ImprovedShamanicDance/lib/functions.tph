@@ -1,0 +1,78 @@
+// *** Globally used functions ***
+
+INCLUDE ~A7#ImprovedShamanicDance/lib/campaigns.tph~
+
+// Updates class description in ALL available clastext tables
+DEFINE_ACTION_FUNCTION UPDATE_CLASS_DESC
+INT_VAR
+  newDesc = "-1"
+STR_VAR
+  className = ~~
+BEGIN
+  OUTER_SET finished = 0
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~campaign.2da~) BEGIN
+    COPY_EXISTING - ~campaign.2da~ ~override~
+      COUNT_2DA_COLS cmpNumCols
+      COUNT_2DA_ROWS cmpNumCols cmpNumRows
+      PATCH_IF (cmpNumRows > 0) BEGIN
+        READ_2DA_ENTRY 0 0 cmpNumCols cmpName
+      END ELSE BEGIN
+        TEXT_SPRINT cmpName ~~
+      END
+      PATCH_IF (NOT ~%cmpName%~ STRING_EQUAL_CASE ~WORLDSCRIPT~) BEGIN
+        FOR (cmpRow = 0; cmpRow < cmpNumRows; ++cmpRow) BEGIN
+          READ_2DA_ENTRY cmpRow 0 cmpNumCols cmpName
+          INNER_ACTION BEGIN
+            LAF GET_CAMPAIGN_INFO STR_VAR campaign = EVAL ~%cmpName%~ RET cmp_clastext END
+            ACTION_IF (NOT ~%cmp_clastext%~ STRING_EQUAL ~~) BEGIN
+              LAF __UPDATE_CLASS_DESC
+              INT_VAR
+                newDesc = newDesc
+              STR_VAR
+                clastextFile = EVAL ~%cmp_clastext%.2da~
+                className = EVAL ~%className%~
+              END
+            END
+          END
+        END
+        SET finished = 1
+      END
+  END
+
+  // executed when campaign.2da is not available or empty
+  ACTION_IF (finished = 0) BEGIN
+    LAF __UPDATE_CLASS_DESC
+    INT_VAR
+      newDesc = newDesc
+    STR_VAR
+      clastextFile = ~clastext.2da~
+      className = EVAL ~%className%~
+    END
+  END
+END
+
+DEFINE_ACTION_FUNCTION __UPDATE_CLASS_DESC
+INT_VAR
+  newDesc = "-1"
+STR_VAR
+  clastextFile = ~~
+  className = ~~
+BEGIN
+  ACTION_IF (newDesc >= 0 && NOT ~%className%~ STRING_EQUAL ~~) BEGIN
+    COPY_EXISTING ~%clastextFile%~ ~override~
+      COUNT_2DA_COLS numCols
+      COUNT_2DA_ROWS numCols numRows
+      FOR (row = 0; row < numRows; ++row) BEGIN
+        READ_2DA_ENTRY row 0 numCols name
+        PATCH_IF (~%name%~ STRING_EQUAL_CASE ~%className%~) BEGIN
+          READ_2DA_ENTRY row 4 numCols descStrref
+          PATCH_IF (descStrref >= 0) BEGIN
+            SET_2DA_ENTRY row 4 numCols ~%newDesc%~
+            SET row = numRows
+          END
+        END
+      END
+    BUT_ONLY IF_EXISTS
+  END
+END

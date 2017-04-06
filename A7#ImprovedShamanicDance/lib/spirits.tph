@@ -1,0 +1,123 @@
+// *** Unlocks another tier of spirits by the shamanic dance ***
+
+// Increasing max. summon limit
+COPY_EXISTING ~summlimt.2da~ ~override~
+  COUNT_2DA_COLS numCols
+  COUNT_2DA_ROWS numCols numRows
+  FOR (row = 0; row < numRows; row += 1) BEGIN
+    READ_2DA_ENTRY row 0 numCols type
+    PATCH_IF (~%type%~ STRING_EQUAL_CASE ~NORMAL~) BEGIN
+      READ_2DA_ENTRY row 1 numCols count
+      PATCH_IF (IS_AN_INT "count" && count < 6) BEGIN
+        SET_2DA_ENTRY row 1 numCols 6
+        SET row = numRows
+      END
+    END
+  END
+
+
+// Expanding shamanic dance
+COPY ~%MOD_FOLDER%/tables/a7sham24.2da~ ~override~
+
+/*
+Strref codes:
+1: You cannot summon any more creatures. (BG1: 24529, BG2: 74090, IWD: XXX)
+2: No spirits answer your call. (BG1: 69613, BG2: 103120, IWD: XXX)
+3: A minor animal spirit answers your call. (BG1: 69614, BG2: 103121, IWD: XXX)
+4: A major animal spirit answers your call. (BG1: 69615, BG2: 103122, IWD: XXX)
+5: A minor nature spirit answers your call. (BG1: 69616, BG2: 103123, IWD: XXX)
+6: A major nature spirit answers your call. (BG1: 69617, BG2: 103124, IWD: XXX)
+7: A grand nature spirit answers your call.
+8: Protected by spirits.
+ */
+OUTER_SET v1 = RESOLVE_STR_REF(@200)  // A grand nature spirit answers your call.
+OUTER_SET v2 = RESOLVE_STR_REF(@204)  // Shaman is protected by spirits
+ACTION_DEFINE_ASSOCIATIVE_ARRAY bg1_strrefs BEGIN
+  ~1~ => 24529
+  ~2~ => 69613
+  ~3~ => 69614
+  ~4~ => 69615
+  ~5~ => 69616
+  ~6~ => 69617
+  ~7~ => v1
+  ~8~ => v2
+END
+ACTION_DEFINE_ASSOCIATIVE_ARRAY bg2_strrefs BEGIN
+  ~1~ => 74090
+  ~2~ => 103120
+  ~3~ => 103121
+  ~4~ => 103122
+  ~5~ => 103123
+  ~6~ => 103124
+  ~7~ => v1
+  ~8~ => v2
+END
+
+DEFINE_PATCH_MACRO A7GET_STRREF_CODE
+BEGIN
+  SET strref = "-1"
+  PATCH_IF (code >= 1 && code <= 8) BEGIN
+    PATCH_IF (GAME_IS ~bgee~) BEGIN
+      SET strref = $EVAL bg1_strrefs(~%code%~)
+    END ELSE BEGIN
+      SET strref = $EVAL bg2_strrefs(~%code%~)
+    END
+  END
+END
+
+COPY ~%MOD_FOLDER%/spells/spsh004.spl~ ~override~
+  READ_LONG 0x64 ofsAbil
+  READ_SHORT 0x68 numAbil
+  READ_LONG 0x6a ofsEffects
+
+  FOR (idxAbil = 0; idxAbil < numAbil; idxAbil += 1) BEGIN
+    SET ofsCurAbil = ofsAbil + (idxAbil * 0x28)
+    READ_SHORT (ofsCurAbil + 0x1e) numAbilEffects
+    READ_SHORT (ofsCurAbil + 0x20) idxFirstAbilEffect
+    FOR (idxEffect = idxFirstAbilEffect; idxEffect < (idxFirstAbilEffect + numAbilEffects); idxEffect += 1) BEGIN
+      SET ofsCurEffect = ofsEffects + (idxEffect * 0x30)
+      READ_SHORT (ofsCurEffect + 0x00) opcode
+      PATCH_IF (opcode = 318) BEGIN
+        READ_LONG (ofsCurEffect + 0x2c) code
+        LPM A7GET_STRREF_CODE
+        WRITE_LONG (ofsCurEffect + 0x2c) strref
+      END ELSE PATCH_IF (opcode = 139) BEGIN
+        READ_LONG (ofsCurEffect + 0x04) code
+        LPM A7GET_STRREF_CODE
+        WRITE_LONG (ofsCurEffect + 0x04) strref
+      END
+    END
+  END
+
+
+// Greater Fire Spirit
+COPY ~%MOD_FOLDER%/creatures/a7sha24a.cre~ ~override~
+  SAY NAME1 @201  // Greater Fire Spirit
+  SAY NAME2 @201  // Greater Fire Spirit
+
+COPY ~%MOD_FOLDER%/items/a7sha24a.itm~ ~override~
+
+
+// Greater Air Spirit
+COPY ~%MOD_FOLDER%/creatures/a7sha24b.cre~ ~override~
+  SAY NAME1 @202  // Greater Air Spirit
+  SAY NAME2 @202  // Greater Air Spirit
+
+COPY ~%MOD_FOLDER%/items/a7sha24b.itm~ ~override~
+     ~%MOD_FOLDER%/spells/a7sh24b.spl~ ~override~
+     ~%MOD_FOLDER%/spells/a7sh24e.eff~ ~override~
+
+
+// Greater Earth Spirit
+COPY ~%MOD_FOLDER%/creatures/a7sha24c.cre~ ~override~
+  SAY NAME1 @203  // Greater Earth Spirit
+  SAY NAME2 @203  // Greater Earth Spirit
+
+COPY ~%MOD_FOLDER%/items/a7sha24c.itm~ ~override~
+
+
+// Updating class description
+LAF UPDATE_CLASS_DESC
+  INT_VAR newDesc = RESOLVE_STR_REF(@101)
+  STR_VAR className = "SHAMAN"
+END
