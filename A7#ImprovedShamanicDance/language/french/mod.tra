@@ -15,7 +15,7 @@ CAPACITÉS :
 - Il acquiert la compétence Détection des illusions en débutant avec 20 %. Puis il gagne 4 % par niveau pour atteindre un maximum de 100 % au niveau 20.
 - Il peut utiliser la Danse Chamanique à volonté.
 
-DANSE CHAMANIQUE : Les Chamans peuvent invoquer des esprits alliés grâce à une danse rituelle. Durant la danse, le Chaman subit une pénalité de -4 à la classe d'armure, il se déplace à vitesse réduite et il ne peut attaquer, lancer des sorts, utiliser des objets ou des capacités spéciales, ou effectuer toute autre activité. À chaque round, tandis que le Chaman danse, il a 35 % de chance de base plus 2 % pour chaque niveau supplémentaire qu'un esprit réponde à l'appel, avec un maximum de 75 % au niveau 20. Tous les esprits invoqués disparaîtront si le Chaman arrête de danser, ou si l'esprit quitte le champ de vision. Les esprits augmentent en puissance au fur et à mesure que le Chaman gagne des niveaux supplémentaires :
+DANSE CHAMANIQUE : Les Chamans peuvent invoquer des esprits alliés grâce à une danse rituelle. Durant la danse, le Chaman subit une pénalité de -4 à la classe d'armure, il se déplace à vitesse réduite et il ne peut attaquer, lancer des sorts, utiliser des objets ou des capacités spéciales, ou effectuer toute autre activité. À chaque round, tandis que le Chaman danse, il a 35 % de chance de base plus 2 % pour chaque niveau supplémentaire qu'un esprit réponde à l'appel, avec un maximum de 75 % au niveau 20. Tous les esprits invoqués disparaîtront si le Chaman arrête de danser. Les esprits augmentent en puissance au fur et à mesure que le Chaman gagne des niveaux supplémentaires :
   Niveau 1 : Esprits animal mineurs (serpent, renard, limier), jusqu'à 2 esprits en même temps.
   Niveau 6 : Esprits animal majeurs (ours, panthère, sanglier), jusqu'à 3 esprits en même temps.
   Niveau 12 : Esprits de la nature mineurs (esprit d'air mineur, esprit de terre mineur, esprit de feu mineur), jusqu'à 4 esprits en même temps.
@@ -43,13 +43,14 @@ CAPACITÉS :
 - Il acquiert la compétence Détection des illusions en débutant avec 20 %. Puis il gagne 4 % par niveau pour atteindre un maximum de 100 % au niveau 20.
 - Il peut utiliser la Danse Chamanique à volonté.
 
-DANSE CHAMANIQUE : Les Chamans peuvent invoquer des esprits alliés grâce à une danse rituelle. Durant la danse, le Chaman subit une pénalité de -4 à la classe d'armure, il se déplace à vitesse réduite et il ne peut attaquer, lancer des sorts, utiliser des objets ou des capacités spéciales, ou effectuer toute autre activité. À chaque round, tandis que le Chaman danse, il a 35 % de chance de base plus 2 % pour chaque niveau supplémentaire qu'un esprit réponde à l'appel, avec un maximum de 95 % au niveau 30. Tous les esprits invoqués disparaîtront si le Chaman arrête de danser, ou si l'esprit quitte le champ de vision. Les esprits augmentent en puissance au fur et à mesure que le Chaman gagne des niveaux supplémentaires :
+DANSE CHAMANIQUE : Les Chamans peuvent invoquer des esprits alliés grâce à une danse rituelle. Durant la danse, le Chaman subit une pénalité de -4 à la classe d'armure, il se déplace à vitesse réduite et il ne peut attaquer, lancer des sorts, utiliser des objets ou des capacités spéciales, ou effectuer toute autre activité. À chaque round, tandis que le Chaman danse, il a 35 % de chance de base plus 2 % pour chaque niveau supplémentaire qu'un esprit réponde à l'appel, avec un maximum de 95 % au niveau 30. Tous les esprits invoqués disparaîtront si le Chaman arrête de danser. Les esprits augmentent en puissance au fur et à mesure que le Chaman gagne des niveaux supplémentaires :
   Niveau 1 : Esprits animal mineurs (serpent, renard, limier), jusqu'à 2 esprits en même temps.
   Niveau 6 : Esprits animal majeurs (ours, panthère, sanglier), jusqu'à 3 esprits en même temps.
   Niveau 12 : Esprits de la nature mineurs (esprit d'air mineur, esprit de terre mineur, esprit de feu mineur), jusqu'à 4 esprits en même temps.
   Niveau 18 : Esprits de la nature majeurs (esprit d'air, esprit de terre, esprit de feu), jusqu'à 5 esprits en même temps.
+  Niveau 24 : Esprits de la nature supérieurs (esprit d'air supérieur, esprit de terre supérieur, esprit de feu supérieur), jusqu'à 6 esprits en même temps.
 Le type d'esprit invoqué est déterminé aléatoirement parmi les esprits disponibles en fonction du niveau du Chaman. Par exemple, au niveau 12 le Chaman invoquera soit un esprit de la nature mineur, un esprit animal majeur ou un esprit animal mineur, mais il ne pourra pas choisir ceux qui apparaîtront. Les esprits feront de leur mieux pour protéger le Chaman, mais il ne les contrôle pas directement. 
-The Shaman will also be protected by spirits at level 24 and higher. The spirits grant the Shaman immunity to normal weapons and protection against all 1st- and 2nd-level spell effects.
+Le Chaman sera également protégé par les esprits à partir du niveau 24. Les esprits octroient une protection contre les armes non-magiques ainsi qu'une immunité contre tous les effets de sorts de niveau 1 et 2.
 
 - Aucun bonus de sorts par jour lié à une grande Sagesse.
 - Doit être d'alignement neutre bon, neutre strict ou neutre mauvais.
@@ -57,8 +58,8 @@ The Shaman will also be protected by spirits at level 24 and higher. The spirits
 - Le Chaman n'est pas éligible pour une forteresse (Cela concerne uniquement la Campagne the Shadows of Amn dans Baldu's Gate II: Enhanced Edition.)
 - Dés de vie : d8~
 
-@200 = ~A grand nature spirit answers your call.~
-@201 = ~Greater Fire Spirit~
-@202 = ~Greater Air Spirit~
-@203 = ~Greater Earth Spirit~
-@204 = ~Protected by spirits~
+@200 = ~Un esprit de la nature supérieur a répondu à votre appel.~
+@201 = ~Esprit de feu supérieur~
+@202 = ~Esprit d'air supérieur~
+@203 = ~Esprit de terre supérieur~
+@204 = ~Protégé par les esprits~
