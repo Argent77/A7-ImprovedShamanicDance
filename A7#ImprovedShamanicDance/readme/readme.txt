@@ -1,7 +1,7 @@
 Improved Shamanic Dance
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Version:    1.2.1
+Version:    2.0
 Author:     Argent77
 
 Download:   https://github.com/Argent77/A7-ImprovedShamanicDance/releases/latest
@@ -134,9 +134,9 @@ History
 
 Version 2.0
 - Added component "Expanded Shamanic Dance for high level characters"
-- added French translation (thanks LamaPatate)
-- provided French translation for original game content (thanks Gwendolyne)
-- adapted 'Advanced AI' script to changed dance behavior
+- Added French translation (thanks LamaPatate)
+- French translation for original game content (thanks Gwendolyne)
+- Adapted 'Advanced AI' script to changed dance behavior
 
 Version 1.2.1
 - Downgraded WeiDU installer to improve compatibility with other mods
