@@ -61,3 +61,82 @@ ACTION_IF (FILE_EXISTS_IN_GAME ~%defScript%.BCS~) BEGIN
       END
     END
 END
+
+
+// Adding French translation of vanilla creature names
+ACTION_IF (~%LANGUAGE%~ STRING_EQUAL_CASE ~french~) BEGIN
+  // Updating creature names of spirits
+  ACTION_DEFINE_ARRAY cre_names BEGIN "bdsha01a" "bdsha01b" "bdsha01c" "bdsha06a" "bdsha06b" "bdsha06c" "bdsha12a" "bdsha12b" "bdsha12c" "bdsha18a" "bdsha18b" "bdsha18c" END
+  OUTER_SET index = 1000
+  ACTION_PHP_EACH cre_names AS _ => cre BEGIN
+    COPY_EXISTING ~%cre%.cre~ ~override~
+      SAY NAME1 (AT index)
+      SAY NAME2 (AT index)
+    BUT_ONLY IF_EXISTS
+    OUTER_SET index += 1
+  END
+
+  // Updating strings in Shamanic Dance spell
+  OUTER_SET strref_0 = RESOLVE_STR_REF(@1012) // No spirits answer your call.
+  OUTER_SET strref_1 = RESOLVE_STR_REF(@1013) // A minor animal spirit answers your call.
+  OUTER_SET strref_2 = RESOLVE_STR_REF(@1014) // A major animal spirit answers your call.
+  OUTER_SET strref_3 = RESOLVE_STR_REF(@1015) // A minor nature spirit answers your call.
+  OUTER_SET strref_4 = RESOLVE_STR_REF(@1016) // A major nature spirit answers your call.
+  ACTION_IF (GAME_IS ~bgee~) BEGIN
+    ACTION_IF (GAME_INCLUDES ~sod~) BEGIN // BG:SoD
+      ACTION_DEFINE_ASSOCIATIVE_ARRAY spl_strings BEGIN
+        69613 => "%strref_0%"
+        69614 => "%strref_1%"
+        69615 => "%strref_2%"
+        69616 => "%strref_3%"
+        69617 => "%strref_4%"
+      END
+    END ELSE BEGIN  // BG:EE
+      ACTION_DEFINE_ASSOCIATIVE_ARRAY spl_strings BEGIN
+        32402 => "%strref_0%"
+        32401 => "%strref_1%"
+        32403 => "%strref_2%"
+        32404 => "%strref_3%"
+        32405 => "%strref_4%"
+      END
+    END
+  END ELSE BEGIN  // BG2:EE, EET
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY spl_strings BEGIN
+      103120 => "%strref_0%"
+      103121 => "%strref_1%"
+      103122 => "%strref_2%"
+      103123 => "%strref_3%"
+      103124 => "%strref_4%"
+    END
+  END
+
+  COPY_EXISTING ~spsh004.spl~ ~override~
+    READ_LONG 0x64 ofsAbil
+    READ_SHORT 0x68 numAbil
+    READ_LONG 0x6a ofsEffects
+
+    FOR (idxAbil = 0; idxAbil < numAbil; idxAbil += 1) BEGIN
+      SET ofsCurAbil = ofsAbil + (idxAbil * 0x28)
+      READ_SHORT (ofsCurAbil + 0x1e) numAbilEffects
+      READ_SHORT (ofsCurAbil + 0x20) idxFirstAbilEffect
+
+      FOR (idxEffect = idxFirstAbilEffect; idxEffect < (idxFirstAbilEffect + numAbilEffects); idxEffect += 1) BEGIN
+        SET ofsCurEffect = ofsEffects + (idxEffect * 0x30)
+        READ_SHORT (ofsCurEffect + 0x00) opcode
+
+        PATCH_IF (opcode = 139) BEGIN   // Display String
+          SET curOfs = ofsCurEffect + 0x04
+          READ_LONG curOfs strref
+
+          // find matching strref and replace
+          PHP_EACH spl_strings AS curValue => newValue BEGIN
+            PATCH_IF (strref = curValue) BEGIN
+              WRITE_LONG curOfs newValue
+            END
+          END
+        END
+      END
+    END
+  BUT_ONLY
+
+END

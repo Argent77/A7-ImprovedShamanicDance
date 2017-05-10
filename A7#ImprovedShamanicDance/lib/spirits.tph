@@ -30,38 +30,46 @@ Strref codes:
 7: A grand nature spirit answers your call.
 8: Protected by spirits.
  */
-OUTER_SET v1 = RESOLVE_STR_REF(@200)  // A grand nature spirit answers your call.
-OUTER_SET v2 = RESOLVE_STR_REF(@204)  // Shaman is protected by spirits
-ACTION_DEFINE_ASSOCIATIVE_ARRAY bg1_strrefs BEGIN
-  ~1~ => 24529
-  ~2~ => 69613
-  ~3~ => 69614
-  ~4~ => 69615
-  ~5~ => 69616
-  ~6~ => 69617
-  ~7~ => v1
-  ~8~ => v2
+ACTION_IF (~%LANGUAGE%~ STRING_EQUAL_CASE ~french~) BEGIN
+  OUTER_SET v2 = RESOLVE_STR_REF(@1012)
+  OUTER_SET v3 = RESOLVE_STR_REF(@1013)
+  OUTER_SET v4 = RESOLVE_STR_REF(@1014)
+  OUTER_SET v5 = RESOLVE_STR_REF(@1015)
+  OUTER_SET v6 = RESOLVE_STR_REF(@1016)
+END ELSE BEGIN
+  ACTION_IF (GAME_IS ~bgee~) BEGIN
+    OUTER_SET v2 = (GAME_INCLUDES ~sod~) ? 69613 : 32402
+    OUTER_SET v3 = (GAME_INCLUDES ~sod~) ? 69614 : 32401
+    OUTER_SET v4 = (GAME_INCLUDES ~sod~) ? 69615 : 32403
+    OUTER_SET v5 = (GAME_INCLUDES ~sod~) ? 69616 : 32404
+    OUTER_SET v6 = (GAME_INCLUDES ~sod~) ? 69617 : 32405
+  END ELSE BEGIN
+    OUTER_SET v2 = 103120
+    OUTER_SET v3 = 103121
+    OUTER_SET v4 = 103122
+    OUTER_SET v5 = 103123
+    OUTER_SET v6 = 103124
+  END
 END
-ACTION_DEFINE_ASSOCIATIVE_ARRAY bg2_strrefs BEGIN
-  ~1~ => 74090
-  ~2~ => 103120
-  ~3~ => 103121
-  ~4~ => 103122
-  ~5~ => 103123
-  ~6~ => 103124
-  ~7~ => v1
-  ~8~ => v2
+OUTER_SET v1 = (GAME_IS ~bgee~) ? 24529 : 74090
+OUTER_SET v7 = RESOLVE_STR_REF(@200)  // A grand nature spirit answers your call.
+OUTER_SET v8 = RESOLVE_STR_REF(@204)  // Shaman is protected by spirits
+ACTION_DEFINE_ASSOCIATIVE_ARRAY strrefs BEGIN
+  1 => ~%v1%~
+  2 => ~%v2%~
+  3 => ~%v3%~
+  4 => ~%v4%~
+  5 => ~%v5%~
+  6 => ~%v6%~
+  7 => ~%v7%~
+  8 => ~%v8%~
 END
 
 DEFINE_PATCH_MACRO A7GET_STRREF_CODE
 BEGIN
   SET strref = "-1"
   PATCH_IF (code >= 1 && code <= 8) BEGIN
-    PATCH_IF (GAME_IS ~bgee~) BEGIN
-      SET strref = $EVAL bg1_strrefs(~%code%~)
-    END ELSE BEGIN
-      SET strref = $EVAL bg2_strrefs(~%code%~)
-    END
+    SET strref = $EVAL strrefs(~%code%~)
   END
 END
 

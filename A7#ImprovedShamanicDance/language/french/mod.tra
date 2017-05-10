@@ -63,3 +63,22 @@ Le Chaman sera également protégé par les esprits à partir du niveau 24. Les 
 @202 = ~Esprit d'air supérieur~
 @203 = ~Esprit de terre supérieur~
 @204 = ~Protégé par les esprits~
+
+// vanilla game strings
+@1000 = ~Esprit renard~           // Fox Spirit
+@1001 = ~Esprit serpent~          // Snake Spirit
+@1002 = ~Esprit limier~           // Hound Spirit
+@1003 = ~Esprit ours~             // Bear Spirit
+@1004 = ~Esprit panthère~         // Panther Spirit
+@1005 = ~Esprit sanglier~         // Boar Spirit
+@1006 = ~Esprit de feu mineur~    // Lesser Fire Spirit
+@1007 = ~Esprit d'air mineur~     // Lesser Air Spirit
+@1008 = ~Esprit de terre mineur~  // Lesser Earth Spirit
+@1009 = ~Esprit de feu~           // Fire Spirit
+@1010 = ~Esprit d'air~            // Air Spirit
+@1011 = ~Esprit de terre~         // Earth Spirit
+@1012 = ~Aucun esprit ne répond à votre appel.~ // No spirits answer your call.
+@1013 = ~Un esprit animal mineur répond à votre appel.~ // A minor animal spirit answers your call.
+@1014 = ~Un esprit animal majeur répond à votre appel.~ // A major animal spirit answers your call.
+@1015 = ~Un esprit de la nature mineur répond à votre appel.~ // A minor nature spirit answers your call.
+@1016 = ~Un esprit de la nature majeur répond à votre appel.~ // A major nature spirit answers your call.

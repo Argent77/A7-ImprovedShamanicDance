@@ -66,21 +66,21 @@ value balance over dominance.
 
 CLASS FEATURES:
 
-– May only wear leather, studded leather, and hide armor.
-– May not equip shields larger than bucklers.
-– May only use the following weapons: dagger, club, spear, axe, quarterstaff, dart, sling, and 
+â€“ May only wear leather, studded leather, and hide armor.
+â€“ May not equip shields larger than bucklers.
+â€“ May only use the following weapons: dagger, club, spear, axe, quarterstaff, dart, sling, and 
   shortbow.
-– May only become Proficient (one slot) in any weapon class.
-– May only become Proficient (one slot) in any fighting style.
-– May cast druidic spells.
-– Does not automatically learn all spells of a given level as Druids do. Instead, Shamans select 
+â€“ May only become Proficient (one slot) in any weapon class.
+â€“ May only become Proficient (one slot) in any fighting style.
+â€“ May cast druidic spells.
+â€“ Does not automatically learn all spells of a given level as Druids do. Instead, Shamans select 
   new spells to learn at each level, which they can cast daily without memorization.
-– Gains immediate access to a number of Shaman-specific spells, which can be cast like any other: 
+â€“ Gains immediate access to a number of Shaman-specific spells, which can be cast like any other: 
   Spirit Ward, Writhing Fog, Spiritual Clarity, Spirit Fire, Recall Spirit, Spiritual Lock, and 
   Ether Gate.
-– Gains use of the Detect Illusion skill with 20% points as a base and an 4 points per level, up 
+â€“ Gains use of the Detect Illusion skill with 20% points as a base and an 4 points per level, up 
   to a maximum of 100% at level 20.
-– May use Shamanic Dance at will.
+â€“ May use Shamanic Dance at will.
 
 SHAMANIC DANCE: Shamans can summon spirit allies by performing a ritualistic dance. While dancing, 
 the Shaman takes a -4 penalty to Armor Class, moves at reduced speed and cannot attack, cast 
@@ -101,14 +101,15 @@ Shaman's level. For example, a level 12 Shaman will summon either a minor nature
 animal spirit, or a minor animal spirit, but cannot choose which one appears. Spirits will do 
 their best to protect the Shaman but are not controlled directly.
 The Shaman will also be protected by spirits at level 24 and higher. The spirits grant the Shaman 
-immunity to normal weapons and protection against all 1st- and 2nd-level spell effects.
+immunity to normal weapons and protection against all 1st- and 2nd-level spell effects (which 
+includes adverse as well as beneficial spells).
 
-– Does not gain bonus spells per day from high Wisdom.
-– Alignment restricted to neutral good, true neutral, and neutral evil.
-– May not dual-class or multi-class.
-– Ineligible for any stronghold. (This affects only the Shadows of Amn campaign in 
+â€“ Does not gain bonus spells per day from high Wisdom.
+â€“ Alignment restricted to neutral good, true neutral, and neutral evil.
+â€“ May not dual-class or multi-class.
+â€“ Ineligible for any stronghold. (This affects only the Shadows of Amn campaign in 
   Baldur's Gate II: Enhanced Edition.)
-– Hit Die: d8
+â€“ Hit Die: d8
 
 
 Credits
@@ -118,7 +119,7 @@ Writing, coding and testing: Argent77
 
 Polish translation: Cahir
 Italian translation: Aedan
-French translation: LamaPatate
+French translation: LamaPatate and Gwendolyne
 
 
 Copyright Notice
@@ -134,6 +135,8 @@ History
 Version 2.0
 - Added component "Expanded Shamanic Dance for high level characters"
 - added French translation (thanks LamaPatate)
+- provided French translation for original game content (thanks Gwendolyne)
+- adapted 'Advanced AI' script to changed dance behavior
 
 Version 1.2.1
 - Downgraded WeiDU installer to improve compatibility with other mods
