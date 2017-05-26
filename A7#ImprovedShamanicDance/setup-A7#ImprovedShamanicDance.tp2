@@ -45,3 +45,14 @@ BEGIN @2 // Expanded Shamanic Dance for high level characters
   DESIGNATED 10
 
   INCLUDE ~%MOD_FOLDER%/lib/spirits.tph~
+
+
+BEGIN @3  // New spell "Shamanic Pact"
+  // REQUIRE_COMPONENT ~setup-A7#ImprovedShamanicDance.tp2~ 0 @52  // Main component required.
+  REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @50  // Enhanced Edition game is required.
+  REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~spsh003.spl~ AND 
+                     FILE_EXISTS_IN_GAME ~spsh004.spl~ AND
+                     FILE_EXISTS_IN_GAME ~bdshunsu.bcs~) @51  // No shaman class available.
+  DESIGNATED 20
+
+  INCLUDE ~%MOD_FOLDER%/lib/spell.tph~

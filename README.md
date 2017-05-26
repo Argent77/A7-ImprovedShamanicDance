@@ -16,3 +16,8 @@ This component allows Shamans to move at reduced speed while performing the danc
 ### Expanded Shamanic Dance for high level characters (requires main component)
 
 This component expands the Shamanic Dance by unlocking another tier of spirits at level 24 and enabling the spirits to protect the shaman from normal weapons and low level spell effects while the dance is performed.
+
+
+### Add spell "Shamanic Pact" (independent component)
+
+This component adds the new level 6 spell "Shamanic Pact" to the shaman's spellbook. It allows the shaman to resurrect a target as a spirit after its death and control it for a limited amount of time.

@@ -1,0 +1,139 @@
+// *** Default script (friendly) ***
+
+IF
+  Global("A7_Resurrected", "LOCALS", 0)
+THEN
+  RESPONSE #100
+    SetInterrupt(FALSE)
+    SetGlobal("A7_Resurrected", "LOCALS", 1)
+    ChangeEnemyAlly(Myself, CONTROLLED)
+    ChangeGeneral(Myself, UNDEAD)
+    // ChangeGender(Myself, SUMMONED)  // really needed?
+    ChangeAIScript("A7#SH61C", DEFAULT)
+    ChangeAIScript("", GENERAL)
+    ChangeAIScript("", RACE)
+    ChangeAIScript("", CLASS)
+    ChangeAIScript("", SPECIFICS)
+    ReallyForceSpellRES("A7#SH61W", Myself)
+    SetInterrupt(TRUE)
+    Continue()
+END
+
+IF
+  Global("A7_Resurrected", "LOCALS", 0)
+  LevelLT(Myself, 13)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7_DeathTimer", "LOCALS", 144)
+    Continue()
+END
+
+IF
+  Global("A7_Resurrected", "LOCALS", 0)
+  Level(Myself, 14)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7_DeathTimer", "LOCALS", 156)
+    Continue()
+END
+
+IF
+  Global("A7_Resurrected", "LOCALS", 0)
+  Level(Myself, 15)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7_DeathTimer", "LOCALS", 168)
+    Continue()
+END
+
+IF
+  Global("A7_Resurrected", "LOCALS", 0)
+  Level(Myself, 16)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7_DeathTimer", "LOCALS", 180)
+    Continue()
+END
+
+IF
+  Global("A7_Resurrected", "LOCALS", 0)
+  Level(Myself, 17)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7_DeathTimer", "LOCALS", 192)
+    Continue()
+END
+
+IF
+  Global("A7_Resurrected", "LOCALS", 0)
+  Level(Myself, 18)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7_DeathTimer", "LOCALS", 204)
+    Continue()
+END
+
+IF
+  Global("A7_Resurrected", "LOCALS", 0)
+  Level(Myself, 19)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7_DeathTimer", "LOCALS", 216)
+    Continue()
+END
+
+IF
+  Global("A7_Resurrected", "LOCALS", 0)
+  Level(Myself, 20)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7_DeathTimer", "LOCALS", 228)
+    Continue()
+END
+
+IF
+  Global("A7_Resurrected", "LOCALS", 0)
+  Level(Myself, 21)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7_DeathTimer", "LOCALS", 240)
+    Continue()
+END
+
+IF
+  Global("A7_Resurrected", "LOCALS", 0)
+  Level(Myself, 22)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7_DeathTimer", "LOCALS", 252)
+    Continue()
+END
+
+IF
+  Global("A7_Resurrected", "LOCALS", 0)
+  Level(Myself, 23)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7_DeathTimer", "LOCALS", 264)
+    Continue()
+END
+
+IF
+  Global("A7_Resurrected", "LOCALS", 0)
+  LevelGT(Myself, 23)
+THEN
+  RESPONSE #100
+    SetGlobalTimer("A7_DeathTimer", "LOCALS", 276)
+    Continue()
+END
+
+IF
+  Global("A7_Resurrected", "LOCALS", 1)
+  GlobalTimerExpired("A7_DeathTimer", "LOCALS")
+THEN
+  RESPONSE #100
+    SetGlobal("A7_Resurrected", "LOCALS", 2)
+    DisplayString(Myself, %msgDeath%)
+    CreateVisualEffectObject("SPDEATH3", Myself)
+    DestroySelf()
+END

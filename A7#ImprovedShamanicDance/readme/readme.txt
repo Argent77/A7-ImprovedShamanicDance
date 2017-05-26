@@ -21,6 +21,9 @@ to improve this ability by allowing the shaman to move at reduced speed while pe
 The dance can be further improved by an optional component which provides more features for high 
 level shamans.
 
+An optional third component allows you to install the new spell "Shamanic Pact" to the spell book 
+of the shaman.
+
 Available languages: English, French, German, Italian, Polish
 
 
@@ -31,7 +34,8 @@ This is a WeiDU mod, that means it is very easy to install. Simply unpack the zi
 your game directory and run "setup-A7#ImprovedShamanicDance.exe". Follow the instructions and you 
 are ready to start.
 
-It is not required to start a new game for the mod to take effect.
+Except for the subcomponent "Add spell 'Shamanic Pact'" it is not required to start a new game 
+for the mod to take effect.
 
 
 Components
@@ -54,8 +58,18 @@ Note: This component replaces the original Shamanic Dance which overwrites any c
       previously installed mods.
 
 
-Modified Shaman class description (after installing both components)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+3. Add spell "Shamanic Pact" (independent component)
+
+This component adds the new level 6 spell "Shamanic Pact" to the shaman's spellbook. It allows 
+the shaman to resurrect a target as a spirit after its death and control it for a limited amount 
+of time.
+
+Note: The spell will be added to the unkitted shaman class as well as any shaman kits available at 
+      the time of installation.
+
+
+Modified Shaman class description (after installing all components)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 SHAMAN: Shamans forge a divine connection with the natural world, similar to the way Druids 
 commune with nature, but Shamans are more spiritual than primal. They directly tap into the 
@@ -76,8 +90,8 @@ CLASS FEATURES:
 – Does not automatically learn all spells of a given level as Druids do. Instead, Shamans select 
   new spells to learn at each level, which they can cast daily without memorization.
 – Gains immediate access to a number of Shaman-specific spells, which can be cast like any other: 
-  Spirit Ward, Writhing Fog, Spiritual Clarity, Spirit Fire, Recall Spirit, Spiritual Lock, and 
-  Ether Gate.
+  Spirit Ward, Writhing Fog, Spiritual Clarity, Spirit Fire, Recall Spirit, Shamanic Pact, 
+  Spiritual Lock, and Ether Gate.
 – Gains use of the Detect Illusion skill with 20% points as a base and an 4 points per level, up 
   to a maximum of 100% at level 20.
 – May use Shamanic Dance at will.
@@ -112,6 +126,40 @@ includes adverse as well as beneficial spells).
 – Hit Die: d8
 
 
+Spell description: "Shamanic Pact"
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Shamanic Pact
+(Conjuration)
+
+Level: 6
+Range: 30 ft.
+Duration: Special
+Casting Time: 5
+Area of Effect: 1 creature
+Saving Throw: Neg.
+
+The spell allows the shaman to negotiate a contract with the target. The negotiation process is 
+very draining for the caster as it involves communicating with the spirit of the target. As a 
+result the shaman will be unable to cast spells for two rounds, and strength as well as 
+constitution will be halved for one turn. If the target fails their Save vs. Spell with a -2 base 
+penalty, the shaman is allowed to resurrect it as a spirit and command it after death for two 
+rounds per shaman level, as long as the body is not destroyed completely. Afterwards the spirit 
+will permanently leave the world of the living. 
+
+Success of the negotiation is also influenced by the alignment compatibility between shaman and 
+target. If both sides share the same moral alignment (good/neutral/evil) the Saving Throw is 
+rolled with an additional penalty of -2, -3 and -4 starting at level 12, 16 and 20. Opposite 
+alignments add a bonus of +3, +2 and +1 to the Saving Throw, starting at level 12, 16 and 20. 
+Adjacent alignments, such as good vs. neutral or neutral vs. evil, remain unchanged.
+
+Spirits can't talk and won't be able to use any spells or special abilities from their former life. 
+However, they will preserve their basic traits, such as primary stats and resistances. Spirits 
+will attack with fists only. Attack power, accuracy and enchantment depend on the creature level. 
+Undead, golems and summoned creatures as well as targets protected by Death Ward are not affected 
+by the spell. The target's Magic Resistance, if any, does not affect this spell.
+
+
 Credits
 ~~~~~~~
 
@@ -125,12 +173,15 @@ French translation: LamaPatate and Gwendolyne
 Copyright Notice
 ~~~~~~~~~~~~~~~~
 
-The mod "Golem Construction for Spellcasters" is licensed under the "Creative Commons Attribution-ShareAlike 4.0 
-International License" (http://creativecommons.org/licenses/by-sa/4.0/).
+The mod "Golem Construction for Spellcasters" is licensed under the "Creative Commons Attribution-
+ShareAlike 4.0 International License" (http://creativecommons.org/licenses/by-sa/4.0/).
 
 
 History
 ~~~~~~~
+
+Version 3.0
+- Added component: Add spell "Shamanic Pact"
 
 Version 2.0
 - Added component "Expanded Shamanic Dance for high level characters"

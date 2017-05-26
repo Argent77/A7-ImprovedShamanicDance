@@ -1,0 +1,155 @@
+// *** Installs spell "Shamanic Pact" ***
+
+INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
+
+// Custom portrait icon
+COPY ~%MOD_FOLDER%/spells/a7#sh61d.bam~ ~override~
+OUTER_SET iconIndex = "-1"
+COPY_EXISTING - ~statdesc.2da~ ~override~
+  COUNT_2DA_COLS numCols
+  READ_2DA_ENTRIES_NOW "a7_read_statdesc" numCols
+  FOR (row = 0; row < a7_read_statdesc; row += 1) BEGIN
+    READ_2DA_ENTRY_FORMER "a7_read_statdesc" row 0 value
+    PATCH_IF (IS_AN_INT "value" AND value > iconIndex) BEGIN
+      SET iconIndex = value
+    END
+  END
+ACTION_IF (iconIndex >= 0) BEGIN
+  OUTER_SET iconIndex += 1
+  OUTER_SET strref = RESOLVE_STR_REF(~Spirit chained~)
+  APPEND ~statdesc.2da~ ~%iconIndex%        %strref%          A7#SH61D~
+END
+
+
+// Main spell
+  COPY ~%MOD_FOLDER%/spells/a7#sh61.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sh611.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sh612.spl~ ~override~
+       ~%MOD_FOLDER%/spells/a7#sh613.spl~ ~override~
+  SAY NAME1 @300  // Shamanic Pact
+  SAY UNIDENTIFIED_DESC @301  // description...
+
+COPY ~%MOD_FOLDER%/spells/a7#sh61a.spl~ ~override~
+     ~%MOD_FOLDER%/spells/a7#sh61b.spl~ ~override~
+     ~%MOD_FOLDER%/spells/a7#sh61c.spl~ ~override~
+  PATCH_IF (iconIndex > 0) BEGIN
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      match_opcode = 142  // Display portrait icon
+      parameter2 = iconIndex
+    END
+  END
+  LPF ALTER_SPELL_EFFECT
+  INT_VAR
+    match_opcode = 139  // Display portrait icon
+    parameter1 = RESOLVE_STR_REF(@302)  // Pact signed
+  END
+
+COPY ~%MOD_FOLDER%/spells/a7#sh61a.bam~ ~override~
+     ~%MOD_FOLDER%/spells/a7#sh61b.bam~ ~override~
+     ~%MOD_FOLDER%/spells/a7#sh61c.bam~ ~override~
+     ~%MOD_FOLDER%/spells/a7#sh61x.spl~ ~override~
+     ~%MOD_FOLDER%/spells/a7#sh61y.spl~ ~override~
+     ~%MOD_FOLDER%/spells/a7#sh611.eff~ ~override~
+     ~%MOD_FOLDER%/spells/a7#sh612.eff~ ~override~
+     ~%MOD_FOLDER%/spells/a7#sh613.eff~ ~override~
+
+
+// Weapon for spirits
+COPY ~%MOD_FOLDER%/spells/a7#sh61w.spl~ ~override~
+COPY ~%MOD_FOLDER%/items/a7#shwp1.itm~ ~override~
+  SAY NAME1 @304  // Fist
+  SAY NAME2 @304  // Fist
+COPY ~%MOD_FOLDER%/items/a7#shwp2.itm~ ~override~
+  SAY NAME1 @305  // Fist +1
+  SAY NAME2 @305  // Fist +1
+COPY ~%MOD_FOLDER%/items/a7#shwp3.itm~ ~override~
+  SAY NAME1 @306  // Fist +2
+  SAY NAME2 @306  // Fist +2
+COPY ~%MOD_FOLDER%/items/a7#shwp4.itm~ ~override~
+  SAY NAME1 @307  // Fist +3
+  SAY NAME2 @307  // Fist +3
+
+
+// Compiling scripts
+OUTER_SET msgDeath = RESOLVE_STR_REF(@303)  // Dismissed
+COMPILE EVAL ~%MOD_FOLDER%/scripts/a7#sh61a.baf~
+COMPILE ~%MOD_FOLDER%/scripts/a7#sh61c.baf~
+
+
+// Adding new spell to shaman CLAB
+OUTER_TEXT_SPRINT clabCache ~~  // store updated CLAB filenames to prevent updating tables multiple times
+OUTER_TEXT_SPRINT clabReg ~clabsh0.\.2da~
+COPY_EXISTING - ~luabbr.2da~ ~override~
+  COUNT_2DA_COLS numCols
+  COUNT_2DA_ROWS numCols numRows
+  FOR (row = 0; row < numRows; row += 1) BEGIN
+    READ_2DA_ENTRY row 0 numCols name
+    PATCH_IF (~%name%~ STR_EQ ~SHAMAN~) BEGIN
+      READ_2DA_ENTRY row 1 numCols id
+      TEXT_SPRINT clabReg ~clab%id%.\.2da~
+      SET row = numRows
+    END
+  END
+
+// Update default shaman CLABs
+COPY_EXISTING_REGEXP ~%clabReg%~ ~override~
+  LPF ADD_CLAB_ENTRY
+    INT_VAR level = 6
+    STR_VAR entry = ~AP_A7#SH61~
+    RET success
+  END
+  PATCH_IF (success) BEGIN
+    TEXT_SPRINT clabCache ~%clabCache% %SOURCE_RES%~
+  END
+BUT_ONLY
+
+// Update available shaman kit CLABs
+OUTER_SET classID = IDS_OF_SYMBOL (~class~ ~shaman~)
+COPY_EXISTING - ~kitlist.2da~ ~override~
+  COUNT_2DA_COLS numCols
+  COUNT_2DA_ROWS numCols numRows
+  FOR (row = 0; row < numRows; row += 1) BEGIN
+    READ_2DA_ENTRY row 8 numCols baseClassID
+    PATCH_IF (IS_AN_INT "baseClassID" AND baseClassID = classID) BEGIN
+      READ_2DA_ENTRY row 5 numCols clabRes
+      PATCH_IF (~%clabCache%~ STRING_CONTAINS_REGEXP ~%clabRes%~ != 0) BEGIN
+        INNER_ACTION BEGIN
+          COPY_EXISTING ~%clabRes%.2DA~ ~override~
+            LPF ADD_CLAB_ENTRY
+              INT_VAR level = 6
+              STR_VAR entry = ~AP_A7#SH61~
+              RET success
+            END
+            PATCH_IF (success) BEGIN
+              TEXT_SPRINT clabCache ~%clabCache% %SOURCE_RES%~
+            END
+          BUT_ONLY IF_EXISTS
+        END
+      END
+    END
+  END
+
+// Updating class description
+COPY_EXISTING ~clastext.2da~ ~override~
+  COUNT_2DA_COLS numCols
+  COUNT_2DA_ROWS numCols numRows
+  FOR (row = 0; row < numRows; row += 1) BEGIN
+    READ_2DA_ENTRY row 0 numCols name
+    PATCH_IF (~%name%~ STR_EQ ~SHAMAN~) BEGIN
+      READ_2DA_ENTRY row 4 numCols strref
+      PATCH_IF (strref >= 0) BEGIN
+        GET_STRREF strref descText
+        PATCH_IF (STRING_LENGTH ~%descText%~ > 0) BEGIN
+          SPRINT find @308  // Recall Spirit, 
+          SPRINT replace @309 // Shamanic Pact, 
+          INNER_PATCH_SAVE descText ~%descText%~ BEGIN
+            REPLACE_TEXTUALLY ~\(%find%\)~ ~\1%replace%~
+          END
+          SET strref = RESOLVE_STR_REF(~%descText%~)
+          SET_2DA_ENTRY row 4 numCols strref
+        END
+      END
+      SET row = numRows
+    END
+  END
