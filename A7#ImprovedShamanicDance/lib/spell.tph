@@ -22,16 +22,12 @@ END
 
 
 // Main spell
-  COPY ~%MOD_FOLDER%/spells/a7#sh61.spl~ ~override~
-       ~%MOD_FOLDER%/spells/a7#sh611.spl~ ~override~
-       ~%MOD_FOLDER%/spells/a7#sh612.spl~ ~override~
-       ~%MOD_FOLDER%/spells/a7#sh613.spl~ ~override~
+COPY ~%MOD_FOLDER%/spells/a7#sh61.spl~ ~override~
   SAY NAME1 @300  // Shamanic Pact
   SAY UNIDENTIFIED_DESC @301  // description...
 
 COPY ~%MOD_FOLDER%/spells/a7#sh61a.spl~ ~override~
      ~%MOD_FOLDER%/spells/a7#sh61b.spl~ ~override~
-     ~%MOD_FOLDER%/spells/a7#sh61c.spl~ ~override~
   PATCH_IF (iconIndex > 0) BEGIN
     LPF ALTER_SPELL_EFFECT
     INT_VAR
@@ -50,9 +46,6 @@ COPY ~%MOD_FOLDER%/spells/a7#sh61a.bam~ ~override~
      ~%MOD_FOLDER%/spells/a7#sh61c.bam~ ~override~
      ~%MOD_FOLDER%/spells/a7#sh61x.spl~ ~override~
      ~%MOD_FOLDER%/spells/a7#sh61y.spl~ ~override~
-     ~%MOD_FOLDER%/spells/a7#sh611.eff~ ~override~
-     ~%MOD_FOLDER%/spells/a7#sh612.eff~ ~override~
-     ~%MOD_FOLDER%/spells/a7#sh613.eff~ ~override~
 
 
 // Weapon for spirits
@@ -96,7 +89,7 @@ COPY_EXISTING - ~luabbr.2da~ ~override~
 COPY_EXISTING_REGEXP ~%clabReg%~ ~override~
   LPF ADD_CLAB_ENTRY
     INT_VAR level = 6
-    STR_VAR entry = ~AP_A7#SH61~
+    STR_VAR entry = ~GA_A7#SH61~
     RET success
   END
   PATCH_IF (success) BEGIN
@@ -118,7 +111,7 @@ COPY_EXISTING - ~kitlist.2da~ ~override~
           COPY_EXISTING ~%clabRes%.2DA~ ~override~
             LPF ADD_CLAB_ENTRY
               INT_VAR level = 6
-              STR_VAR entry = ~AP_A7#SH61~
+              STR_VAR entry = ~GA_A7#SH61~
               RET success
             END
             PATCH_IF (success) BEGIN
@@ -129,6 +122,7 @@ COPY_EXISTING - ~kitlist.2da~ ~override~
       END
     END
   END
+
 
 // Updating class description
 COPY_EXISTING ~clastext.2da~ ~override~
