@@ -87,6 +87,7 @@ END
 DEFINE_PATCH_FUNCTION ADD_CLAB_ENTRY
 INT_VAR
   level = 0
+  pretty_print = 1
 STR_VAR
   entry = ~~  // full entry to add (including GA/AP prefix)
 RET
@@ -97,6 +98,7 @@ BEGIN
   COUNT_2DA_ROWS numCols numRows
   PATCH_IF (level > 0 AND level < numCols AND NOT ~%entry%~ STR_EQ ~~) BEGIN
     READ_2DA_ENTRY 1 0 1 defEntry
+
     // try adding entry to existing line first
     FOR (row = 0; row < numRows; row += 1) BEGIN
       READ_2DA_ENTRY row level numCols curEntry
@@ -106,9 +108,11 @@ BEGIN
         SET row = numRows
       END
     END
+
     // new CLAB line required?
     PATCH_IF (NOT success) BEGIN
-      TEXT_SPRINT newRow ~ABILITY%numRows%~
+      SET index = numRows + 1
+      TEXT_SPRINT newRow ~ABILITY%index%~
       FOR (col = 1; col < numCols; col += 1) BEGIN
         PATCH_IF (col = level) BEGIN
           TEXT_SPRINT newRow ~%newRow%   %entry%~
@@ -116,7 +120,12 @@ BEGIN
           TEXT_SPRINT newRow ~%newRow%   %defEntry%~
         END
       END
+      INSERT_2DA_ROW numRows numCols ~%newRow%~
       SET success = 1
+    END
+
+    PATCH_IF (success AND pretty_print) BEGIN
+      PRETTY_PRINT_2DA
     END
   END
 END
