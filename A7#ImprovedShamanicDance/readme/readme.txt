@@ -145,7 +145,7 @@ resurrected as a spirit version of its former self after death, as long as the b
 destroyed completely. The spirit can be controlled by the shaman for two rounds per caster level. 
 Afterwards it will permanently leave the world of the living. The negotiation process is very 
 draining for the caster as it involves communicating with the spirit of the target. As a result 
-there will be a 50 percent chance that spells cast in the next two rounds will fail, and strength 
+there will be a 50 percent chance that spells cast in the next three rounds will fail, and strength 
 as well as constitution will be halved for one turn, regardless of the outcome of the negotiation.
 
 Spirits can't talk and won't be able to use any spells or special abilities from their former 
