@@ -64,22 +64,23 @@ Ab Stufe 24 wird der Schamane außerdem von Geistern beschützt. Sie gewähren d
 @203 = ~Höherer Erdgeist~
 @204 = ~Beschützt durch Geister~
 
-@300 = ~Shamanic Pact~
-@301 = ~Shamanic Pact
-(Conjuration)
+@300 = ~Shamanischer Pakt~
+@301 = ~Shamanischer Pakt
 
-Level: 6
-Range: 30 ft.
-Duration: Special
-Casting Time: 5
-Area of Effect: 1 creature
-Saving Throw: Neg.
+Stufe: 6
+Schule: Beschwörung
+Domäne: Herbeirufung
+Reichweite: 9 m (Sichtfeld)
+Dauer: Zwei Runden pro Stufe
+Zeitaufwand: 5
+Bereich: 1 Wesen
+Rettungswurf: Ja (gg. Zauber)
 
-The spell allows the caster to negotiate a contract with the target. If the target fails a Save vs. Spell (with a -4 penalty for matching moral alignments, -2 otherwise) it will be resurrected as a spirit version of its former self after death, as long as the body is not destroyed completely. The spirit can be controlled by the shaman for two rounds per caster level. Afterwards it will permanently leave the world of the living. The negotiation process is very draining for the caster as it involves communicating with the spirit of the target. As a result there will be a 50 percent chance that spells cast in the next three rounds will fail, and strength as well as constitution will be halved for one turn, regardless of the outcome of the negotiation.
+Dieser Zauber ermöglicht es dem Schamanen, einen Pakt mit der Zielperson oder -kreatur abzuschließen, wenn es den Rettungswurf (-4 wenn Schamane und Ziel die gleiche moralische Gesinnung teilen, ansonsten -2) gegen Zauber nicht besteht. Wenn der Pakt geschlossen wurde, kann der Schamane das Ziel als Geisterversion wiederbeleben, sofern der Körper nicht zu sehr verstümmelt wurde. Der Geist kann vom Schamanen für zwei Runden pro Charakterstufe kontrolliert werden, bevor er endgültig die Welt der Lebenden verlässt. Der Verhandlungsverlauf ist sehr kräftezehrend, da er eine direkte Verbindung zwischen Schamanen und dem Geist der Zielperson oder -kreatur voraussetzt. Als Folge scheitern 50 Prozent aller Zauber in den nächsten drei Runden, unabhängig vom Erfolg des Zaubers. Außerdem werden Stärke und Konstitution für die nächste Phase halbiert.
 
-Spirits can't talk and won't be able to use any spells or special abilities from their former life. However, they will preserve their basic traits, such as primary stats or resistances. Spirits will attack with fists only. Attack power, accuracy and enchantment depend on the creature level. Undead, golems and summoned creatures as well as targets protected by Death Ward are not affected by the spell. The target's Magic Resistance, if any, does not affect this spell.~
-@302 = ~Pact signed~
-@303 = ~Dismissed~
+Geister können weder sprechen noch Eigenschaften aus ihrem früheren Leben, wie z.B. Zauber oder Spezialfähigkeiten, nutzen. Allerdings bleiben Grundmerkmale, wie Stärke, Konstitution sowie diverse Widerstände und Immunitäten erhalten. Angriffe werden ohne Waffen ausgeführt, können aber trotzdem tödlich sein. Stärke, Genauigkeit und Verzauberung der Angriffe sind abhängig von der Klassenstufe, die der Geist im früheren Leben innehatte. Untote, Golems sowie beschworene oder unter Todesschutz stehende Kreaturen können nicht mit diesem Zauber belegt werden. Gegen den Zauber schützt kein Magiewiderstand.~
+@302 = ~Pakt abgeschlossen~
+@303 = ~Pakt beendet~
 @304 = ~Faust~
 @305 = ~Faust +1~
 @306 = ~Faust +2~
