@@ -133,25 +133,27 @@ Shamanic Pact
 (Conjuration)
 
 Level: 6
+Sphere: Summoning
 Range: 30 ft.
-Duration: Special
+Duration: 2 rounds/level
 Casting Time: 5
 Area of Effect: 1 creature
 Saving Throw: Neg.
 
-The spell allows the caster to negotiate a contract with the target. If the target fails a 
+This spell allows the caster to negotiate a contract with the target. If the target fails a 
 Save vs. Spell (with a -4 penalty for matching moral alignments, -2 otherwise) it will be 
 resurrected as a spirit version of its former self after death, as long as the body is not 
-destroyed completely. The spirit can be controlled by the shaman for two rounds per caster level. 
-Afterwards it will permanently leave the world of the living. The negotiation process is very 
-draining for the caster as it involves communicating with the spirit of the target. As a result 
-there will be a 50 percent chance that spells cast in the next three rounds will fail, and strength 
-as well as constitution will be halved for one turn, regardless of the outcome of the negotiation.
+destroyed completely. The spirit can be controlled by the shaman for two rounds per caster 
+level. Afterwards it will permanently leave the world of the living. The negotiation process is 
+very draining for the caster as it requires a direct connection with the spirit of the target. 
+As a result there will be a 50 percent chance that spells cast in the next three rounds will fail, 
+and strength as well as constitution will be halved for one turn, regardless of the outcome of 
+the negotiation.
 
 Spirits can't talk and won't be able to use any spells or special abilities from their former 
 life. However, they will preserve their basic traits, such as primary stats or resistances. 
 Spirits will attack with fists only. Attack power, accuracy and enchantment depend on the 
-creature level. Undead, golems and summoned creatures as well as targets protected by Death Ward 
+creature level. Undead, golems, summoned creatures as well as targets protected by Death Ward 
 are not affected by the spell. The target's Magic Resistance, if any, does not affect this spell.
 
 
