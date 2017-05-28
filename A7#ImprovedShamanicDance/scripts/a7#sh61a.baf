@@ -14,6 +14,7 @@ THEN
     ChangeAIScript("", RACE)
     ChangeAIScript("", CLASS)
     ChangeAIScript("", SPECIFICS)
+    SetDialogue("")
     ReallyForceSpellRES("A7#SH61W", Myself)
     SetInterrupt(TRUE)
     Continue()
