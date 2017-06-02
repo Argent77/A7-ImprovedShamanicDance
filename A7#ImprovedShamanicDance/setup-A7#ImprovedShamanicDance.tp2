@@ -1,6 +1,6 @@
 BACKUP ~A7#ImprovedShamanicDance/backup~
 AUTHOR ~Argent77 at Beamdog Forums~
-VERSION ~2.0~
+VERSION ~3.0~
 
 ALWAYS
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
