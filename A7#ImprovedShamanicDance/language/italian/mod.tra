@@ -66,25 +66,26 @@ Lo sciamano sarà anche protetto dagli spiriti di 24° livello o più. Gli spiri
 @203 = ~Spirito della Terra Maggiore~
 @204 = ~Protetto dagli spiriti~
 
-@300 = ~Shamanic Pact~
-@301 = ~Shamanic Pact
-(Conjuration)
+@300 = ~Patto Sciamanico~
+@301 = ~Patto Sciamanico
+(Evocazione)
 
-Level: 6
-Range: 30 ft.
-Duration: Special
-Casting Time: 5
-Area of Effect: 1 creature
-Saving Throw: Neg.
+Livello: 6
+Sfera: Evocazione
+Raggio d'azione: 9 metri
+Durata: 2 round per livello
+Tempo di lancio: 5
+Area d'effetto: 1 creatura
+Tiro-salvezza: Neg.
 
-The spell allows the caster to negotiate a contract with the target. If the target fails a Save vs. Spell (with a -4 penalty for matching moral alignments, -2 otherwise) it will be resurrected as a spirit version of its former self after death, as long as the body is not destroyed completely. The spirit can be controlled by the shaman for two rounds per caster level. Afterwards it will permanently leave the world of the living. The negotiation process is very draining for the caster as it involves communicating with the spirit of the target. As a result there will be a 50 percent chance that spells cast in the next three rounds will fail, and strength as well as constitution will be halved for one turn, regardless of the outcome of the negotiation.
+Questo incantesimo permette al lanciatore di negoziare un contratto con il bersaglio. Se questi fallisce un tiro-salvezza contro Incantesimi (con una penalità pari a -4 se di simile allineamento, -2 in caso contrario), verrà resuscitato sotto forma di versione spirituale di se stesso, fintantoché il corpo non è stato distrutto completamente. Lo spirito può essere controllato dallo sciamano per due round per livello. Allo scadere della durata, lascerà il mondo dei vivi in maniera permanente. Il processo di negoziazione è molto spossante per il lanciatore, in quanto richiede una connessione diretta con lo spirito del bersaglio. Di conseguenza, c'è il 50% di possibilità che gli incantesimi lanciati nei tre round successivi falliscano e che il valore di Forza e di Costituzione venga dimezzato per un turno, a prescindere dall'esito della negoziazione.
 
-Spirits can't talk and won't be able to use any spells or special abilities from their former life. However, they will preserve their basic traits, such as primary stats or resistances. Spirits will attack with fists only. Attack power, accuracy and enchantment depend on the creature level. Undead, golems and summoned creatures as well as targets protected by Death Ward are not affected by the spell. The target's Magic Resistance, if any, does not affect this spell.~
-@302 = ~Pact signed~
-@303 = ~Dismissed~
+Gli spiriti non possono parlare e utilizzare qualsiasi magia o abilità speciale avessero nella loro precedente vita. Tuttavia, manterranno i loro tratti base, come i valori delle caratteristiche o delle resistenze. Gli spiriti attaccheranno solo con i pugni. Potenza degli attacchi, precisione e incantamento dipenderanno dal livello della creatura. Non morti, golem, creature evocate e bersagli protetti da Sigillo della Morte sono immuni a questo incantesimo. La Resistenza alla Magia del bersaglio, se presente, non viene applicata con questo incantesimo.~
+@302 = ~Patto siglato~
+@303 = ~Patto scaduto~
 @304 = ~Pugno~
 @305 = ~Pugno +1~
 @306 = ~Pugno +2~
 @307 = ~Pugno +3~
 @308 = ~Richiamare Spirito, ~
-@309 = ~Shamanic Pact, ~
+@309 = ~Patto Sciamanico, ~
