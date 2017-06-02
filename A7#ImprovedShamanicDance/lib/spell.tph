@@ -16,7 +16,7 @@ COPY_EXISTING - ~statdesc.2da~ ~override~
   END
 ACTION_IF (iconIndex >= 0) BEGIN
   OUTER_SET iconIndex += 1
-  OUTER_SET strref = RESOLVE_STR_REF(~Spirit chained~)
+  OUTER_SET strref = RESOLVE_STR_REF(@302)  // Pact signed
   APPEND ~statdesc.2da~ ~%iconIndex%        %strref%          A7#SH61D~
 END
 
