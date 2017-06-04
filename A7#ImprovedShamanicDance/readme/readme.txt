@@ -177,6 +177,9 @@ The mod "Improved Shamanic Dance" is licensed under the "Creative Commons Attrib
 History
 ~~~~~~~
 
+Version 3.1
+- Added French readme (thanks Gwendolyne)
+
 Version 3.0
 - Added new component: Add spell "Shamanic Pact"
 
