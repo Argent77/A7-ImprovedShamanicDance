@@ -1,7 +1,7 @@
 Danse chamanique améliorée
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version        : 3.0
+Version        : 3.1
 Auteur         : Argent77
 
 Téléchargement : https://github.com/Argent77/A7-ImprovedShamanicDance/releases/latest
@@ -185,6 +185,7 @@ History
 
 Version 3.1
 - Added French readme (thanks Gwendolyne)
+- Fixed several spelling errors
 
 Version 3.0
 - Added new component: Add spell "Shamanic Pact"
