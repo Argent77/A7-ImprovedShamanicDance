@@ -22,14 +22,37 @@ COPY_EXISTING ~spsh004.spl~ ~override~
 BUT_ONLY
 
 
-// Rebalancing spirit creature script
+// Revising spirit creature script
 COPY_EXISTING ~bdshunsu.bcs~ ~override~
   DECOMPILE_AND_PATCH BEGIN
     REPLACE_TEXTUALLY CASE_INSENSITIVE ~!CheckSpellState(Player[2-6],.+)~ ~~
     REPLACE_TEXTUALLY CASE_INSENSITIVE ~!CheckSpellState(Player1,\(.+\))~ ~!CheckSpellState(LastSummonerOf(Myself),\1)~
     REPLACE_TEXTUALLY CASE_INSENSITIVE ~\[.+\.0\.0\.SHAMAN\]~ ~LastSummonerOf(Myself)~
+    REPLACE_TEXTUALLY CASE_INSENSITIVE ~!CheckSpellState(LastSummonerOf(Myself),SHAMANIC_DANCE)~ ~Global("Unsummon","LOCALS",1) GlobalTimerExpired("UnsummonTimer","LOCALS")~
   END
 BUT_ONLY
+
+<<<<<<<< .../inlined/shaman_dance/bdshunsu_top.baf
+IF
+  !ModalStateObject(LastSummonerOf(Myself),SHAMANDANCE)
+  Global("Unsummon","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Unsummon","LOCALS",1)
+    SetGlobalTimer("UnsummonTimer","LOCALS",3)
+    Continue()
+END
+
+IF
+  ModalStateObject(LastSummonerOf(Myself),SHAMANDANCE)
+  Global("Unsummon","LOCALS",1)
+THEN
+  RESPONSE #100
+    SetGlobal("Unsummon","LOCALS",0)
+    Continue()
+END
+>>>>>>>>
+EXTEND_TOP ~bdshunsu.bcs~ ~.../inlined/shaman_dance/bdshunsu_top.baf~
 
 
 // Updating class description
