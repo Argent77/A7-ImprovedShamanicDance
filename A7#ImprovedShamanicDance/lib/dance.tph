@@ -32,9 +32,20 @@ COPY_EXISTING ~bdshunsu.bcs~ ~override~
   END
 BUT_ONLY
 
-<<<<<<<< .../inlined/shaman_dance/bdshunsu_top.baf
+// Applying "target acquisition"
+<<<<<<<< .../inlined/shaman_dance/bdshunsu_init.baf
 IF
-  !ModalStateObject(LastSummonerOf(Myself),SHAMANDANCE)
+  InPartySlot(LastSummonerOf(Myself),%slot_zero%)
+  Global("Summoner","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Summoner","LOCALS",%slot%)
+    Continue()
+END
+
+IF
+  Global("Summoner","LOCALS",%slot%)
+  !ModalStateObject(Player%slot%,SHAMANDANCE)
   Global("Unsummon","LOCALS",0)
 THEN
   RESPONSE #100
@@ -44,7 +55,8 @@ THEN
 END
 
 IF
-  ModalStateObject(LastSummonerOf(Myself),SHAMANDANCE)
+  Global("Summoner","LOCALS",%slot%)
+  ModalStateObject(Player%slot%,SHAMANDANCE)
   Global("Unsummon","LOCALS",1)
 THEN
   RESPONSE #100
@@ -52,7 +64,58 @@ THEN
     Continue()
 END
 >>>>>>>>
-EXTEND_TOP ~bdshunsu.bcs~ ~.../inlined/shaman_dance/bdshunsu_top.baf~
+OUTER_FOR (slot = 6; slot > 0; --slot) BEGIN
+  OUTER_SET slot_zero = slot - 1
+  EXTEND_TOP ~bdshunsu.bcs~ ~.../inlined/shaman_dance/bdshunsu_init.baf~ EVAL
+END
+
+COPY_EXISTING ~bdshunsu.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    // updating spirit's MoveToObject() block
+    LPF GET_SCRIPT_BLOCK
+      STR_VAR search_regexp = ~MoveToObject(.*)~
+      RET script_block start_offset end_offset
+    END
+    PATCH_IF (start_offset >= 0) BEGIN
+      DELETE_BYTES start_offset (end_offset - start_offset)
+      SET end_offset = start_offset
+
+      FOR (slot = 6; slot > 0; --slot) BEGIN
+        INNER_PATCH_SAVE block_final ~%script_block%~ BEGIN
+          REPLACE_TEXTUALLY ~!Range([^,]*,\(.*\))~ ~!Range(Player%slot%,\1) Global("Summoner","LOCALS",%slot%)~
+          REPLACE_TEXTUALLY ~MoveToObject(.*)~ ~MoveToObject(Player%slot%)~
+        END
+        SET len = STRING_LENGTH ~%block_final%~
+        INSERT_BYTES start_offset len
+        WRITE_ASCIIE start_offset ~%block_final%~ (len)
+        INSERT_BYTES start_offset 1
+        WRITE_ASCIIE start_offset ~%LNL%~ (1)
+        SET end_offset += len + 1
+      END
+
+      // applying spirit's unsummon action when out of range
+      LPF GET_SCRIPT_BLOCK
+        INT_VAR start_offset = end_offset
+        STR_VAR search_regexp = ~\!Range(.*)~
+        RET script_block start_offset end_offset
+      END
+      PATCH_IF (start_offset >= 0) BEGIN
+        DELETE_BYTES start_offset (end_offset - start_offset)
+
+        FOR (slot = 6; slot > 0; --slot) BEGIN
+          INNER_PATCH_SAVE block_final ~%script_block%~ BEGIN
+            REPLACE_TEXTUALLY ~!Range([^,]*,\(.*\))~ ~!Range(Player%slot%,\1) Global("Summoner","LOCALS",%slot%)~
+          END
+          SET len = STRING_LENGTH ~%block_final%~
+          INSERT_BYTES start_offset len
+          WRITE_ASCIIE start_offset ~%block_final%~ (len)
+          INSERT_BYTES start_offset 1
+          WRITE_ASCIIE start_offset ~%LNL%~ (1)
+        END
+      END
+    END
+  END
+BUT_ONLY
 
 
 // Updating class description
