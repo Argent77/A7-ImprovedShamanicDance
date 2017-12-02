@@ -70,11 +70,12 @@ Note: The spell will be added to the unkitted shaman class as well as any shaman
 
 4. Apply Shamanic Dance improvements to Shaman kits (requires main component)
 
-This component can be used to modify the Shamanic Dance of available Shaman kits to behave as the 
-dance of the main class. It should be installed after all mods that are providing Shaman kits.
+This component attempts to modify the Shamanic Dance effect of available Shaman kits to behave 
+like the dance of the main class. It should be installed after all mods that are providing Shaman 
+kits.
 
-Note: Since Shamanic Dance can be expressed in multiple ways by kits it is not guaranteed that 
-      this component will always be successful.
+Note: Since Shamanic Dance can be expressed in many different ways by kits, it is not guaranteed 
+      that this component will always be successful.
 
 The following Shaman kits are confirmed to be compatible:
 - Witchlight Shaman (Will of the Wisps, by Lava Del'Vortel)
@@ -188,6 +189,11 @@ The mod "Improved Shamanic Dance" is licensed under the "Creative Commons Attrib
 
 History
 ~~~~~~~
+
+Version 3.2
+- Added component "Apply Shamanic Dance improvements to Shaman kits"
+- Improved Shamanic Dance to make spirits more robust to external interuptions 
+  and save/reload operations
 
 Version 3.1
 - Added French readme (thanks Gwendolyne)

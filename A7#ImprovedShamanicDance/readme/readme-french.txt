@@ -183,6 +183,11 @@ ShareAlike 4.0 International License" (http://creativecommons.org/licenses/by-sa
 History
 ~~~~~~~
 
+Version 3.2
+- Added component "Apply Shamanic Dance improvements to Shaman kits"
+- Improved Shamanic Dance to make spirits more robust to external interuptions 
+  and save/reload operations
+
 Version 3.1
 - Added French readme (thanks Gwendolyne)
 - Fixed several spelling errors
