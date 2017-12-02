@@ -68,6 +68,18 @@ Note: The spell will be added to the unkitted shaman class as well as any shaman
       the time of installation.
 
 
+4. Apply Shamanic Dance improvements to Shaman kits (requires main component)
+
+This component can be used to modify the Shamanic Dance of available Shaman kits to behave as the 
+dance of the main class. It should be installed after all mods that are providing Shaman kits.
+
+Note: Since Shamanic Dance can be expressed in multiple ways by kits it is not guaranteed that 
+      this component will always be successful.
+
+The following Shaman kits are confirmed to be compatible:
+- Witchlight Shaman (Will of the Wisps, by Lava Del'Vortel)
+
+
 Modified Shaman class description (after installing all components)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

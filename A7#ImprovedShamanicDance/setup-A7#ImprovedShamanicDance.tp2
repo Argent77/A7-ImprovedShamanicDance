@@ -56,3 +56,10 @@ BEGIN @3  // New spell "Shamanic Pact"
   DESIGNATED 20
 
   INCLUDE ~%MOD_FOLDER%/lib/spell.tph~
+
+
+BEGIN @4  // Apply Shamanic Dance improvements to Shaman kits
+  REQUIRE_COMPONENT ~setup-A7#ImprovedShamanicDance.tp2~ 0 @52  // Main component required.
+  DESIGNATED 30
+
+  INCLUDE ~%MOD_FOLDER%/lib/consistent_dance.tph~

@@ -180,3 +180,45 @@ BEGIN
     END
   END
 END
+
+
+/**
+ * Attempts to return a specific entry found in the same row as another entry matching a search string.
+ * INT_VAR start_row      The row to start the search. 2DA header rows are automatically skipped. (Default: 0)
+ * INT_VAR column         The column containing the content to return.
+ * INT_VAR search_column  The column to search for "search_text".
+ * STR_VAR search_text    The search text.
+ * RET row                The row index where a match has been found, -1 otherwise. Does not include 2DA header rows.
+ * RET value              The content found at the specified column if a match has been found, empty string otherwise.
+ */
+DEFINE_PATCH_FUNCTION FIND_2DA_VALUE
+INT_VAR
+  start_row = 0
+  column = 1
+  search_column = 0
+STR_VAR
+  search_text = ~~
+RET
+  row
+  value
+BEGIN
+  SET row = "-1"
+  TEXT_SPRINT value ~~
+
+  PATCH_IF (NOT ~%search_text%~ STR_EQ ~~ && column >= 0 && search_column >= 0) BEGIN
+    COUNT_2DA_COLS numCols
+    COUNT_2DA_ROWS numCols numRows
+    PATCH_IF (column < numCols && search_column < numCols) BEGIN
+      SET offset = (numCols > 2) ? 0 : 2
+      SET idx = start_row + offset
+      FOR (idx = idx; idx < numRows; ++idx) BEGIN
+        READ_2DA_ENTRY idx search_column numCols entry
+        PATCH_IF (~%entry%~ STR_EQ ~%search_text%~) BEGIN
+          READ_2DA_ENTRY idx column numCols value
+          SET row = idx - offset
+          SET idx = numRows
+        END
+      END
+    END
+  END
+END
