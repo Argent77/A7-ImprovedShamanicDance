@@ -168,6 +168,7 @@ ACTION_IF (~%LANGUAGE%~ STRING_EQUAL_CASE ~french~) BEGIN
   OUTER_SET strref_2 = RESOLVE_STR_REF(@1014) // A major animal spirit answers your call.
   OUTER_SET strref_3 = RESOLVE_STR_REF(@1015) // A minor nature spirit answers your call.
   OUTER_SET strref_4 = RESOLVE_STR_REF(@1016) // A major nature spirit answers your call.
+  OUTER_SET strref_5 = RESOLVE_STR_REF(@1017) // You cannot summon any more creatures.
   ACTION_IF (GAME_IS ~bgee~) BEGIN
     ACTION_IF (GAME_INCLUDES ~sod~) BEGIN // BG:SoD
       ACTION_DEFINE_ASSOCIATIVE_ARRAY spl_strings BEGIN
@@ -176,6 +177,7 @@ ACTION_IF (~%LANGUAGE%~ STRING_EQUAL_CASE ~french~) BEGIN
         69615 => "%strref_2%"
         69616 => "%strref_3%"
         69617 => "%strref_4%"
+        24529 => "%strref_5%"
       END
     END ELSE BEGIN  // BG:EE
       ACTION_DEFINE_ASSOCIATIVE_ARRAY spl_strings BEGIN
@@ -184,7 +186,17 @@ ACTION_IF (~%LANGUAGE%~ STRING_EQUAL_CASE ~french~) BEGIN
         32403 => "%strref_2%"
         32404 => "%strref_3%"
         32405 => "%strref_4%"
+        24529 => "%strref_5%"
       END
+    END
+  END ELSE ACTION_IF (GAME_IS ~iwdee~) BEGIN
+    ACTION_DEFINE_ASSOCIATIVE_ARRAY spl_strings BEGIN
+      40909 => "%strref_0%"
+      40910 => "%strref_1%"
+      40911 => "%strref_2%"
+      40912 => "%strref_3%"
+      40913 => "%strref_4%"
+      34748 => "%strref_5%"
     END
   END ELSE BEGIN  // BG2:EE, EET
     ACTION_DEFINE_ASSOCIATIVE_ARRAY spl_strings BEGIN
@@ -193,6 +205,7 @@ ACTION_IF (~%LANGUAGE%~ STRING_EQUAL_CASE ~french~) BEGIN
       103122 => "%strref_2%"
       103123 => "%strref_3%"
       103124 => "%strref_4%"
+      74090 => "%strref_5%"
     END
   END
 
@@ -210,8 +223,8 @@ ACTION_IF (~%LANGUAGE%~ STRING_EQUAL_CASE ~french~) BEGIN
         SET ofsCurEffect = ofsEffects + (idxEffect * 0x30)
         READ_SHORT (ofsCurEffect + 0x00) opcode
 
-        PATCH_IF (opcode = 139) BEGIN   // Display String
-          SET curOfs = ofsCurEffect + 0x04
+        PATCH_IF (opcode = 139 || opcode = 318) BEGIN   // Display String, Protection from Spell
+          SET curOfs = ofsCurEffect + ((opcode = 139) ? 0x04 : 0x2c)
           READ_LONG curOfs strref
 
           // find matching strref and replace

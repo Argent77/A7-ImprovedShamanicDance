@@ -11,7 +11,7 @@ Discussion: https://forums.beamdog.com/discussion/58676/mod-improved-shamanic-da
 Overview
 ~~~~~~~~
 
-A mod for BG:EE, BG:SoD, BG2:EE and EET.
+A mod for BG:EE, BG:SoD, BG2:EE, EET and IWD:EE.
 
 One of the most prominent features of the Shaman class is the Shamanic Dance. It allows the shaman 
 to call forth an endless supply of spirits to fight for their cause. However, in the original 

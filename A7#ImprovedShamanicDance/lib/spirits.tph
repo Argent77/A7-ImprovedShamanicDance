@@ -21,16 +21,17 @@ COPY ~%MOD_FOLDER%/tables/a7sham24.2da~ ~override~
 
 /*
 Strref codes:
-1: You cannot summon any more creatures. (BG1: 24529, BG2: 74090, IWD: XXX)
-2: No spirits answer your call. (BG1: 69613, BG2: 103120, IWD: XXX)
-3: A minor animal spirit answers your call. (BG1: 69614, BG2: 103121, IWD: XXX)
-4: A major animal spirit answers your call. (BG1: 69615, BG2: 103122, IWD: XXX)
-5: A minor nature spirit answers your call. (BG1: 69616, BG2: 103123, IWD: XXX)
-6: A major nature spirit answers your call. (BG1: 69617, BG2: 103124, IWD: XXX)
+1: You cannot summon any more creatures. (BG1: 24529, BG2: 74090, IWD: 34748)
+2: No spirits answer your call. (BG1: 69613, BG2: 103120, IWD: 40909)
+3: A minor animal spirit answers your call. (BG1: 69614, BG2: 103121, IWD: 40910)
+4: A major animal spirit answers your call. (BG1: 69615, BG2: 103122, IWD: 40911)
+5: A minor nature spirit answers your call. (BG1: 69616, BG2: 103123, IWD: 40912)
+6: A major nature spirit answers your call. (BG1: 69617, BG2: 103124, IWD: 40913)
 7: A grand nature spirit answers your call.
 8: Protected by spirits.
  */
 ACTION_IF (~%LANGUAGE%~ STRING_EQUAL_CASE ~french~) BEGIN
+  OUTER_SET v1 = RESOLVE_STR_REF(@1017)
   OUTER_SET v2 = RESOLVE_STR_REF(@1012)
   OUTER_SET v3 = RESOLVE_STR_REF(@1013)
   OUTER_SET v4 = RESOLVE_STR_REF(@1014)
@@ -38,12 +39,21 @@ ACTION_IF (~%LANGUAGE%~ STRING_EQUAL_CASE ~french~) BEGIN
   OUTER_SET v6 = RESOLVE_STR_REF(@1016)
 END ELSE BEGIN
   ACTION_IF (GAME_IS ~bgee~) BEGIN
+    OUTER_SET v1 = 24529
     OUTER_SET v2 = (GAME_INCLUDES ~sod~) ? 69613 : 32402
     OUTER_SET v3 = (GAME_INCLUDES ~sod~) ? 69614 : 32401
     OUTER_SET v4 = (GAME_INCLUDES ~sod~) ? 69615 : 32403
     OUTER_SET v5 = (GAME_INCLUDES ~sod~) ? 69616 : 32404
     OUTER_SET v6 = (GAME_INCLUDES ~sod~) ? 69617 : 32405
-  END ELSE BEGIN
+  END ELSE ACTION_IF (GAME_IS ~iwdee~) BEGIN
+    OUTER_SET v1 = 34748
+    OUTER_SET v2 = 40909
+    OUTER_SET v3 = 40910
+    OUTER_SET v4 = 40911
+    OUTER_SET v5 = 40912
+    OUTER_SET v6 = 40913
+  END ELSE BEGIN  // BG2EE, EET
+    OUTER_SET v1 = 74090
     OUTER_SET v2 = 103120
     OUTER_SET v3 = 103121
     OUTER_SET v4 = 103122
@@ -51,7 +61,6 @@ END ELSE BEGIN
     OUTER_SET v6 = 103124
   END
 END
-OUTER_SET v1 = (GAME_IS ~bgee~) ? 24529 : 74090
 OUTER_SET v7 = RESOLVE_STR_REF(@200)  // A grand nature spirit answers your call.
 OUTER_SET v8 = RESOLVE_STR_REF(@204)  // Shaman is protected by spirits
 ACTION_DEFINE_ASSOCIATIVE_ARRAY strrefs BEGIN
