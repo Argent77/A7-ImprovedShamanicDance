@@ -88,6 +88,87 @@ Les esprits ne peuvent pas parler et ne peuvent pas lancer les sorts et utiliser
 @308 = ~Rappel de l'Esprit, ~
 @309 = ~Pacte chamanique, ~
 
+
+// Shamanic items
+@500 = ~The Soulherder's Staff +2~
+@501 = ~A gnarled wooden staff cut from the dak'Dekanter goblin tribe's sacred tree, this item was a symbol of spiritual power for centuries. It disappeared during a hard-fought battle between the dak'Dekanters and a dwarven clan whose name is lost to history, and those few who remembered it once existed thought it lost forever. It was found later by a band of marauding orcs on their way to The Severed Hand.
+
+STATISTICS:
+
+Equipped abilities:
+– Magic Resistance: +15%
+– Summoned spirits gain a +1 to Strength
+
+THAC0: +2
+Damage: 1d6, +2 (magic)
+Damage Type: Crushing
+Speed Factor: 2
+Proficiency Type: Quarterstaff
+Type: Two-handed
+Requires:
+ 5 Strength
+
+Weight: 3~
+
+@510 = ~Circlet~
+@511 = ~Circlet of Lost Souls~
+@512 = ~A circlet is a circular band, typically made of precious metal, worn on the head as an ornament or symbol of status. Circlets carrying low-level enchantments are commonly worn by mages across Faerûn.
+
+Weight: 1~
+@513 = ~Adventurers delving in a tomb centuries ago were set upon by ghosts and spectres when they entered the central crypt. The adventurers fought bravely but, one by one, they fell to the ghosts' attacks. Years later, the daughter of one of the adventurers hired a team to delve into the tomb and recover the bodies. The daughter told her group not to disturb anything but the dead adventurers they had come to collect, and the spirits of the tomb let them be. The woman kept her dead father's circlet as a memento of his bravery.
+
+STATISTICS:
+
+Equipped abilities:
+– Caster Level: +1
+– Summoned spirits are constantly under the effects of the Bless spell
+
+Weight: 1~
+
+@520 = ~Heart of the Mountain~
+@521 = ~During a skirmish between a powerful water elemental and a powerful earth elemental, a tiny fragment of the latter broke off. An orc fleeing the site of the battle snatched the fragment up as she ran. This she gave to her tribe's shaman, who immediately recognized its power and fashioned it into an amulet. 
+
+The Heart of the Mountain is of particular use to those who do the Ghost Dance. Such folk dwell at least partly in the realm of the spirits; the amulet forges a stronger connection 'twixt them and the earth, lending its wearer strength in the face of physical adversity.
+
+STATISTICS:
+
+Equipped abilities: 
+– Armor Class: +2
+– Summoned spirits gain +10 Hit Points
+
+Weight: 0~
+
+@530 = ~Spirit Guide +4~
+@531 = ~There is a great mystery surrounding this hide armor. No one knows how or where it came into existence. What is known is that the leather was cut from the hide of a white dragon. The armor is heavily enchanted and seems to be infused with powerful spirits. The spirits protect the wearer from manipulations of the mind and allow shamans to reach into the minds of summoned spirits to gain some control over their actions.
+
+STATISTICS:
+
+Equipped abilities:
+– Immunity to Dire Charm, Charm Person, Confusion, Command, and Rigid Thinking
+– 50% chance to take full control over spirits summoned by the Shamanic Dance
+
+Armor Class: 2 (4 vs. piercing and missile)
+Requires:
+ 6 Strength
+
+Weight: 10~
+@535 = ~Controlled~
+@536 = ~Failed to control~
+
+@540 = ~Shroud of Souls~
+@541 = ~It is said that this shroud has been woven from the hair of Nereids. It is surprisingly light and looks almost translucent. However, when worn the souls of the Nereids divert all attention from the wearer, thus making it difficult for potential attackers to hit, if they detect the wearer at all.
+
+STATISTICS:
+
+Equipped abilities:
+– Armor Class: +3
+– Non-detectable by magical means such as Detect Invisibility and scrying
+– Prevents the Shamanic Dance from dispelling invisibility
+– Can be worn in combination with any other protective enchantment
+
+Weight: 1~
+
+
 // vanilla game strings
 @1000 = ~Esprit renard~           // Fox Spirit
 @1001 = ~Esprit serpent~          // Snake Spirit

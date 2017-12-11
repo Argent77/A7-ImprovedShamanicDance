@@ -4,10 +4,12 @@
 @2 = ~Danse Chamanique etendue pour les personnages de haut niveau~
 @3 = ~Ajouter le sort "Pacte chamanique"~
 @4 = ~Apply Shamanic Dance improvements to Shaman kits~
+@5 = ~Shaman-specific items for IWD:EE~
 
 @50 = ~Jeu en version Enhanced Edition requis.~
 @51 = ~Pas de classe de Chaman disponible.~
 @52 = ~Composant principal requis.~
+@53 = ~Only available for IWD:EE.~
 
 
 // WeiDU prompts

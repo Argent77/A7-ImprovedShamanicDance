@@ -80,6 +80,14 @@ The following Shaman kits are confirmed to be compatible:
 - Witchlight Shaman (Will of the Wisps, by Lava Del'Vortel)
 
 
+5. Shaman-specific items for IWD:EE (requires IWD:EE)
+
+IWD:EE currently lacks any shaman-specific items. This component tries to change this deficiency 
+and scatters several items exclusively for shamans all over Icewind Dale and beyond.
+The list includes several artifacts that were originally created for BG:EE - Siege of Dragonspear 
+as well as a couple of unique items.
+
+
 Modified Shaman class description (after installing all components)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -189,7 +197,9 @@ The mod "Improved Shamanic Dance" is licensed under the "Creative Commons Attrib
 History
 ~~~~~~~
 
-Version 3.2
+Version 4.0
+- Added IWD:EE support
+- Added component "Shaman-specific items for IWD:EE"
 - Added component "Apply Shamanic Dance improvements to Shaman kits"
 - Improved Shamanic Dance to make spirits more robust to external interuptions 
   and save/reload operations

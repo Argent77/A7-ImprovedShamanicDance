@@ -87,3 +87,84 @@ Geister können weder sprechen noch Eigenschaften aus ihrem früheren Leben, wie
 @307 = ~Faust +3~
 @308 = ~Geist zurückrufen[^,]*, ~
 @309 = ~„Shamanischer Pakt“, ~
+
+
+// Shamanic items
+@500 = ~Stab des Seelenhirten +2~
+@501 = ~Dieser knorrige Holzstab, geschnitzt aus einem heiligen Baum der dak'Dekanter-Goblins, war über Jahrhunderte hinweg ein Symbol spiritueller Macht. Nach einer erbitterten Schlacht gegen eine Zwergensippe, dessen Name im Lauf der Zeit verloren ging, verschwand der Stab aus dem Besitz der dak'Dekanter-Goblins. Einige Zeit später wurde er von einer Horde marodierender Orks auf dem Weg zur Abgetrennten Hand wiedergefunden.
+
+STATISTIK:
+
+Magieresistenz: 15 %
+
+Beschworene Geister erhalten eine +1 Stärkebonus.
+
+Schaden: 1W6 (Wucht), +2 (Magie)
+ETW0-Bonus: -2
+Gewicht: 3
+Initiativefaktor: 2
+Mindeststärke: 5
+Fertigkeit: Kampfstab
+Typ: 2-händig~
+
+@510 = ~Reif~
+@511 = ~Reif der verlorenen Seelen~
+@512 = ~Ein Reif ist ein kreisförmiger Streifen, der üblicherweise aus kostbaren Metall gefertigt ist und auf dem Kopf als Ornament oder Statussymbol getragen wird. Reife mit schwachen Verzauberungen werden gewöhnlich von Magiern auf ganz Faerûn getragen.
+
+Gewicht: 1~
+@513 = ~Vor Jahrhunderten wurde eine Gruppe Abenteurer von Geistern und Gespenstern gejagt, als sie bei Erforschen einer Gruft die Hauptkrypta betraten. Die Abenteurer kämpften tapfer, aber einer nach dem anderen fielen sie den Angriffen der Geister zum Opfer. Jahre später heuerte die Tochter einer der Abenteurer eine Gruppe an, um in die Gruft hinabzusteigen und die Körper der Gefallenen zu bergen. Die Tochter wies die Gruppe an, die Ruhe der Toten möglichst nicht zu stören und ausschließlich die toten Abenteurer, wegen derer sie losgeschickt worden sind, zu holen. Daher ließen die Geister sie gewähren. Die Frau behielt den Reif ihres Vaters als ein Andenken an seinen Heldenmut.
+
+STATISTIK:
+
+Vom Träger beschworene Geister haben permanent den Zauber „Segen“ auf sich liegen.
+
+Zauberstufe: +1
+
+Gewicht: 1~
+
+@520 = ~Herz des Berges~
+@521 = ~Während eines Scharmützels zwischen einem mächtigen Wasserelementar und einem ebenso mächtigen Erdelementar brach ein kleines Fragment des letzteren ab. Eine Orkfrau, die vom Ort des Kampfes floh, nahm das Bruchstück an sich, während sie wegrannte. Sie gab es dem Schamanen ihres Stammes, der sofort die innewohnende Macht erkannte und sie in ein Amulett bannte.
+
+Das Herz des Berges ist besonders für jene von Nutzen, die einen Schamanentanz aufführen. Solche Leute halten sich zeitweilig im Reich der Geister auf. Das Amulett stärkt die Verbindung zwischen ihnen und der Erde, sodass es dem Träger Stärke im Angesicht leiblichen Ungemachs verleiht.
+
+STATISTIK:
+
+Vom Träger beschworene Geister erhalten +10 Trefferpunkte.
+
+RK-Bonus: -2
+
+Gewicht: 0~
+
+@530 = ~Geisterführer +4~
+@531 = ~Diesem Lederharnisch umgibt ein großes Geheimnis. Niemand weiß, wie oder wo er enstand. Er scheint aber aus der Haut eines weißen Drachen erschaffen worden zu sein. Der Harnisch ist äußerst widerstandfähig und überdies mit mächtigen Geistern verwoben. Diese Geister schützen den Träger vor Gedankenmanipulationen und erlauben Schamanen, in die Gedanken beschworener Geister einzudringen, um eine gewisse Kontrolle über sie auszuüben.
+
+STATISTIK:
+
+Schützt vor Berserkerrausch, Personen bezaubern, Verwirrung, Befehl, und Striktes Denken.
+
+Träger kann mit 50 Prozent Wahrscheinlichkeit Kontrolle über vom Schamanentanz beschworene Geister ausüben.
+
+Rüstungsklasse: 2
+RK-Malus:
+ +2 gg. Geschosswaffen
+ +2 gg. Stichwaffen
+Mindeststärke: 6
+
+Gewicht: 10~
+@535 = ~Kontrolliert~
+@536 = ~Kontrollversuch fehlgeschlagen~
+
+@540 = ~Seelenschleier~
+@541 = ~Dieser Schleier scheint aus dem Haar von Meerjungfrauen gewoben worden zu sein. Er ist überraschend leicht und fast durchsichtig. Allerding wenn er getragen wird, lenken die Seelen der Mehrjungfrauen jegliche Aufmerksamkeit vom Träger ab. Dadurch wird es für Angreifer schwer, einen Treffer zu landen, falls sie den Träger überhaupt wahrnehmen.
+
+STATISTIK:
+
+Rüstungsklasse: +3 Bonus
+
+Kann nicht durch magische Mittel wie den Zauber "Unsichtbares entdecken" und Erkenntniszauber entdeckt werden.
+
+Verhindert, dass der Schamanentanz jegliche Form von Unsichtbarkeit bannt.
+
+Kann mit jeder anderen Form magischen Schutzes kombiniert werden.
+
+Gewicht: 1~

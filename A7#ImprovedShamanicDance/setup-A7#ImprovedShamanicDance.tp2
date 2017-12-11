@@ -63,3 +63,12 @@ BEGIN @4  // Apply Shamanic Dance improvements to Shaman kits
   DESIGNATED 30
 
   INCLUDE ~%MOD_FOLDER%/lib/consistent_dance.tph~
+
+
+BEGIN @5  // Shaman-specific items for IWD:EE
+  REQUIRE_PREDICATE GAME_IS ~iwdee~ @53 // Only available for IWD:EE.
+  REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~spsh003.spl~ AND 
+                     FILE_EXISTS_IN_GAME ~spsh004.spl~ AND
+                     FILE_EXISTS_IN_GAME ~bdshunsu.bcs~) @51  // No shaman class available.
+
+  INCLUDE ~%MOD_FOLDER%/lib/items_iwdee.tph~
