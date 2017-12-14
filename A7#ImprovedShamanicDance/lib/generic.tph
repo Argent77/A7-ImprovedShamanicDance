@@ -1,0 +1,4 @@
+// *** general stuff not fitting elsewhere ***
+
+// needed by scripts
+APPEND ~state.ids~ ~0x80101FEF CD_STATE_NOTVALID~ UNLESS ~CD_STATE_NOTVALID~

@@ -37,6 +37,7 @@ BEGIN @1  // Improved Shamanic Dance
                      FILE_EXISTS_IN_GAME ~bdshunsu.bcs~) @51  // No shaman class available.
   DESIGNATED 0
 
+  INCLUDE ~%MOD_FOLDER%/lib/generic.tph~
   INCLUDE ~%MOD_FOLDER%/lib/dance.tph~
 
 
