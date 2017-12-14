@@ -18,11 +18,8 @@ to call forth an endless supply of spirits to fight for their cause. However, in
 version the shaman is practically disabled while the dance is performed. This mod makes an attempt 
 to improve this ability by allowing the shaman to move at reduced speed while performing the dance.
 
-The dance can be further improved by an optional component which provides more features for high 
-level shamans.
-
-An optional third component allows you to install the new spell "Shamanic Pact" to the spell book 
-of the shaman.
+The dance can be further improved by a number of optional components. More details can be found in 
+the "Components" chapter below.
 
 Available languages: English, French, German, Italian, Polish
 
@@ -85,7 +82,14 @@ The following Shaman kits are confirmed to be compatible:
 IWD:EE currently lacks any shaman-specific items. This component tries to change this deficiency 
 and scatters several items exclusively for shamans all over Icewind Dale and beyond.
 The list includes several artifacts that were originally created for BG:EE - Siege of Dragonspear 
-as well as a couple of unique items.
+as well as a couple of new items.
+
+Available items:
+- The Soulherder's Staff +2 (imported from SoD)
+- Circlet of Lost Souls (imported from SoD)
+- Heart of the Mountain (imported from SoD)
+- Shroud of Souls (new item)
+- Spirit Guide +4 (new item)
 
 
 Modified Shaman class description (after installing all components)

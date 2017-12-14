@@ -19,11 +19,8 @@ dans la version originale, le chaman se trouve pratiquement désactivé pendant 
 Ce mod améliore cette capacité en permettant au chaman de se déplacer à vitesse réduite pendant 
 la danse.
 
-La Danse chamanique peut être améliorée par un composant optionnel qui développe ses effets pour 
-les chamans de haut niveau.
-
-Optionnel, le troisième composant installe un nouveau sort ("Pacte chamanique") dans le livre de 
-sort du Chaman.
+The dance can be further improved by a number of optional components. More details can be found 
+in the "Components" chapter below.
 
 Langues disponibles : Anglais, Allemand, Français, Italien et Polonais.
 
@@ -86,7 +83,14 @@ The following Shaman kits are confirmed to be compatible:
 IWD:EE currently lacks any shaman-specific items. This component tries to change this deficiency 
 and scatters several items exclusively for shamans all over Icewind Dale and beyond.
 The list includes several artifacts that were originally created for BG:EE - Siege of Dragonspear 
-as well as a couple of unique items.
+as well as a couple of new items.
+
+Available items:
+- The Soulherder's Staff +2 (imported from SoD)
+- Circlet of Lost Souls (imported from SoD)
+- Heart of the Mountain (imported from SoD)
+- Shroud of Souls (new item)
+- Spirit Guide +4 (new item)
 
 
 Description de la classe de Chaman modifiée (après installation de tous les composants).
