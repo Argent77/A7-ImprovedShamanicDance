@@ -92,80 +92,82 @@ Duchy nie potrafią mówić i nie są w stanie rzucać żadnych czarów czy też
 
 
 // Shamanic items
-@500 = ~The Soulherder's Staff +2~
-@501 = ~A gnarled wooden staff cut from the dak'Dekanter goblin tribe's sacred tree, this item was a symbol of spiritual power for centuries. It disappeared during a hard-fought battle between the dak'Dekanters and a dwarven clan whose name is lost to history, and those few who remembered it once existed thought it lost forever. It was found later by a band of marauding orcs on their way to The Severed Hand.
+@500 = ~Kostur duszpasterzy +2~
+@501 = ~Ten sękaty drewniany kostur wykonano z gałęzi świętego drzewa goblinów z Dekanter, dla których przez wieki stanowiło ono symbol ich duchowej mocy. Przedmiot zaginął podczas zaciekłej bitwy pomiędzy goblinami z Dekanter a jednym z zapomnianych krasnoludzkich klanów, o którym niewielu już w ogóle pamięta. Kostur odnaleziono w zaginionym krasnoludzkim mieście Kanaglym, pośród innych goblińskich skarbów przez lata zrabowanych przez krasnoludów.
 
-STATISTICS:
+PARAMETRY:
 
-Equipped abilities:
-– Magic Resistance: +15%
-– Summoned spirits gain a +1 to Strength
+Specjalne:
+– Odporność na magię: +15%
+– Przyzwane duchy otrzymują premię +1 do Siły
 
-THAC0: +2
-Damage: 1d6, +2 (magic)
-Damage Type: Crushing
-Speed Factor: 2
-Proficiency Type: Quarterstaff
-Type: Two-handed
-Requires:
- 5 Strength
+Obrażenia: 1k6, +2 obrażenia od magii
+TraK0: +2
+Typ obrażeń: obuchowe
+Opóźnienie: 2
+Rodzaj biegłości: kij
+Typ broni: 2-ręczna
 
-Weight: 3~
+Wymagania:
+– Siła: 5
+
+Waga: 3~
 
 @510 = ~Diadem~
-@511 = ~Circlet of Lost Souls~
+@511 = ~Diadem zagubionych dusz~
 @512 = ~Diadem to półkolista przepaska na głowę, najczęściej wykonana z drogocennego metalu, zazwyczaj noszona ozdobnie, bądź jako symbol statusu, lub władzy. Diademy nasycone pomniejszymi zaklęciami są często spotykane pośród magów na całym Faerûnie.
 
 Waga: 1~
-@513 = ~Adventurers delving in a tomb centuries ago were set upon by ghosts and spectres when they entered the central crypt. The adventurers fought bravely but, one by one, they fell to the ghosts' attacks. Years later, the daughter of one of the adventurers hired a team to delve into the tomb and recover the bodies. The daughter told her group not to disturb anything but the dead adventurers they had come to collect, and the spirits of the tomb let them be. The woman kept her dead father's circlet as a memento of his bravery.
+@513 = ~Pewna grupa poszukiwaczy przygód, którzy stulecia temu zapuścili się do jednego z grobowców, została zaatakowana przez zgraję duchów i widm z chwilą przekroczenia progu głównej krypty. Śmiałkowie walczyli dzielnie, lecz jeden po drugim padali pod naporem duchów. Wiele lat później córka jednego z awanturników wynajęła drużynę, która miała zejść do grobowca i odzyskać ciała poległych. Poleciła im nie dotykać niczego poza ciałami martwych poszukiwaczy przygód, których ciała mieli zabrać, a wówczas zamieszkujące to miejsce duchy dadzą im spokój. Na pamiątkę odwagi swego ojca, kobieta zachowała należący niegdyś do niego diadem.
 
-STATISTICS:
+PARAMETRY:
 
-Equipped abilities:
-– Caster Level: +1
-– Summoned spirits are constantly under the effects of the Bless spell
+Specjalne:
+– Poziom czarującego: +1
+– Przyzwane duchy znajdują się stale pod wpływem zaklęcia Błogosławieństwo
 
-Weight: 1~
+Waga: 1~
 
-@520 = ~Heart of the Mountain~
-@521 = ~During a skirmish between a powerful water elemental and a powerful earth elemental, a tiny fragment of the latter broke off. An orc fleeing the site of the battle snatched the fragment up as she ran. This she gave to her tribe's shaman, who immediately recognized its power and fashioned it into an amulet. 
+@520 = ~Serce góry~
+@521 = ~W trakcie potyczki pomiędzy pewnym potężnym żywiołakiem wody i równie silnym żywiołakiem ziemi, z tego drugiego odłamał się mały kawałek skały. Uciekający z miejsca bitwy ork zabrał ze sobą ów fragment, a następnie przekazał go plemiennemu szamanowi. Ten natychmiast rozpoznał jego potęgę i wykonał z niego amulet.
 
-The Heart of the Mountain is of particular use to those who do the Ghost Dance. Such folk dwell at least partly in the realm of the spirits; the amulet forges a stronger connection 'twixt them and the earth, lending its wearer strength in the face of physical adversity.
+Serce góry ma szczególne zastosowanie dla każdego, kto wykonuje Duchowy taniec. Tacy osobnicy zamieszkują po części królestwo duchów, a amulet ten wzmacnia więź, jaka łączy ich z ziemią, dodając im sił w walce z fizycznymi przeciwnościami.
 
-STATISTICS:
+PARAMETRY:
 
-Equipped abilities: 
-– Armor Class: +2
-– Summoned spirits gain +10 Hit Points
+Specjalne:
+– Klasa Pancerza: +2
+– Przyzwane duchy otrzymują dodatkowo 10 punktów życia
 
-Weight: 0~
+Waga: 0~
 
-@530 = ~Spirit Guide +4~
-@531 = ~There is a great mystery surrounding this hide armor. No one knows how or where it came into existence. What is known is that the leather was cut from the hide of a white dragon. The armor is heavily enchanted and seems to be infused with powerful spirits. The spirits protect the wearer from manipulations of the mind and allow shamans to reach into the minds of summoned spirits to gain some control over their actions.
+@530 = ~Duchowy przewodnik +4~
+@531 = ~Ta skórzana zbroja skrywa wielką tajemnicę. Nikt nie wie, kiedy i w jaki sposób powstała. Wiadomo jedynie, że skórę zdjęto z cielska białego smoka, a sama zbroja została nasycona wieloma potężnymi zaklęciami. W dodatku zamieszkują ją potężne duchy, które chronią noszącego przed zaklęciami wpływającymi na umysł i pozwalają szamanowi na sięgnięcie głębiej do umysłów przyzwanych duchów i uzyskanie nad nimi częściowej kontroli.
 
-STATISTICS:
+PARAMETRY:
 
-Equipped abilities:
-– Immunity to Dire Charm, Charm Person, Confusion, Command, and Rigid Thinking
-– 50% chance to take full control over spirits summoned by the Shamanic Dance
+Specjalne:
+– Niewrażliwość na następujące zaklęcia: Okropne zauroczenie, Zauroczenie osoby, Zamęt, Rozkaz i Bezmyślność
+– 50% szans na uzyskanie pełnej kontroli nad duchami przyzwanymi za pomocą szamańskiego tańca
 
-Armor Class: 2 (4 vs. piercing and missile)
-Requires:
- 6 Strength
+Klasa Pancerza: 2 (4 przeciw pociskom)
+Wymagania:
+– Siła: 6
 
-Weight: 10~
-@535 = ~Controlled~
-@536 = ~Failed to control~
+Waga: 10~
 
-@540 = ~Shroud of Souls~
-@541 = ~It is said that this shroud has been woven from the hair of Nereids. It is surprisingly light and looks almost translucent. However, when worn the souls of the Nereids divert all attention from the wearer, thus making it difficult for potential attackers to hit, if they detect the wearer at all.
+@535 = ~Pod kontrolą~
+@536 = ~Nie uzyskano kontroli~
 
-STATISTICS:
+@540 = ~Całun dusz~
+@541 = ~Krążą legendy, że całun ten utkano z kosmyków włosów nereid. Jest on zaskakująco lekki i niemal zupełnie przezroczysty. Gdy się go założy, zaklęte w nim dusze nereid odwracają uwagę atakujących istot od noszącej go osoby. Dzięki temu atakujący nie są często w stanie jej trafić, a czasem nawet w ogóle wykryć.
 
-Equipped abilities:
-– Armor Class: +3
-– Non-detectable by magical means such as Detect Invisibility and scrying
-– Prevents the Shamanic Dance from dispelling invisibility
-– Can be worn in combination with any other protective enchantment
+PARAMETRY:
 
-Weight: 1~
+Specjalne:
+– Klasa Pancerza +3
+– Niewykrywalność za pomocą wróżenia, czy też czaru Wykrycie niewidzialnego
+– Zapobiega rozproszeniu niewidzialności przez szamański taniec
+– Można go założyć razem z innym ekwipunkiem ochronnym
+
+Waga: 1~
