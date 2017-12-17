@@ -92,82 +92,84 @@ Gli spiriti non possono parlare e utilizzare qualsiasi magia o abilità speciale
 
 
 // Shamanic items
-@500 = ~The Soulherder's Staff +2~
-@501 = ~A gnarled wooden staff cut from the dak'Dekanter goblin tribe's sacred tree, this item was a symbol of spiritual power for centuries. It disappeared during a hard-fought battle between the dak'Dekanters and a dwarven clan whose name is lost to history, and those few who remembered it once existed thought it lost forever. It was found later by a band of marauding orcs on their way to The Severed Hand.
+@500 = ~Bastone del Pastore delle Anime~
+@501 = ~Un nodoso bastone di legno intagliato dall'albero sacro della tribù goblin dak'Dekanter, questo oggetto è stato un simbolo del potere spirituale nel corso di innumerevoli secoli. Scomparve durante una battaglia combattuta tra i dak'Dekanters e un clan di nani il cui nome è sconosciuto alla storia. Coloro che un tempo ricordavano fosse esistito lo consideravano perduto per sempre. Fu invece ritrovato nella deserta città nanica di Kanaglym, tra gli altri tesori che i nani avevano rubato ai loro nemici goblin nel corso degli anni.
 
-STATISTICS:
+STATISTICHE:
 
-Equipped abilities:
-– Magic Resistance: +15%
-– Summoned spirits gain a +1 to Strength
+Abilità durante l'uso:
+- Resistenza alla Magia: +15%
+- Gli spiriti evocati guadagnano 1 punto di Forza
 
 THAC0: +2
-Damage: 1d6, +2 (magic)
-Damage Type: Crushing
-Speed Factor: 2
-Proficiency Type: Quarterstaff
-Type: Two-handed
-Requires:
- 5 Strength
+Danno: 1d6, +2 (da magia)
+Tipo di Competenza: Contundente
+Fattore-velocità: 2
+Tipo di Competenza: Bastone Rinforzato
+Tipo: A due mani
 
-Weight: 3~
+Richiede:
+Forza 5
+
+Peso: 3~
 
 @510 = ~Diadema~
-@511 = ~Circlet of Lost Souls~
+@511 = ~Diadema delle Anime Perdute~
 @512 = ~Un diadema è una banda a forma circolare, generalmente realizzato con un metallo prezioso e portato sul capo come ornamento o simbolo di potere. Cerchietti con incantamenti di basso livelli sono comunemente indossati dai maghi in tutta Faerûn.
 
 STATISTICHE:
 
 Peso: 1~
-@513 = ~Adventurers delving in a tomb centuries ago were set upon by ghosts and spectres when they entered the central crypt. The adventurers fought bravely but, one by one, they fell to the ghosts' attacks. Years later, the daughter of one of the adventurers hired a team to delve into the tomb and recover the bodies. The daughter told her group not to disturb anything but the dead adventurers they had come to collect, and the spirits of the tomb let them be. The woman kept her dead father's circlet as a memento of his bravery.
+@513 = ~Alcuni avventurieri che si inoltrarono in una tomba secoli fa furono aggrediti da fantasmi e spettri non appena entrarono nella cripta centrale. Gli avventurieri combatterono coraggiosamente ma, uno ad uno, caddero sotto i colpi dei fantasmi. Anni dopo, la figlia di uno degli avventurieri ingaggiò una squadra per introdursi nella tomba e recuperare i corpi. La figlia disse al suo gruppo di non spostare nulla tranne gli avventurieri morti che erano andati a prendere, così gli spiriti della tomba li lasciarono stare. La donna tenne il diadema del suo defunto padre come ricordo del suo coraggio.
 
-STATISTICS:
+STATISTICHE:
 
-Equipped abilities:
-– Caster Level: +1
-– Summoned spirits are constantly under the effects of the Bless spell
+Abilità durante l'uso:
+- Livello del lanciatore: +1
+- Gli spiriti evocati sono permanentemente sotto gli effetti dell'incantesimo Benedizione
 
-Weight: 1~
+Peso: 1~
 
-@520 = ~Heart of the Mountain~
-@521 = ~During a skirmish between a powerful water elemental and a powerful earth elemental, a tiny fragment of the latter broke off. An orc fleeing the site of the battle snatched the fragment up as she ran. This she gave to her tribe's shaman, who immediately recognized its power and fashioned it into an amulet. 
+@520 = ~Cuore della Montagna~
+@521 = ~Durante uno scontro tra un potente elementale dell'acqua e un potente elementale della terra, un piccolo frammento di quest'ultimo si staccò. Un'orca in fuga dal sito della battaglia raccolse il frammento mentre correva via. Lo consegnò allo sciamano della sua tribù che riconobbe immediatamente il suo potere e lo modellò in un amuleto.
 
-The Heart of the Mountain is of particular use to those who do the Ghost Dance. Such folk dwell at least partly in the realm of the spirits; the amulet forges a stronger connection 'twixt them and the earth, lending its wearer strength in the face of physical adversity.
+Il Cuore della Montagna è particolarmente utile per coloro che eseguono la Danza Spiritica. Costoro dimorano almeno in parte nel regno degli spiriti; l'amuleto crea una connessione più forte tra loro e la terra, donando a chi lo indossa la forza di affrontare le avversità fisiche.
 
-STATISTICS:
+STATISTICHE:
 
-Equipped abilities: 
-– Armor Class: +2
-– Summoned spirits gain +10 Hit Points
+Abilità durante l'uso:
+- Classe Armatura: +2
+- Gli spiriti evocati ottengono 10 Punti Ferita addizionali
 
-Weight: 0~
+Peso: 0~
 
-@530 = ~Spirit Guide +4~
-@531 = ~There is a great mystery surrounding this hide armor. No one knows how or where it came into existence. What is known is that the leather was cut from the hide of a white dragon. The armor is heavily enchanted and seems to be infused with powerful spirits. The spirits protect the wearer from manipulations of the mind and allow shamans to reach into the minds of summoned spirits to gain some control over their actions.
+@530 = ~Guida degli Spiriti~
+@531 = ~Un grande mistero circonda questa armatura. Nessuno sa come o dove sia stata creata. Si sa solo che il cuoio è stato inciso dalla pelle di un drago bianco. L'armatura è incantata in maniera massiccia e sembra che le sia stato infuso il potere degli spiriti. Gli spiriti proteggono chi la indossa dalle manipolazioni della mente e permettono allo sciamano di raggiungere le menti degli spiriti evocati per ottenere un certo controllo delle loro azioni.
 
-STATISTICS:
+STATISTICHE:
 
-Equipped abilities:
-– Immunity to Dire Charm, Charm Person, Confusion, Command, and Rigid Thinking
-– 50% chance to take full control over spirits summoned by the Shamanic Dance
+Abilità durante l'uso:
+– Immunità a Charme Estremo, Charme, Confusione, Comando e Pensiero Rigido
+– 50% di possibilità di assumere pieno controllo sugli spiriti evocati dalla Danza Sciamanica
 
-Armor Class: 2 (4 vs. piercing and missile)
-Requires:
- 6 Strength
+Classe Armatura: 2 (4 contro danno perforante e da proiettile)
 
-Weight: 10~
-@535 = ~Controlled~
-@536 = ~Failed to control~
+Richiede:
+Forza 6
 
-@540 = ~Shroud of Souls~
-@541 = ~It is said that this shroud has been woven from the hair of Nereids. It is surprisingly light and looks almost translucent. However, when worn the souls of the Nereids divert all attention from the wearer, thus making it difficult for potential attackers to hit, if they detect the wearer at all.
+Peso: 10~
+@535 = ~Controllato~
+@536 = ~Tentativo di controllo fallito~
 
-STATISTICS:
+@540 = ~Velo delle Anime~
+@541 = ~Si dice che questo velo sia stato tessuto con capelli di nereidi. È sorprendentemente leggero e appare quasi semitrasparente. Tuttavia, quando viene indossato, il Velo delle Anime devia completamente l'attenzione dal suo portatore, rendendolo così difficile da colpire per i potenziali attaccanti, sempre che riescano ad individuarlo.
 
-Equipped abilities:
-– Armor Class: +3
-– Non-detectable by magical means such as Detect Invisibility and scrying
-– Prevents the Shamanic Dance from dispelling invisibility
-– Can be worn in combination with any other protective enchantment
+STATISTICHE:
 
-Weight: 1~
+Abilità durante l'uso:
+– Classe Armatura: +3
+– Il portatore non è individuabile da strumenti magici come Individuazione dell'Invisibilità e dalle magie di Divinazione
+– Impedisce che la Danza Sciamanica dissolva l'invisibilità
+– Può essere indossato in combinazione con qualsiasi altro oggetto di protezione incantato
+
+Peso: 1~
