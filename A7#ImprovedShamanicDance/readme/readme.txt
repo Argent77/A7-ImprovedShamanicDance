@@ -75,6 +75,7 @@ Note: Since Shamanic Dance can be implemented in many different ways, it is not 
 
 The following Shaman kits are confirmed to be compatible:
 - Witchlight Shaman (Will of the Wisps, by Lava Del'Vortel)
+- Spiritwalker Shaman (by Ulb)
 
 
 5. Shaman-specific items for IWD:EE (requires IWD:EE)
