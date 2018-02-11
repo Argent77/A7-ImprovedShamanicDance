@@ -1,6 +1,6 @@
 // -*- coding: utf-8 -*- 
 
-@100 = ~CHAMAN : Les Chamans forgent une connexion divine avec le monde naturel, semblable à la voie empruntée par les Druides avec la nature, mais les Chamans sont plus spirituels que primitifs. Ils puisent directement dans les énergies qui circulent à travers la terre et l'air, à travers les plantes et les animaux, et même à travers les morts, et ils façonnent ces énergies pour obéir à leur volonté. Leur capacité d'invoquer des esprits puissants comme gardiens et défenseurs, en est un parfait exemple. Partagés entre les deux mondes, les Chamans privilégient l'équilibre à la domination. 
+@100 = ~SHAMAN : Les shamans forgent une connexion divine avec le monde naturel, semblable à la voie empruntée par les Druides avec la nature, mais les shamans sont plus spirituels que primitifs. Ils puisent directement dans les énergies qui circulent à travers la terre et l'air, à travers les plantes et les animaux, et même à travers les morts, et ils façonnent ces énergies pour obéir à leur volonté. Leur capacité d'invoquer des esprits puissants comme gardiens et défenseurs, en est un parfait exemple. Partagés entre les deux mondes, les shamans privilégient l'équilibre à la domination. 
 
 CAPACITÉS :
 
@@ -10,25 +10,25 @@ CAPACITÉS :
 – Ne peut être que compétent (une étoile) dans le maniement des armes.
 – Ne peut être que compétent (une étoile) dans les styles de combat.
 – Peut lancer des sorts de Druide.
-– Le Chaman n'apprend pas tous les sorts du niveau comme un Druide. À la place, il sélectionne de nouveaux sorts à apprendre à chaque niveau ; un Chaman peut lancer des sorts sans avoir besoin de les mémoriser.
-– Le Chaman a un accès immédiat à un nombre de sorts spécifiques à sa classe, qu'il peut lancer comme n'importe quel autre sort : Protection de l'Esprit, Brouillard Putride, Lucidité Spirituelle, Feu Spirituel, Rappel de l'Esprit, Verrou Spirituel et Portail Éthéré.
+– Le shaman n'apprend pas tous les sorts du niveau comme un Druide. À la place, il sélectionne de nouveaux sorts à apprendre à chaque niveau ; un shaman peut lancer des sorts sans avoir besoin de les mémoriser.
+– Le shaman a un accès immédiat à un nombre de sorts spécifiques à sa classe, qu'il peut lancer comme n'importe quel autre sort : Protection de l'Esprit, Brouillard Putride, Lucidité Spirituelle, Feu Spirituel, Rappel de l'Esprit, Verrou Spirituel et Portail Éthéré.
 – Il acquiert la compétence Détection des illusions en débutant avec 20 %. Puis il gagne 4 % par niveau pour atteindre un maximum de 100 % au niveau 20.
-– Il peut utiliser la Danse Chamanique à volonté.
+– Il peut utiliser la Danse shamanique à volonté.
 
-DANSE CHAMANIQUE : Les Chamans peuvent invoquer des esprits alliés grâce à une danse rituelle. Durant la danse, le Chaman subit une pénalité de 4 à la classe d'armure, il se déplace à vitesse réduite et il ne peut attaquer, lancer des sorts, utiliser des objets ou des capacités spéciales, ou effectuer toute autre activité. À chaque round, tandis que le Chaman danse, il a 35 % de chance de base plus 2 % pour chaque niveau supplémentaire qu'un esprit réponde à l'appel, avec un maximum de 75 % au niveau 20. Tous les esprits invoqués disparaîtront si le Chaman arrête de danser. Les esprits augmentent en puissance au fur et à mesure que le Chaman gagne des niveaux supplémentaires :
+DANSE SHAMANIQUE : Les shamans peuvent invoquer des esprits alliés grâce à une danse rituelle. Durant la danse, le shaman subit une pénalité de 4 à la classe d'armure, il se déplace à vitesse réduite et il ne peut attaquer, lancer des sorts, utiliser des objets ou des capacités spéciales, ou effectuer toute autre activité. À chaque round, tandis que le shaman danse, il a 35 % de chance de base plus 2 % pour chaque niveau supplémentaire qu'un esprit réponde à l'appel, avec un maximum de 75 % au niveau 20. Tous les esprits invoqués disparaîtront si le shaman arrête de danser. Les esprits augmentent en puissance au fur et à mesure que le shaman gagne des niveaux supplémentaires :
   Niveau 1 : Esprits animal mineurs (serpent, renard, limier), jusqu'à 2 esprits en même temps.
   Niveau 6 : Esprits animal majeurs (ours, panthère, sanglier), jusqu'à 3 esprits en même temps.
   Niveau 12 : Esprits de la nature mineurs (esprit d'air mineur, esprit de terre mineur, esprit de feu mineur), jusqu'à 4 esprits en même temps.
   Niveau 18 : Esprits de la nature majeurs (esprit d'air, esprit de terre, esprit de feu), jusqu'à 5 esprits en même temps.
-Le type d'esprit invoqué est déterminé aléatoirement parmi les esprits disponibles en fonction du niveau du Chaman. Par exemple, au niveau 12 le Chaman invoquera soit un esprit de la nature mineur, un esprit animal majeur ou un esprit animal mineur, mais il ne pourra pas choisir ceux qui apparaîtront. Les esprits feront de leur mieux pour protéger le Chaman, mais il ne les contrôle pas directement. 
+Le type d'esprit invoqué est déterminé aléatoirement parmi les esprits disponibles en fonction du niveau du shaman. Par exemple, au niveau 12 le shaman invoquera soit un esprit de la nature mineur, un esprit animal majeur ou un esprit animal mineur, mais il ne pourra pas choisir ceux qui apparaîtront. Les esprits feront de leur mieux pour protéger le shaman, mais il ne les contrôle pas directement.
 
 – Aucun bonus de sorts par jour lié à une grande Sagesse.
 – Doit être d'alignement neutre bon, neutre strict ou neutre mauvais.
 – Ne peut pas être bi-classé ou multi-classé.
-– Le Chaman n'est pas éligible pour une forteresse (Cela concerne uniquement la Campagne Shadows of Amn dans Baldur's Gate II: Enhanced Edition.)
+– Le shaman n'est pas éligible pour une forteresse (Cela concerne uniquement la Campagne Shadows of Amn dans Baldur's Gate II: Enhanced Edition.)
 – Dés de vie : d8~
 
-@101 = ~CHAMAN : Les Chamans forgent une connexion divine avec le monde naturel, semblable à la voie empruntée par les Druides avec la nature, mais les Chamans sont plus spirituels que primitifs. Ils puisent directement dans les énergies qui circulent à travers la terre et l'air, à travers les plantes et les animaux, et même à travers les morts, et ils façonnent ces énergies pour obéir à leur volonté. Leur capacité d'invoquer des esprits puissants comme gardiens et défenseurs, en est un parfait exemple. Partagés entre les deux mondes, les Chamans privilégient l'équilibre à la domination. 
+@101 = ~SHAMAN : Les shamans forgent une connexion divine avec le monde naturel, semblable à la voie empruntée par les Druides avec la nature, mais les shamans sont plus spirituels que primitifs. Ils puisent directement dans les énergies qui circulent à travers la terre et l'air, à travers les plantes et les animaux, et même à travers les morts, et ils façonnent ces énergies pour obéir à leur volonté. Leur capacité d'invoquer des esprits puissants comme gardiens et défenseurs, en est un parfait exemple. Partagés entre les deux mondes, les shamans privilégient l'équilibre à la domination. 
 
 CAPACITÉS :
 
@@ -38,24 +38,24 @@ CAPACITÉS :
 – Ne peut être que compétent (une étoile) dans le maniement des armes.
 – Ne peut être que compétent (une étoile) dans les styles de combat.
 – Peut lancer des sorts de Druide.
-– Le Chaman n'apprend pas tous les sorts du niveau comme un Druide. À la place, il sélectionne de nouveaux sorts à apprendre à chaque niveau ; un Chaman peut lancer des sorts sans avoir besoin de les mémoriser.
-– Le Chaman a un accès immédiat à un nombre de sorts spécifiques à sa classe, qu'il peut lancer comme n'importe quel autre sort : Protection de l'Esprit, Brouillard Putride, Lucidité Spirituelle, Feu Spirituel, Rappel de l'Esprit, Verrou Spirituel et Portail Éthéré.
+– Le shaman n'apprend pas tous les sorts du niveau comme un Druide. À la place, il sélectionne de nouveaux sorts à apprendre à chaque niveau ; un shaman peut lancer des sorts sans avoir besoin de les mémoriser.
+– Le shaman a un accès immédiat à un nombre de sorts spécifiques à sa classe, qu'il peut lancer comme n'importe quel autre sort : Protection de l'Esprit, Brouillard Putride, Lucidité Spirituelle, Feu Spirituel, Rappel de l'Esprit, Verrou Spirituel et Portail Éthéré.
 – Il acquiert la compétence Détection des illusions en débutant avec 20 %. Puis il gagne 4 % par niveau pour atteindre un maximum de 100 % au niveau 20.
-– Il peut utiliser la Danse Chamanique à volonté.
+– Il peut utiliser la Danse shamanique à volonté.
 
-DANSE CHAMANIQUE : Les Chamans peuvent invoquer des esprits alliés grâce à une danse rituelle. Durant la danse, le Chaman subit une pénalité de 4 à la classe d'armure, il se déplace à vitesse réduite et il ne peut attaquer, lancer des sorts, utiliser des objets ou des capacités spéciales, ou effectuer toute autre activité. À chaque round, tandis que le Chaman danse, il a 35 % de chance de base plus 2 % pour chaque niveau supplémentaire qu'un esprit réponde à l'appel, avec un maximum de 95 % au niveau 30. Tous les esprits invoqués disparaîtront si le Chaman arrête de danser. Les esprits augmentent en puissance au fur et à mesure que le Chaman gagne des niveaux supplémentaires :
+DANSE SHAMANIQUE : Les shamans peuvent invoquer des esprits alliés grâce à une danse rituelle. Durant la danse, le shaman subit une pénalité de 4 à la classe d'armure, il se déplace à vitesse réduite et il ne peut attaquer, lancer des sorts, utiliser des objets ou des capacités spéciales, ou effectuer toute autre activité. À chaque round, tandis que le shaman danse, il a 35 % de chance de base plus 2 % pour chaque niveau supplémentaire qu'un esprit réponde à l'appel, avec un maximum de 95 % au niveau 30. Tous les esprits invoqués disparaîtront si le shaman arrête de danser. Les esprits augmentent en puissance au fur et à mesure que le shaman gagne des niveaux supplémentaires :
   Niveau 1 : Esprits animal mineurs (serpent, renard, limier), jusqu'à 2 esprits en même temps.
   Niveau 6 : Esprits animal majeurs (ours, panthère, sanglier), jusqu'à 3 esprits en même temps.
   Niveau 12 : Esprits de la nature mineurs (esprit d'air mineur, esprit de terre mineur, esprit de feu mineur), jusqu'à 4 esprits en même temps.
   Niveau 18 : Esprits de la nature majeurs (esprit d'air, esprit de terre, esprit de feu), jusqu'à 5 esprits en même temps.
   Niveau 24 : Esprits de la nature supérieurs (esprit d'air supérieur, esprit de terre supérieur, esprit de feu supérieur), jusqu'à 6 esprits en même temps.
-Le type d'esprit invoqué est déterminé aléatoirement parmi les esprits disponibles en fonction du niveau du Chaman. Par exemple, au niveau 12 le Chaman invoquera soit un esprit de la nature mineur, un esprit animal majeur ou un esprit animal mineur, mais il ne pourra pas choisir ceux qui apparaîtront. Les esprits feront de leur mieux pour protéger le Chaman, mais il ne les contrôle pas directement. 
-Le Chaman sera également protégé par les esprits à partir du niveau 24. Les esprits octroient une protection contre les armes non-magiques ainsi qu'une immunité contre tous les effets de sorts de niveau 1 et 2.
+Le type d'esprit invoqué est déterminé aléatoirement parmi les esprits disponibles en fonction du niveau du shaman. Par exemple, au niveau 12 le shaman invoquera soit un esprit de la nature mineur, un esprit animal majeur ou un esprit animal mineur, mais il ne pourra pas choisir ceux qui apparaîtront. Les esprits feront de leur mieux pour protéger le shaman, mais il ne les contrôle pas directement.
+Le shaman sera également protégé par les esprits à partir du niveau 24. Les esprits octroient une protection contre les armes non-magiques ainsi qu'une immunité contre tous les effets de sorts de niveau 1 et 2.
 
 – Aucun bonus de sorts par jour lié à une grande Sagesse.
 – Doit être d'alignement neutre bon, neutre strict ou neutre mauvais.
 – Ne peut pas être bi-classé ou multi-classé.
-– Le Chaman n'est pas éligible pour une forteresse (Cela concerne uniquement la Campagne Shadows of Amn dans Baldur's Gate II: Enhanced Edition.)
+– Le shaman n'est pas éligible pour une forteresse (Cela concerne uniquement la Campagne Shadows of Amn dans Baldur's Gate II: Enhanced Edition.)
 – Dés de vie : d8~
 
 @200 = ~Un esprit de la nature supérieur a répondu à votre appel.~
@@ -64,8 +64,8 @@ Le Chaman sera également protégé par les esprits à partir du niveau 24. Les 
 @203 = ~Esprit de terre supérieur~
 @204 = ~Protégé par les esprits~
 
-@300 = ~Pacte chamanique~
-@301 = ~Pacte chamanique
+@300 = ~Pacte shamanique~
+@301 = ~Pacte shamanique
 (Conjuration)
 
 Niveau : 6
@@ -74,9 +74,9 @@ Portée : 9 mètres
 Durée : 2 rounds / niveau
 Temps d'incantation : 5
 Zone d'effet : 1 créature
-Jet de sauvegarde : annule.
+Jet de sauvegarde : annule
 
-Ce sort permet de négocier un contrat avec une créature. Si cette dernière rate un jet de sauvegarde contre les sorts (avec une pénalité de 4 si elle partage le même alignement moral, de 2 sinon), elle ressuscitera après sa mort sous la forme d'un esprit de son ancienne nature, à condition que son corps ne soit pas entièrement détruit. Le chaman peut contrôler cet esprit pendant deux rounds par niveau. À l'issue de cette durée, l'esprit quittera définitivement le monde des vivants. La phase de négociation est harassante pour le chaman, car elle nécessite qu'il maintienne une connexion directe avec l'esprit de la cible. En conséquence, il aura 50 % de chance de rater ses sorts pendant les trois rounds qui suivent, et sa force et sa constitution seront diminuées de moitié pendant un tour, quel que soit le résultat de la négociation.
+Ce sort permet de négocier un contrat avec une créature. Si cette dernière rate un jet de sauvegarde contre les sorts (avec une pénalité de 4 si elle partage le même alignement moral, de 2 sinon), elle ressuscitera après sa mort sous la forme d'un esprit de son ancienne nature, à condition que son corps ne soit pas entièrement détruit. Le shaman peut contrôler cet esprit pendant deux rounds par niveau. À l'issue de cette durée, l'esprit quittera définitivement le monde des vivants. La phase de négociation est harassante pour le shaman, car elle nécessite qu'il maintienne une connexion directe avec l'esprit de la cible. En conséquence, il aura 50 % de chance de rater ses sorts pendant les trois rounds qui suivent, et sa force et sa constitution seront diminuées de moitié pendant un tour, quel que soit le résultat de la négociation.
 
 Les esprits ne peuvent pas parler et ne peuvent pas lancer les sorts et utiliser les capacités spéciales qu'ils possédaient pendant leur vie antérieure. Cependant, ils conservent leurs caractéristiques de base, comme leur force et leurs résistances. Ils attaquent uniquement avec leurs poings, dont la puissance et le degré d'enchantement augmentent avec leur niveau. Les morts-vivants, les golems, les créatures convoquées ainsi que les celles protégées par un sort de Protection contre la mort ne sont pas affectés par ce sort. La Résistance magique de la cible est ignorée.~
 @302 = ~Pacte signé~
@@ -86,87 +86,85 @@ Les esprits ne peuvent pas parler et ne peuvent pas lancer les sorts et utiliser
 @306 = ~Poing +2~
 @307 = ~Poing +3~
 @308 = ~Rappel de l'Esprit, ~
-@309 = ~Pacte chamanique, ~
+@309 = ~Pacte shamanique, ~
 
 
 // Shamanic items
-@500 = ~The Soulherder's Staff +2~
-@501 = ~A gnarled wooden staff cut from the dak'Dekanter goblin tribe's sacred tree, this item was a symbol of spiritual power for centuries. It disappeared during a hard-fought battle between the dak'Dekanters and a dwarven clan whose name is lost to history, and those few who remembered it once existed thought it lost forever. It was found later by a band of marauding orcs on their way to The Severed Hand.
+@500 = ~Bâton +2 Le Berger des âmes~
+@501 = ~Taillé dans l'arbre sacré de la tribu des gobelins de dak'Dekanter, ce bâton de bois noueux a été pendant des siècles un symbole de pouvoir spirituel. Il a disparu au cours d'une bataille âprement disputée entre les dak'Dekanter et un clan nain dont le nom s'est perdu dans les méandres de l'histoire, et les rares qui s'en souvenaient croyaient qu'il avait été perdu pour toujours. Il a été retrouvé plus tard par une bande d'orques en maraude qui se dirigeaient vers la Main tranchée.
 
-STATISTICS:
+PARAMÈTRES :
 
-Equipped abilities:
-– Magic Resistance: +15%
-– Summoned spirits gain a +1 to Strength
+Capacités d'équipement :
+– Résistance à la magie : + 15%
+– Les esprits invoqués bénéficient d'un bonus de 1 point à leur force.
 
-THAC0: +2
-Damage: 1d6, +2 (magic)
-Damage Type: Crushing
-Speed Factor: 2
-Proficiency Type: Quarterstaff
-Type: Two-handed
-Requires:
- 5 Strength
+TAC0 : +2
+Dégâts : 1d6 +2 (magique)
+Type de dégâts : contondant
+Facteur de vitesse : 2
+Type de compétence : bâton
+Type : arme à 2 mains
+Nécessite : 5 en Force
 
-Weight: 3~
+Poids : 3~
 
-@510 = ~Circlet~
-@511 = ~Circlet of Lost Souls~
-@512 = ~A circlet is a circular band, typically made of precious metal, worn on the head as an ornament or symbol of status. Circlets carrying low-level enchantments are commonly worn by mages across Faerûn.
+@510 = ~Bandeau~
+@511 = ~Bandeau des âmes perdues~
+@512 = ~Un bandeau est une fine lanière de métal précieux que l'on porte sur le crâne. Il sert en général d'ornement ou à indiquer le statut de son porteur. Les bandeaux sujets à des enchantements de bas niveau sont souvent utilisés par les magiciens de Féérûne.
 
-Weight: 1~
-@513 = ~Adventurers delving in a tomb centuries ago were set upon by ghosts and spectres when they entered the central crypt. The adventurers fought bravely but, one by one, they fell to the ghosts' attacks. Years later, the daughter of one of the adventurers hired a team to delve into the tomb and recover the bodies. The daughter told her group not to disturb anything but the dead adventurers they had come to collect, and the spirits of the tomb let them be. The woman kept her dead father's circlet as a memento of his bravery.
+Poids : 1~
+@513 = ~Il y a des siècles, des aventuriers qui pillaient une tombe furent attaqués par des fantômes et des spectres en pénétrant dans la crypte principale. Ils se battirent avec bravoure, mais finirent par tomber un par un sous les coups des fantômes. Des années plus tard, la fille de l'un d'entre eux engagea une équipe pour aller récupérer leurs corps dans la tombe. Elle les prévint de ne pas toucher à quoi que ce soit, hormis les cadavres des aventuriers morts qu'ils venaient chercher ; et les esprits de la tombe les laissèrent faire. Elle conserva le bandeau de son défunt père en souvenir de sa bravoure.
 
-STATISTICS:
+PARAMÈTRES :
 
-Equipped abilities:
-– Caster Level: +1
-– Summoned spirits are constantly under the effects of the Bless spell
+Capacités d'équipement :
+– Niveau de lanceur de sorts : +1
+– Les esprits invoqués bénéficient en permanence des effets du sort de Bénédiction.
 
-Weight: 1~
+Poids : 1~
 
-@520 = ~Heart of the Mountain~
-@521 = ~During a skirmish between a powerful water elemental and a powerful earth elemental, a tiny fragment of the latter broke off. An orc fleeing the site of the battle snatched the fragment up as she ran. This she gave to her tribe's shaman, who immediately recognized its power and fashioned it into an amulet. 
+@520 = ~Cœur de la Montagne~
+@521 = ~C'est au cours d'une échauffourée avec un élémentaire de l'eau qu'un puissant élémentaire de la terre perdit un petit fragment de son enveloppe corporelle. Une orque qui fuyait à toutes jambes le champ de bataille parvint à s'en emparer. Elle le confia au chaman de sa tribu qui identifia immédiatement sa puissance potentielle et l'intégra à une amulette.
 
-The Heart of the Mountain is of particular use to those who do the Ghost Dance. Such folk dwell at least partly in the realm of the spirits; the amulet forges a stronger connection 'twixt them and the earth, lending its wearer strength in the face of physical adversity.
+Le Cœur de la Montagne est particulièrement utile aux adeptes de la Danse chamanique. L'existence de ces individus étant partagée entre le monde naturel et celui des esprits, l'amulette forge une connexion plus forte entre eux et la terre, conférant à son porteur plus de force pour contrer les attaques physiques.
 
-STATISTICS:
+PARAMÈTRES :
 
-Equipped abilities: 
-– Armor Class: +2
-– Summoned spirits gain +10 Hit Points
+Capacités d'équipement :
+– Classe d'armure : +2
+– Les esprits invoqués gagnent 10 PV supplémentaires.
 
-Weight: 0~
+Poids : 0~
 
-@530 = ~Spirit Guide +4~
-@531 = ~There is a great mystery surrounding this hide armor. No one knows how or where it came into existence. What is known is that the leather was cut from the hide of a white dragon. The armor is heavily enchanted and seems to be infused with powerful spirits. The spirits protect the wearer from manipulations of the mind and allow shamans to reach into the minds of summoned spirits to gain some control over their actions.
+@530 = ~Gardien de l'esprit +4~
+@531 = ~Un grand mystère entoure cette armure de peau. Personne ne connaît ses origines, ni d'où elle provient. Tout ce que l'on sait, c'est qu'elle a été taillée dans la cuirasse d'un dragon blanc. L'armure est fortement enchantée et semble être imprégnée de puissants esprits. Ces esprits protègent son porteur contre les manipulations mentales, et permettent aux shamans de pénétrer dans l'esprit des esprits convoqués pour prendre le contrôle sur eux.
 
-STATISTICS:
+PARAMÈTRES :
 
-Equipped abilities:
-– Immunity to Dire Charm, Charm Person, Confusion, Command, and Rigid Thinking
-– 50% chance to take full control over spirits summoned by the Shamanic Dance
+Capacités d'équipement :
+– Immunité au charme néfaste, au charme, à la confusion, Injonction et Obstination bornée.
+– 50 % de chance de prendre le contrôle des esprits invoqués par la Danse shamanique.
 
-Armor Class: 2 (4 vs. piercing and missile)
-Requires:
- 6 Strength
+Classe d'armure : 2 (4 contre les armes perforantes et les projectiles)
+Nécessite : 5 en Force
 
-Weight: 10~
-@535 = ~Controlled~
-@536 = ~Failed to control~
+Poids : 10~
+@535 = ~Contrôlé~
+@536 = ~Échec du contrôle~
 
-@540 = ~Shroud of Souls~
-@541 = ~It is said that this shroud has been woven from the hair of Nereids. It is surprisingly light and looks almost translucent. However, when worn the souls of the Nereids divert all attention from the wearer, thus making it difficult for potential attackers to hit, if they detect the wearer at all.
+@540 = ~Linceul des âmes~
+@541 = ~On dit que ce linceul a été tissé avec des cheveux de Néréides. Il est étonnamment léger et semble presque translucide. Cependant, une fois revêtu, les âmes des Néréides détournent l'attention qui pourrait être accordée à celui qui le porte, le rendant très difficile à toucher par ceux qui voudraient le frapper, quand bien même ils arriveraient à le détecter.
 
-STATISTICS:
+PARAMÈTRES :
 
-Equipped abilities:
-– Armor Class: +3
-– Non-detectable by magical means such as Detect Invisibility and scrying
-– Prevents the Shamanic Dance from dispelling invisibility
-– Can be worn in combination with any other protective enchantment
+Capacités d'équipement :
+– Classe d'armure : +3
+– Rend le porteur indétectable par des moyens magiques tels que la détection de l'invisibilité et la scrutation.
+– Empêche la Danse shamanique de dissiper l'invisibilité.
+– Peut être porté avec d'autres objets de protection.
 
-Weight: 1~
+Poids : 1~
 
 
 // vanilla game strings
@@ -187,4 +185,4 @@ Weight: 1~
 @1014 = ~Un esprit animal majeur répond à votre appel.~ // A major animal spirit answers your call.
 @1015 = ~Un esprit de la nature mineur répond à votre appel.~ // A minor nature spirit answers your call.
 @1016 = ~Un esprit de la nature majeur répond à votre appel.~ // A major nature spirit answers your call.
-@1017 = ~Vous ne pouvez plus invoquer d'autre créature.~ // You cannot summon any more creatures.
+@1017 = ~Vous ne pouvez plus invoquer d'autres créatures.~  // You cannot summon any more creatures.

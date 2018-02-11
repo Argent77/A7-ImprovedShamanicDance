@@ -1,15 +1,15 @@
 // -*- coding: us-ascii -*- 
 
-@1 = ~Danse Chamanique amelioree~
-@2 = ~Danse Chamanique etendue pour les personnages de haut niveau~
-@3 = ~Ajouter le sort "Pacte chamanique"~
-@4 = ~Apply Shamanic Dance improvements to Shaman kits~
-@5 = ~Shaman-specific items for IWD:EE~
+@1 = ~Danse shamanique amelioree~
+@2 = ~Danse shamanique etendue pour les personnages de haut niveau~
+@3 = ~Ajouter le sort "Pacte shamanique"~
+@4 = ~Appliquer la Danse shamanique amelioree a tous les profils de Shaman~
+@5 = ~Objets specifiques aux Shamans pour IWD:EE~
 
 @50 = ~Jeu en version Enhanced Edition requis.~
-@51 = ~Pas de classe de Chaman disponible.~
+@51 = ~Pas de classe de Shaman disponible.~
 @52 = ~Composant principal requis.~
-@53 = ~Only available for IWD:EE.~
+@53 = ~Seulement disponible pour IWD:EE.~
 
 
 // WeiDU prompts
