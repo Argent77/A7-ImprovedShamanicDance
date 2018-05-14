@@ -73,5 +73,6 @@ BEGIN @5  // Shaman-specific items for IWD:EE
   REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~spsh003.spl~ AND 
                      FILE_EXISTS_IN_GAME ~spsh004.spl~ AND
                      FILE_EXISTS_IN_GAME ~bdshunsu.bcs~) @51  // No shaman class available.
+  DESIGNATED 40
 
   INCLUDE ~%MOD_FOLDER%/lib/items_iwdee.tph~
