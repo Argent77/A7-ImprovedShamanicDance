@@ -12,7 +12,7 @@ Discussion     : https://forums.beamdog.com/discussion/58676/mod-improved-shaman
 Présentation
 ~~~~~~~~~~~~
 
-Un mod pour BG:EE, BG:SoD, BG2:EE et EET.
+Un mod pour BG:EE, BG:SoD, BG2:EE, EET et IWD:EE.
 
 L'un des traits les plus importantes de la classe du Shaman est la Danse shamanique qui permet 
 au shaman d'invoquer indéfiniment des esprits alliés pour se battre à ses côtés. Cependant, 
