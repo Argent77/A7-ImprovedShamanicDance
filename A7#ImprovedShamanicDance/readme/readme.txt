@@ -6,6 +6,7 @@ Author:     Argent77
 
 Download:   https://github.com/Argent77/A7-ImprovedShamanicDance/releases/latest
 Discussion: https://forums.beamdog.com/discussion/58676/mod-improved-shamanic-dance
+            http://www.shsforums.net/topic/59265-mod-improved-shamanic-dance/
 
 
 Overview
