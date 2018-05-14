@@ -77,6 +77,8 @@ Note : Puisque la Danse shamanique peut être implémentée de différentes mani
 
 Les profils de Shaman suivants sont garantis compatibles :
 - Witchlight Shaman (Will of the Wisps, de Lava Del'Vortel)
+- Spiritwalker Shaman (de Ulb)
+- Sorcière funeste (I hate Undead, de Raduziel)
 
 
 5. Objets spécifiques aux Shamans pour IWD:EE (nécessite IWD:EE).
