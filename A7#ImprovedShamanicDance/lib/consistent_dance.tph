@@ -36,7 +36,7 @@ ACTION_IF (IS_AN_INT ~value~ && value > 0) BEGIN
 
       PATCH_IF (row >= 0) BEGIN
         PATCH_IF (FILE_EXISTS_IN_GAME ~%value%.2DA~) BEGIN
-          TEXT_SPRINT EVAL ~kitlist_%kitlist%~ ~%value%~
+          TEXT_SPRINT $kitlist(~%kitlist%~) ~%value%~
           SET kitlist += 1
         END
         SET row += 1
@@ -46,63 +46,75 @@ ACTION_IF (IS_AN_INT ~value~ && value > 0) BEGIN
 
   // updating Shaman Dance behavior
   OUTER_FOR (idx = 0; idx < kitlist; ++idx) BEGIN
-    OUTER_TEXT_SPRINT table_resref EVAL ~%kitlist_%idx%%~
+    OUTER_TEXT_SPRINT table_resref $kitlist(~%idx%~)
     COPY_EXISTING ~%table_resref%.2DA~ ~override~
       COUNT_2DA_COLS numCols
       COUNT_2DA_ROWS numCols numRows
       // scanning CLAB table for AP_ entries
-      FOR (row = 0; row < numRows; ++row) BEGIN
-        TEXT_SPRINT spl_resref ~~
-        READ_2DA_ENTRY row 1 numCols value
-        PATCH_IF (~%value%~ STRING_MATCHES_REGEXP ~AP_.*~ = 0) BEGIN
-          INNER_PATCH_SAVE resref ~%value%~ BEGIN REPLACE_TEXTUALLY ~AP_~ ~~ END
-          PATCH_IF (FILE_EXISTS_IN_GAME ~%resref%.SPL~) BEGIN
-            INNER_ACTION BEGIN
-              // scanning AP_ spell for "Change Bard Song" resref
-              COPY_EXISTING ~%resref%.SPL~ ~override~
-                READ_LONG 0x64 ofsAbils
-                READ_SHORT 0x68 numAbils
-                READ_LONG 0x6a ofsFx
-                READ_SHORT 0x6e firstFxGlobal
-                READ_SHORT 0x70 numFxGlobal
+      FOR (col = 1; col < numCols; ++col) BEGIN
+        FOR (row = 0; row < numRows; ++row) BEGIN
+          TEXT_SPRINT spl_resref ~~
+          READ_2DA_ENTRY row col numCols value
+          PATCH_IF (~%value%~ STRING_MATCHES_REGEXP ~[GA][AP]_.*~ = 0) BEGIN
+            INNER_PATCH_SAVE resref ~%value%~ BEGIN REPLACE_TEXTUALLY ~^[GA][AP]_~ ~~ END
+            PATCH_IF (FILE_EXISTS_IN_GAME ~%resref%.SPL~) BEGIN
+              INNER_ACTION BEGIN
+                // scanning spell for "Change Bard Song" resref
+                COPY_EXISTING ~%resref%.SPL~ ~override~
+                  READ_LONG 0x64 ofsAbils
+                  READ_SHORT 0x68 numAbils
+                  READ_LONG 0x6a ofsFx
+                  READ_SHORT 0x6e firstFxGlobal
+                  READ_SHORT 0x70 numFxGlobal
 
-                FOR (idxFx = 0; idxFx < numFxGlobal; ++idxFx) BEGIN
-                  SET ofs = ofsFx + (firstFxGlobal + idxFx) * 0x30
-                  READ_SHORT ofs opcode
-                  PATCH_IF (opcode = 251) BEGIN   // Change Bard Song
-                    READ_ASCII (ofs + 0x14) spl_resref (8) NULL
-                    SET idxFx = numFxGlobal
+                  FOR (idxFx = 0; idxFx < numFxGlobal; ++idxFx) BEGIN
+                    SET ofs = ofsFx + (firstFxGlobal + idxFx) * 0x30
+                    READ_SHORT ofs opcode
+                    PATCH_IF (opcode = 251) BEGIN   // Change Bard Song
+                      READ_ASCII (ofs + 0x14) spl_resref (8) NULL
+                      PATCH_IF (NOT VARIABLE_IS_SET $resref_cache(~%spl_resref%~) || $resref_cache(~%spl_resref%~) < 2) BEGIN
+                        // update each spell instance only once
+                        SET $resref_cache(~%spl_resref%~) = 1
+                      END
+                      SET idxFx = numFxGlobal
+                    END
                   END
-                END
 
-                PATCH_IF (~%spl_resref%~ STR_EQ ~~) BEGIN
-                  FOR (idxAbil = 0; idxAbil < numAbils; ++idxAbil) BEGIN
-                    SET ofs = ofsAbils + idxAbil * 0x28
-                    READ_SHORT (ofs + 0x1e) numFx
-                    READ_SHORT (ofs + 0x20) firstFx
-                    FOR (idxFx = 0; idxFx < numFx; ++idxFx) BEGIN
-                      SET ofs2 = ofsFx + (firstFx + idxFx) * 0x30
-                      READ_SHORT ofs2 opcode
-                      PATCH_IF (opcode = 251) BEGIN   // Change Bard Song
-                        READ_ASCII (ofs2 + 0x14) spl_resref (8) NULL
-                        SET idxFx = numFx
-                        SET idxAbil = numAbils
+                  PATCH_IF (~%spl_resref%~ STR_EQ ~~) BEGIN
+                    FOR (idxAbil = 0; idxAbil < numAbils; ++idxAbil) BEGIN
+                      SET ofs = ofsAbils + idxAbil * 0x28
+                      READ_SHORT (ofs + 0x1e) numFx
+                      READ_SHORT (ofs + 0x20) firstFx
+                      FOR (idxFx = 0; idxFx < numFx; ++idxFx) BEGIN
+                        SET ofs2 = ofsFx + (firstFx + idxFx) * 0x30
+                        READ_SHORT ofs2 opcode
+                        PATCH_IF (opcode = 251) BEGIN   // Change Bard Song
+                          READ_ASCII (ofs2 + 0x14) spl_resref (8) NULL
+                          PATCH_IF (NOT VARIABLE_IS_SET $resref_cache(~%spl_resref%~) || $resref_cache(~%spl_resref%~) < 2) BEGIN
+                            // update each spell instance only once
+                            SET $resref_cache(~%spl_resref%~) = 1
+                          END
+                          SET idxFx = numFx
+                          SET idxAbil = numAbils
+                        END
                       END
                     END
                   END
-                END
-              BUT_ONLY
+                BUT_ONLY
+              END
             END
-          END
 
-          PATCH_IF (FILE_EXISTS_IN_GAME ~%spl_resref%.SPL~) BEGIN
-            INNER_ACTION BEGIN
-              // updating Shaman Dance behavior
-              COPY_EXISTING ~%spl_resref%.SPL~ ~override~
-                LPF DELETE_SPELL_EFFECT
-                  INT_VAR opcode_to_delete = 363  // Movement rate check
-                END
-              BUT_ONLY
+            PATCH_IF (VARIABLE_IS_SET $resref_cache(~%spl_resref%~) && $resref_cache(~%spl_resref%~) = 1 &&
+                      FILE_EXISTS_IN_GAME ~%spl_resref%.SPL~) BEGIN
+              SET $resref_cache(~%spl_resref%~) = 2
+              INNER_ACTION BEGIN
+                // updating Shaman Dance behavior
+                COPY_EXISTING ~%spl_resref%.SPL~ ~override~
+                  LPF DELETE_SPELL_EFFECT
+                    INT_VAR opcode_to_delete = 363  // Movement rate check
+                  END
+                BUT_ONLY
+              END
             END
           END
         END
