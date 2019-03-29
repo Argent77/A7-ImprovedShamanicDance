@@ -18,7 +18,7 @@ BEGIN
       COUNT_2DA_ROWS 32 num_rows  // don't include table header
       FOR (i = 0; i < num_rows && exists = 0; i += 1) BEGIN
         READ_2DA_ENTRY i 0 32 cur_name
-        PATCH_IF (~%cur_name%~ STRING_EQUAL_CASE ~%campaign%~) BEGIN
+        PATCH_IF (~%cur_name%~ STR_EQ ~%campaign%~) BEGIN
           SET exists = 1
         END
       END
@@ -111,160 +111,160 @@ BEGIN
       SET found = 0
       FOR (i = 1; i < tbl_get_campaign && found = 0; i += 1) BEGIN
         READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 0 campaign_name
-        PATCH_IF (~%campaign_name%~ STRING_EQUAL_CASE ~%campaign%~) BEGIN
+        PATCH_IF (~%campaign_name%~ STR_EQ ~%campaign%~) BEGIN
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 1 cmp_worldscript
-          PATCH_IF (~%cmp_worldscript%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_worldscript%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_worldscript
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 2 cmp_description
-          PATCH_IF (~%cmp_description%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_description%~ STR_EQ ~*~) BEGIN
             SET cmp_description = "-1"
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 3 cmp_icon
-          PATCH_IF (~%cmp_icon%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_icon%~ STR_EQ ~*~) BEGIN
             SET cmp_icon = "-1"
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 4 cmp_interdia
-          PATCH_IF (~%cmp_interdia%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_interdia%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_interdia
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 5 cmp_loadhint
-          PATCH_IF (~%cmp_loadhint%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_loadhint%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_loadhint
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 6 cmp_masterarea
-          PATCH_IF (~%cmp_masterarea%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_masterarea%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_masterarea
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 7 cmp_music
-          PATCH_IF (~%cmp_music%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_music%~ STR_EQ ~*~) BEGIN
             SET cmp_music = "-1"
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 8 cmp_name
-          PATCH_IF (~%cmp_name%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_name%~ STR_EQ ~*~) BEGIN
             SET cmp_name = "-1"
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 9 cmp_npclevel
-          PATCH_IF (~%cmp_npclevel%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_npclevel%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_npclevel
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 10 cmp_tbpparty
-          PATCH_IF (~%cmp_tbpparty%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_tbpparty%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_tbpparty
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 11 cmp_pdialog
-          PATCH_IF (~%cmp_pdialog%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_pdialog%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_pdialog
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 12 cmp_save_dir
-          PATCH_IF (~%cmp_save_dir%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_save_dir%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_save_dir
           END
           TEXT_SPRINT cmp_mpsave_dir ~mp%cmp_save_dir%~
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 13 cmp_startare
-          PATCH_IF (~%cmp_startare%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_startare%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_startare
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 14 cmp_strtgold
-          PATCH_IF (~%cmp_strtgold%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_strtgold%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_strtgold
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 15 cmp_startpos
-          PATCH_IF (~%cmp_startpos%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_startpos%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_startpos
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 16 cmp_stweapon
-          PATCH_IF (~%cmp_stweapon%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_stweapon%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_stweapon
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 17 cmp_25stweap
-          PATCH_IF (~%cmp_25stweap%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_25stweap%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_25stweap
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 18 cmp_xpcap
-          PATCH_IF (~%cmp_xpcap%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_xpcap%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_xpcap
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 19 cmp_xplist
-          PATCH_IF (~%cmp_xplist%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_xplist%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_xplist
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 20 cmp_worldmap
-          PATCH_IF (~%cmp_worldmap%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_worldmap%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_worldmap
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 21 cmp_worldscript2
-          PATCH_IF (~%cmp_worldscript2%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_worldscript2%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_worldscript2
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 22 cmp_map_dropshadow
-          PATCH_IF (~%cmp_map_dropshadow%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_map_dropshadow%~ STR_EQ ~*~) BEGIN
             SET cmp_map_dropshadow = "-1"
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 23 cmp_map_fontcolor
-          PATCH_IF (~%cmp_map_fontcolor%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_map_fontcolor%~ STR_EQ ~*~) BEGIN
             TEXT_SPRINT cmp_map_fontcolor ~0xFFFFFFFF~
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 24 cmp_keep_powers
-          PATCH_IF (~%cmp_keep_powers%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_keep_powers%~ STR_EQ ~*~) BEGIN
             SET cmp_keep_powers = "-1"
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 25 cmp_intro_movie
-          PATCH_IF (~%cmp_intro_movie%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_intro_movie%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_intro_movie
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 26 cmp_import
-          PATCH_IF (~%cmp_import%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_import%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_import
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 27 cmp_interact
-          PATCH_IF (~%cmp_interact%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_interact%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_interact
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 28 cmp_years
-          PATCH_IF (~%cmp_years%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_years%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_years
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 29 cmp_reputation
-          PATCH_IF (~%cmp_reputation%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_reputation%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_reputation
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 30 cmp_clastext
-          PATCH_IF (~%cmp_clastext%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_clastext%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_clastext
           END
 
           READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ i 31 cmp_racetext
-          PATCH_IF (~%cmp_racetext%~ STRING_EQUAL ~*~) BEGIN
+          PATCH_IF (~%cmp_racetext%~ STR_EQ ~*~) BEGIN
             READ_2DA_ENTRY_FORMER ~tbl_get_campaign~ 0 0 cmp_racetext
           END
 
@@ -326,7 +326,7 @@ STR_VAR
   cmp_racetext        = ~~
 BEGIN
   ACTION_IF (FILE_EXISTS_IN_GAME ~campaign.2da~) BEGIN
-    ACTION_IF (create_new != 0 && ~%campaign%~ STRING_EQUAL ~~) BEGIN
+    ACTION_IF (create_new != 0 && ~%campaign%~ STR_EQ ~~) BEGIN
       FAIL ~No campaign name specified~
     END
 
@@ -335,7 +335,7 @@ BEGIN
       SET row = "-1"
       FOR (i = 0; i < num_rows && row < 0; i += 1) BEGIN
         READ_2DA_ENTRY i 0 32 cur_name
-        PATCH_IF (~%cur_name%~ STRING_EQUAL_CASE ~%campaign%~) BEGIN
+        PATCH_IF (~%cur_name%~ STR_EQ ~%campaign%~) BEGIN
           PATCH_IF (create_new != 0) BEGIN
             PATCH_FAIL ~Campaign "%campaign%" already exists~
           END
@@ -352,10 +352,10 @@ BEGIN
         TEXT_SPRINT tbl_row ~%campaign%       ~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_worldscript%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_worldscript%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 1 ~%cmp_worldscript%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_worldscript%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_worldscript%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"WORLDSCRIPT not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_worldscript%~
@@ -373,28 +373,28 @@ BEGIN
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_icon%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_interdia%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_interdia%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 4 ~%cmp_interdia%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_interdia%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_interdia%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"INTERDIA not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_interdia%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_loadhint%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_loadhint%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 5 ~%cmp_loadhint%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_loadhint%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_loadhint%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"LOADHINT not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_loadhint%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_masterarea%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_masterarea%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 6 ~%cmp_masterarea%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_masterarea%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_masterarea%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"MASTERAREA not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_masterarea%~
@@ -412,118 +412,118 @@ BEGIN
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_name%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_npclevel%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_npclevel%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 9 ~%cmp_npclevel%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_npclevel%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_npclevel%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"NPCLEVEL not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_npclevel%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_tbpparty%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_tbpparty%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 10 ~%cmp_tbpparty%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_tbpparty%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_tbpparty%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"TBPPARTY not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_tbpparty%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_pdialog%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_pdialog%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 11 ~%cmp_pdialog%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_pdialog%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_pdialog%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"PDIALOG not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_pdialog%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_save_dir%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_save_dir%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 12 ~%cmp_save_dir%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_save_dir%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_save_dir%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"SAVE_DIR not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_save_dir%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_startare%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_startare%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 13 ~%cmp_startare%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_startare%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_startare%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"STARTARE not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_startare%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_strtgold%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_strtgold%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 14 ~%cmp_strtgold%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_strtgold%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_strtgold%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"STRTGOLD not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_strtgold%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_startpos%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_startpos%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 15 ~%cmp_startpos%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_startpos%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_startpos%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"STARTPOS not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_startpos%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_stweapon%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_stweapon%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 16 ~%cmp_stweapon%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_stweapon%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_stweapon%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"STWEAPON not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_stweapon%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_25stweap%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_25stweap%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 17 ~%cmp_25stweap%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_25stweap%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_25stweap%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"25STWEAP not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_25stweap%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_xpcap%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_xpcap%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 18 ~%cmp_xpcap%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_xpcap%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_xpcap%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"XPCAP not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_xpcap%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_xplist%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_xplist%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 19 ~%cmp_xplist%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_xplist%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_xplist%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"XPLIST not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_xplist%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_worldmap%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_worldmap%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 20 ~%cmp_worldmap%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_worldmap%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_worldmap%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"WORLDMAP not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_worldmap%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_worldscript2%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_worldscript2%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 21 ~%cmp_worldscript2%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_worldscript2%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_worldscript2%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"WORLDSCRIPT (2) not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_worldscript2%~
@@ -535,10 +535,10 @@ BEGIN
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_map_dropshadow%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_map_fontcolor%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_map_fontcolor%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 23 ~%cmp_map_fontcolor%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_map_fontcolor%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_map_fontcolor%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"MAP_FONTCOLOR not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_map_fontcolor%~
@@ -550,64 +550,64 @@ BEGIN
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_keep_powers%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_intro_movie%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_intro_movie%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 25 ~%cmp_intro_movie%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_intro_movie%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_intro_movie%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"INTRO_MOVIE not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_intro_movie%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_import%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_import%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 26 ~%cmp_import%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_import%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_import%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"IMPORT not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_import%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_interact%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_interact%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 27 ~%cmp_interact%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_interact%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_interact%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"INTERACT not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_interact%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_years%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_years%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 28 ~%cmp_years%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_years%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_years%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"YEARS not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_years%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_reputation%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_reputation%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 29 ~%cmp_reputation%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_reputation%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_reputation%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"REPUTATION not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_reputation%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_clastext%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_clastext%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 30 ~%cmp_clastext%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_clastext%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_clastext%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"CLASTEXT not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_clastext%~
       END
 
-      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_racetext%~ STRING_EQUAL ~~) BEGIN
+      PATCH_IF (create_new = 0 && row >= 0 && NOT ~%cmp_racetext%~ STR_EQ ~~) BEGIN
         SET_2DA_ENTRY_LATER ~tbl_set_campaign~ row 31 ~%cmp_racetext%~
       END ELSE PATCH_IF (create_new != 0) BEGIN
-        PATCH_IF (~%cmp_racetext%~ STRING_EQUAL ~~) BEGIN
+        PATCH_IF (~%cmp_racetext%~ STR_EQ ~~) BEGIN
           PATCH_FAIL ~"RACETEXT not defined"~
         END
         TEXT_SPRINT tbl_row ~%tbl_row%    %cmp_racetext%~

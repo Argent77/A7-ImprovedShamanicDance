@@ -153,7 +153,7 @@ END
 
 
 // Adding French translation of vanilla creature names
-ACTION_IF (~%LANGUAGE%~ STRING_EQUAL_CASE ~french~) BEGIN
+ACTION_IF (~%LANGUAGE%~ STR_EQ ~french~) BEGIN
   // Updating creature names of spirits
   ACTION_DEFINE_ARRAY cre_names BEGIN "bdsha01a" "bdsha01b" "bdsha01c" "bdsha06a" "bdsha06b" "bdsha06c" "bdsha12a" "bdsha12b" "bdsha12c" "bdsha18a" "bdsha18b" "bdsha18c" END
   OUTER_SET index = 1000
