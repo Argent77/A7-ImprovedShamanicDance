@@ -1,7 +1,7 @@
 Improved Shamanic Dance
 ~~~~~~~~~~~~~~~~~~~~~~~
 
-Version:    4.0
+Version:    4.1
 Author:     Argent77
 
 Download:   https://github.com/Argent77/A7-ImprovedShamanicDance/releases/latest
@@ -203,6 +203,14 @@ ShareAlike 4.0 International License" (http://creativecommons.org/licenses/by-sa
 
 History
 ~~~~~~~
+
+Version 4.1
+- Added Project Infinity metadata
+- Added German translation for WeiDU prompts
+- Added WeiDU SUPPORT information
+- Improved Dance detection for Shaman kits
+- Fixed Shaman class description in BG:EE
+- Internal fixes
 
 Version 4.0
 - Added IWD:EE support
