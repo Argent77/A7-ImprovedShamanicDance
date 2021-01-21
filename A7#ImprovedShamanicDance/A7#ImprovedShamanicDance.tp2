@@ -1,10 +1,15 @@
-BACKUP ~A7#ImprovedShamanicDance/backup~
+BACKUP ~weidu_external/backup/A7#ImprovedShamanicDance~
 SUPPORT ~https://forums.beamdog.com/discussion/58676~
 VERSION ~4.1~
 
 ASK_EVERY_COMPONENT
 
 ALWAYS
+  // required because of non-standard BACKUP path
+  OUTER_TEXT_SPRINT MOD_FOLDER ~A7#ImprovedShamanicDance~
+  // root folder for mutable data
+  OUTER_TEXT_SPRINT WORK_FOLDER ~weidu_external~
+
   INCLUDE ~%MOD_FOLDER%/lib/functions.tph~
 END
 
@@ -17,18 +22,26 @@ LANGUAGE ~English~
          ~A7#ImprovedShamanicDance/language/english/mod.tra~
 LANGUAGE ~French (Translation by LamaPatate & Gwendolyne)~
          ~french~
+         ~A7#ImprovedShamanicDance/language/english/setup.tra~
+         ~A7#ImprovedShamanicDance/language/english/mod.tra~
          ~A7#ImprovedShamanicDance/language/french/setup.tra~
          ~A7#ImprovedShamanicDance/language/french/mod.tra~
 LANGUAGE ~German~
          ~german~
+         ~A7#ImprovedShamanicDance/language/english/setup.tra~
+         ~A7#ImprovedShamanicDance/language/english/mod.tra~
          ~A7#ImprovedShamanicDance/language/german/setup.tra~
          ~A7#ImprovedShamanicDance/language/german/mod.tra~
 LANGUAGE ~Italian (Translation by Aedan)~
          ~italian~
+         ~A7#ImprovedShamanicDance/language/english/setup.tra~
+         ~A7#ImprovedShamanicDance/language/english/mod.tra~
          ~A7#ImprovedShamanicDance/language/italian/setup.tra~
          ~A7#ImprovedShamanicDance/language/italian/mod.tra~
 LANGUAGE ~Polish (Translation by Cahir)~
          ~polish~
+         ~A7#ImprovedShamanicDance/language/english/setup.tra~
+         ~A7#ImprovedShamanicDance/language/english/mod.tra~
          ~A7#ImprovedShamanicDance/language/polish/setup.tra~
          ~A7#ImprovedShamanicDance/language/polish/mod.tra~
 
