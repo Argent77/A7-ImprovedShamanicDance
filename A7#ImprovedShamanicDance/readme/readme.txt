@@ -128,7 +128,8 @@ the Shaman takes a -4 penalty to Armor Class, moves at reduced speed and cannot 
 spells, use items and special abilities, or perform any other activity. Each round while the 
 Shaman dances, there is a 35% base chance plus 2% for each level of the Shaman that a spirit will 
 answer the call, up to a maximum of 95% at level 30. Any summoned spirits will disappear if the 
-Shaman stops dancing. The spirits grow in power as the Shaman gains additional levels:
+Shaman stops dancing, or if the spirits leave visual range. The spirits grow in power as the
+Shaman gains additional levels:
   Level 1:  Minor animal spirits (snake, fox, hound), up to 2 spirits at the same time.
   Level 6:  Major animal spirits (bear, panther, boar), up to 3 spirits at the same time.
   Level 12: Minor nature spirits (lesser air spirit, lesser earth spirit, lesser fire spirit), up 
@@ -203,6 +204,10 @@ ShareAlike 4.0 International License" (http://creativecommons.org/licenses/by-sa
 
 History
 ~~~~~~~
+
+Version 4.2
+- Fixed compatibility issues with EE patch 2.6
+- Spirits will stay close to the summoner if combat is not active
 
 Version 4.1
 - Added Project Infinity metadata

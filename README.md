@@ -19,7 +19,7 @@ One of the most prominent features of the Shaman class is the Shamanic Dance. It
 
 ### Improved Shamanic Dance (main component)
 
-This component allows Shamans to move at reduced speed while performing the dance to give them more tactical options against opponents. To counteract this improvement somewhat, spirits won't listen to any shamans anymore but their own master.
+This component allows Shamans to move at reduced speed while performing the dance to give them more tactical options against opponents. Moreover, it attempts to harmonize the combat scripts of the spirits to behave consistently across all supported games and patch versions.
 
 
 ### Expanded Shamanic Dance for high level characters (requires main component)
