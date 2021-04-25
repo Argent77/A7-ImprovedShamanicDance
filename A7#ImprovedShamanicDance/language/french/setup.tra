@@ -9,7 +9,8 @@
 @50 = ~Jeu en version Enhanced Edition requis.~
 @51 = ~Pas de classe de Shaman disponible.~
 @52 = ~Composant principal requis.~
-@53 = ~Seulement disponible pour IWD:EE.~
+// @53 = ~Seulement disponible pour IWD:EE.~
+@53 = ~Only available for BG2:EE, EET and IWD:EE.~
 
 
 // WeiDU prompts

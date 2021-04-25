@@ -165,7 +165,7 @@ Waga: 10~
 PARAMETRY:
 
 Specjalne:
-– Klasa Pancerza +3
+– Klasa Pancerza +%ac_bonus%
 – Niewykrywalność za pomocą wróżenia, czy też czaru Wykrycie niewidzialnego
 – Zapobiega rozproszeniu niewidzialności przez szamański taniec
 – Można go założyć razem z innym ekwipunkiem ochronnym

@@ -80,14 +80,17 @@ The following Shaman kits are confirmed to be compatible:
 - Dreadful Witch (I hate Undead, by Raduziel)
 
 
-5. Shaman-specific items for IWD:EE (requires IWD:EE)
+5. Shaman-specific items (requires BG2:EE, EET or IWD:EE)
 
-IWD:EE currently lacks any shaman-specific items. This component tries to change this deficiency 
-and scatters several items exclusively for shamans all over Icewind Dale and beyond.
-The list includes several artifacts that were originally created for BG:EE - Siege of Dragonspear 
-as well as a couple of new items.
+This component scatters several Shaman-specific items all over the region. The list includes items
+that were originally created for the "Siege of Dragonspear" expansion as well as several new items.
 
-Available items:
+Available items for BG2:EE and EET:
+- The Soulherder's Staff +2 (imported from SoD, BG2:EE only)
+- Shroud of Souls (new item)
+- Spirit Guide +4 (new item)
+
+Available items for IWD:EE:
 - The Soulherder's Staff +2 (imported from SoD)
 - Circlet of Lost Souls (imported from SoD)
 - Heart of the Mountain (imported from SoD)
@@ -208,6 +211,7 @@ History
 Version 4.2
 - Fixed compatibility issues with EE patch 2.6
 - Spirits will stay close to the summoner if combat is not active
+- Made component "Shaman-specific items" available for BG2:EE and EET
 
 Version 4.1
 - Added Project Infinity metadata

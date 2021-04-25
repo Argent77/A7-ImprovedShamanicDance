@@ -51,6 +51,7 @@ BEGIN @1  // Improved Shamanic Dance
                      FILE_EXISTS_IN_GAME ~spsh004.spl~ AND
                      FILE_EXISTS_IN_GAME ~bdshunsu.bcs~) @51  // No shaman class available.
   DESIGNATED 0
+  LABEL ~A7-IMPROVED_SHAMANIC_DANCE-MAIN~
 
   INCLUDE ~%MOD_FOLDER%/lib/generic.tph~
   INCLUDE ~%MOD_FOLDER%/lib/dance.tph~
@@ -59,6 +60,7 @@ BEGIN @1  // Improved Shamanic Dance
 BEGIN @2 // Expanded Shamanic Dance for high level characters
   REQUIRE_COMPONENT ~A7#ImprovedShamanicDance.tp2~ 0 @52  // Main component required.
   DESIGNATED 10
+  LABEL ~A7-IMPROVED_SHAMANIC_DANCE-EXPANDED_DANCE~
 
   INCLUDE ~%MOD_FOLDER%/lib/spirits.tph~
 
@@ -70,6 +72,7 @@ BEGIN @3  // New spell "Shamanic Pact"
                      FILE_EXISTS_IN_GAME ~spsh004.spl~ AND
                      FILE_EXISTS_IN_GAME ~bdshunsu.bcs~) @51  // No shaman class available.
   DESIGNATED 20
+  LABEL ~A7-IMPROVED_SHAMANIC_DANCE-SHAMANIC_PACT~
 
   INCLUDE ~%MOD_FOLDER%/lib/spell.tph~
 
@@ -77,15 +80,23 @@ BEGIN @3  // New spell "Shamanic Pact"
 BEGIN @4  // Apply Shamanic Dance improvements to Shaman kits
   REQUIRE_COMPONENT ~A7#ImprovedShamanicDance.tp2~ 0 @52  // Main component required.
   DESIGNATED 30
+  LABEL ~A7-IMPROVED_SHAMANIC_DANCE-APPLY_TO_KITS~
 
   INCLUDE ~%MOD_FOLDER%/lib/consistent_dance.tph~
 
 
 BEGIN @5  // Shaman-specific items for IWD:EE
-  REQUIRE_PREDICATE GAME_IS ~iwdee~ @53 // Only available for IWD:EE.
+  REQUIRE_PREDICATE GAME_IS ~bg2ee eet iwdee~ @53 // Only available for BG2:EE, EET and IWD:EE
   REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~spsh003.spl~ AND 
                      FILE_EXISTS_IN_GAME ~spsh004.spl~ AND
                      FILE_EXISTS_IN_GAME ~bdshunsu.bcs~) @51  // No shaman class available.
   DESIGNATED 40
+  LABEL ~A7-IMPROVED_SHAMANIC_DANCE-ITEMS~
 
-  INCLUDE ~%MOD_FOLDER%/lib/items_iwdee.tph~
+  ACTION_IF (GAME_IS ~iwdee~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/lib/items_iwdee.tph~
+  END
+
+  ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+    INCLUDE ~%MOD_FOLDER%/lib/items_bg2ee.tph~
+  END

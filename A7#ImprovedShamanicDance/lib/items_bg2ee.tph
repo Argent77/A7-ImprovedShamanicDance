@@ -1,0 +1,176 @@
+// *** Add shaman-specific items to BG2:EE ***
+
+
+// The Soulherder's Staff +2
+ACTION_IF (NOT FILE_EXISTS_IN_GAME ~bdstaf02.itm~ &&
+           NOT FILE_EXISTS_IN_GAME ~bdstaf02.spl~) BEGIN
+  COPY ~%MOD_FOLDER%/items/bdstaf02.itm~ ~override~
+    SAY NAME2 @500  // The Soulherder's Staff +2
+    SAY IDENTIFIED_DESC @501  // ...
+    LPF ALTER_ITEM_EFFECT
+    INT_VAR
+      check_globals = 1
+      match_opcode = 319
+      special = 103061  // Shaman
+    END
+
+  COPY ~%MOD_FOLDER%/spells/bdstaf02.spl~ ~override~
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      check_headers = 1
+      match_opcode = 139
+      parameter1 = 1452   // strref: Strengthened
+    END
+
+  // adding item to Troll Mound in the Druid Grove
+  COPY_EXISTING ~AR1904.ARE~ ~override~
+    LPF ADD_AREA_ITEM
+    INT_VAR
+      container_to_add_to = 2
+    STR_VAR
+      item_to_add = ~BDSTAF02~
+    END
+  BUT_ONLY
+END
+
+
+// Shroud of Souls
+COPY ~%MOD_FOLDER%/items/a7#clck1.itm~ ~override~
+  SET ac_bonus = 2
+  SAY NAME2 @540  // Shroud of Souls
+  SAY IDENTIFIED_DESC @541  // ...
+  // reducing armor class bonus
+  LPF ALTER_ITEM_EFFECT
+  INT_VAR
+    check_globals = 1
+    match_opcode = 0  // AC bonus
+    parameter1 = 2
+  END
+  LPF ALTER_ITEM_EFFECT
+  INT_VAR
+    check_globals = 1
+    match_opcode = 319
+    special = 103061  // Shaman
+  END
+
+COPY ~%MOD_FOLDER%/items/a7#iclk1.bam~ ~override~
+
+// add item to Kuo-toa priest in Abazigal's Lair
+COPY_EXISTING ~GORKUO03.CRE~ ~override/a7#kuo03.cre~
+  ADD_CRE_ITEM ~A7#CLCK1~ #0 #0 #0 ~none~ ~inv1 inv2 inv3 inv4 inv5 inv6 inv7 inv8 inv9 inv10 inv11 inv12 inv13 inv14 inv15 inv16~
+
+COPY_EXISTING ~AR6002.ARE~ ~override~
+  LPF fj_are_structure
+  INT_VAR
+    fj_loc_x = 1110
+    fj_loc_y = 476
+    fj_dest_x = 1110
+    fj_dest_y = 476
+    fj_orientation = 0  // South
+    fj_animation = 0x7f0c // KUO-TOA
+  STR_VAR
+    fj_structure_type = ~actor~
+    fj_name = ~A7# Kuo-Toa Priest~
+    fj_cre_resref = ~A7#KUO03~
+  END
+
+
+// Spirit Guide +4
+COPY ~%MOD_FOLDER%/items/bg2ee/a7#leat1.itm~ ~override~
+  SAY NAME2 @530  // Spirit Guide +4
+  SAY IDENTIFIED_DESC @531  // ...
+
+COPY ~%MOD_FOLDER%/items/a7#ilet1.bam~ ~override~
+
+COPY_EXISTING ~bdspirim.itm~ ~override/a7#sprt1.itm~
+  LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 365 END
+
+COPY_EXISTING ~bdspnaim.itm~ ~override/a7#sprt2.itm~
+  LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 365 END
+
+COPY ~%MOD_FOLDER%/spells/a7#leat1.spl~ ~override~
+  LPF ALTER_SPELL_EFFECT
+  INT_VAR
+    match_opcode = 139
+    parameter1 = RESOLVE_STR_REF(@535)  // Controlled
+  END
+
+COPY ~%MOD_FOLDER%/spells/a7#leatx.spl~ ~override~
+  LPF ALTER_SPELL_EFFECT
+  INT_VAR
+    match_opcode = 139
+    parameter1 = RESOLVE_STR_REF(@536)  // Failed to control
+  END
+
+// adding item to container in Watcher's Keep, Level 4, Illithid Lair
+COPY_EXISTING ~AR3021.ARE~ ~override~
+  LPF ADD_AREA_ITEM
+  INT_VAR
+    container_to_add_to = 2
+  STR_VAR
+    item_to_add = ~A7#LEAT1~
+  END
+BUT_ONLY
+
+
+// Updating script
+<<<<<<<< .../inlined/items/a7#leat1_insert.baf
+IF
+  Global("A7#LEAT1","LOCALS",0)
+  HasItem("BDSPIRIM",Myself)
+  HasItemEquiped("A7#LEAT1",LastSummonerOf(Myself))
+THEN
+  RESPONSE #50
+    SetGlobal("A7#LEAT1","LOCALS",1)
+    ApplySpellRES("A7#LEATX",Myself)
+    Continue()
+  RESPONSE #50
+    SetGlobal("A7#LEAT1","LOCALS",1)
+    TransformItem("BDSPIRIM","A7#SPRT1")
+    ApplySpellRES("A7#LEAT1",Myself)
+END
+
+IF
+  Global("A7#LEAT1","LOCALS",0)
+  HasItem("BDSPNAIM",Myself)
+  HasItemEquiped("A7#LEAT1",LastSummonerOf(Myself))
+THEN
+  RESPONSE #50
+    SetGlobal("A7#LEAT1","LOCALS",1)
+    ApplySpellRES("A7#LEATX",Myself)
+    Continue()
+  RESPONSE #50
+    SetGlobal("A7#LEAT1","LOCALS",1)
+    TransformItem("BDSPNAIM","A7#SPRT2")
+    ApplySpellRES("A7#LEAT1",Myself)
+END
+
+>>>>>>>>
+
+COPY_EXISTING ~bdshunsu.bcs~ ~override~
+  DECOMPILE_AND_PATCH BEGIN
+    PATCH_FOR_EACH item IN ~BDSTAF02~ ~BDHELM16~ ~BDAMUL26~ BEGIN
+      PATCH_IF (INDEX_BUFFER(~"%item%"~) < 0) BEGIN
+        SET ofs = INDEX_BUFFER(~Allegiance(Myself,EVILCUTOFF)~)
+        PATCH_IF (ofs > 0) BEGIN
+          SET ofs = RINDEX_BUFFER(~^IF$~ ofs)
+          PATCH_IF (ofs >= 0) BEGIN
+            PATCH_IF (~%item%~ STR_EQ ~BDSTAF02~) BEGIN TEXT_SPRINT cmd_equipped ~HasItemEquipedReal~ END ELSE BEGIN TEXT_SPRINT cmd_equipped ~HasItemEquiped~ END
+            TEXT_SPRINT block ~IF Global("%item%","LOCALS",0) %cmd_equipped%("%item%",LastSummonerOf(Myself)) THEN RESPONSE #100 SetGlobal("%item%","LOCALS",1) ApplySpellRES("%item%",Myself) END%LNL%~
+            SET strlen = STRING_LENGTH ~%block%~
+            INSERT_BYTES ofs strlen
+            WRITE_ASCIIE ofs ~%block%~ (strlen)
+          END
+        END
+      END
+    END
+
+    SET ofs = INDEX_BUFFER(~Allegiance(Myself,EVILCUTOFF)~)
+    PATCH_IF (ofs > 0) BEGIN
+      SET ofs = RINDEX_BUFFER(~^IF$~ ofs)
+      PATCH_IF (ofs >= 0) BEGIN
+        INSERT_FILE ofs ~.../inlined/items/a7#leat1_insert.baf~
+      END
+    END
+  END
+BUT_ONLY

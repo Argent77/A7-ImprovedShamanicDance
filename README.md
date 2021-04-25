@@ -37,6 +37,6 @@ This component adds the new level 6 spell "Shamanic Pact" to the shaman's spellb
 This component attempts to modify the Shamanic Dance of available Shaman kits to behave like the dance of the main class. It should be installed after all mods that are providing Shaman kits.
 
 
-### Shaman-specific items for IWD:EE (requires IWD:EE)
+### Shaman-specific items (requires BG2:EE, EET or IWD:EE)
 
-IWD:EE currently lacks any shaman-specific items. This component tries to change this deficiency and scatters several items exclusively for shamans all over Icewind Dale and beyond. The list includes several artifacts that were originally created for BG:EE - Siege of Dragonspear as well as a couple of new items.
+This component scatters several Shaman-specific items all over the region. The list includes items that were originally created for the "Siege of Dragonspear" expansion as well as several new items.

@@ -9,4 +9,5 @@
 @50 = ~È richiesta la versione Enhanced Edition.~
 @51 = ~La classe dello sciamano non è disponibile.~
 @52 = ~Richiede Componente Principale.~
-@53 = ~Disponibile solo per IWD:EE.~
+// @53 = ~Disponibile solo per IWD:EE.~
+@53 = ~Only available for BG2:EE, EET and IWD:EE.~

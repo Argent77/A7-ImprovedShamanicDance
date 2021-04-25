@@ -161,7 +161,7 @@ Weight: 10~
 STATISTICS:
 
 Equipped abilities:
-– Armor Class: +3
+– Armor Class: +%ac_bonus%
 – Non-detectable by magical means such as Detect Invisibility and scrying
 – Prevents the Shamanic Dance from dispelling invisibility
 – Can be worn in combination with any other protective enchantment

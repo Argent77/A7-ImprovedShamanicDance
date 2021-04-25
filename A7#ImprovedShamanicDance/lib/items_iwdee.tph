@@ -107,6 +107,7 @@ END
 
 // Shroud of Souls
 COPY ~%MOD_FOLDER%/items/a7#clck1.itm~ ~override~
+  SET ac_bonus = 3
   SAY NAME2 @540  // Shroud of Souls
   SAY IDENTIFIED_DESC @541  // ...
 

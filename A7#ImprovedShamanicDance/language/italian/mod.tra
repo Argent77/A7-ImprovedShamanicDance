@@ -167,7 +167,7 @@ Peso: 10~
 STATISTICHE:
 
 Abilità durante l'uso:
-– Classe Armatura: +3
+– Classe Armatura: +%ac_bonus%
 – Il portatore non è individuabile da strumenti magici come Individuazione dell'Invisibilità e dalle magie di Divinazione
 – Impedisce che la Danza Sciamanica dissolva l'invisibilità
 – Può essere indossato in combinazione con qualsiasi altro oggetto di protezione incantato

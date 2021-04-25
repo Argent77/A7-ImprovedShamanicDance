@@ -212,6 +212,11 @@ ShareAlike 4.0 International License" (http://creativecommons.org/licenses/by-sa
 History
 ~~~~~~~
 
+Version 4.2
+- Fixed compatibility issues with EE patch 2.6
+- Spirits will stay close to the summoner if combat is not active
+- Made component "Shaman-specific items" available for BG2:EE and EET
+
 Version 4.1
 - Added Project Infinity metadata
 - Added German translation for WeiDU prompts

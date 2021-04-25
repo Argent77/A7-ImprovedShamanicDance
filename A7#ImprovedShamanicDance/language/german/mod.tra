@@ -159,7 +159,7 @@ Gewicht: 10~
 
 STATISTIK:
 
-Rüstungsklasse: +3 Bonus
+Rüstungsklasse: +%ac_bonus% Bonus
 
 Kann nicht durch magische Mittel wie den Zauber "Unsichtbares entdecken" und Erkenntniszauber entdeckt werden.
 

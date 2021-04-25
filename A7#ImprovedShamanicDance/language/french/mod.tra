@@ -159,7 +159,7 @@ Poids : 10~
 PARAMÈTRES :
 
 Capacités d'équipement :
-– Classe d'armure : +3
+– Classe d'armure : +%ac_bonus%
 – Rend le porteur indétectable par des moyens magiques tels que la détection de l'invisibilité et la scrutation.
 – Empêche la Danse shamanique de dissiper l'invisibilité.
 – Peut être porté avec d'autres objets de protection.
