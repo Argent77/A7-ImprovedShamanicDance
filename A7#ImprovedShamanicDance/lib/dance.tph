@@ -89,8 +89,8 @@ COPY_EXISTING ~bdshunsu.bcs~ ~override~
           PATCH_IF (INDEX_BUFFER(~CombatCounter~) < 0 && INDEX_BUFFER(~ActuallyInCombat~) < 0) BEGIN
             TEXT_SPRINT action_combatcounter ~CombatCounter(0)~
           END
-          REPLACE_TEXTUALLY ~!Range(.*)~ ~!Range(Player%slot%,8) Global("Summoner","LOCALS",%slot%) %action_combatcounter%~
-          REPLACE_TEXTUALLY ~\(!?\)Detect(.*)~ ~!Range(Player%slot%,8) Global("Summoner","LOCALS",%slot%) %action_combatcounter%~
+          REPLACE_TEXTUALLY ~!Range(.*)~ ~!Range(Player%slot%,12) Global("Summoner","LOCALS",%slot%) %action_combatcounter%~
+          REPLACE_TEXTUALLY ~\(!?\)Detect(.*)~ ~!Range(Player%slot%,12) Global("Summoner","LOCALS",%slot%) %action_combatcounter%~
           REPLACE_TEXTUALLY ~MoveToObject(.*)~ ~MoveToObject(Player%slot%)~
         END
         SET len = STRING_LENGTH ~%block_final%~
