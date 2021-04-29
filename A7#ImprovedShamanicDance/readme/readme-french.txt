@@ -125,8 +125,8 @@ CAPACITÉS :
   de nouveaux sorts à apprendre à chaque niveau ; un shaman peut lancer des sorts sans avoir 
   besoin de les mémoriser.
 – Le shaman a un accès immédiat à un nombre de sorts spécifiques à sa classe, qu'il peut lancer 
-  comme n'importe quel autre sort : Protection de l'Esprit, Brouillard Putride, Lucidité Spirituelle, 
-  Feu Spirituel, Rappel de l'Esprit, Verrou Spirituel et Portail Éthéré.
+  comme n'importe quel autre sort : Protection de l'Esprit, Brouillard putride, Lucidité spirituelle, 
+  Feu spirituel, Rappel de l'Esprit, Verrou spirituel et Portail éthéré.
 – Il acquiert la compétence Détection des illusions en débutant avec 20 %. Puis il gagne 4 % par 
   niveau pour atteindre un maximum de 100 % au niveau 20.
 – Il peut utiliser la Danse shamanique à volonté.
