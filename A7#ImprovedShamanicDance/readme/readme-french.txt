@@ -43,8 +43,9 @@ Composants
 1. Danse shamanique améliorée (composant principal).
 
 Ce composant permet au shaman de se déplacer à vitesse réduite pendant qu'il danse afin qu'il 
-puisse être un peu plus utile contre des adversaires. En contrepartie, les esprits invoqués 
-n'obéiront pas à tous les shamans, mais uniquement à celui qui les a invoqués.
+puisse être un peu plus utile contre des adversaires. De plus, il s'efforce d'harmoniser les
+scripts de combat des esprits afin qu'ils se comportent de la même manière quel que soit le
+jeu et sa version.
 
 
 2. Danse shamanique étendue pour les personnages de haut niveau (nécessite le composant principal).
@@ -67,7 +68,7 @@ Note : Ce sort sera aussi disponible pour tous les kits de shaman disponibles da
        de l'installation.
 
 
-4. Appliquer la Danse chamanique amelioree a tous les profils de Shaman (nécessite le composant principal).
+4. Appliquer la Danse shamanique améliorée a tous les profils de Shaman (nécessite le composant principal).
 
 Ce composant s'efforce de modifier la Danse shamanique de tous les profils de shaman pour qu'elle 
 se comporte comme celle de la classe de Shaman. Il doit être installé après tous les mods qui 
@@ -82,20 +83,22 @@ Les profils de Shaman suivants sont garantis compatibles :
 - Sorcière funeste (I hate Undead, de Raduziel)
 
 
-5. Objets spécifiques aux Shamans pour IWD:EE (nécessite IWD:EE).
+5. Objets spécifiques aux Shamans (nécessite BG2:EE, EET ou IWD:EE).
 
-IWD:EE manque d'objets d'objets spécifiques aux shamans. Ce composant s'efforce de pallier cette 
-déficience et disperse plusieurs objets réservés aux shamans partout dans Icewind Dale.
-La liste suivante comporte plusieurs artefacts créés à l'origine pour BG:EE - Siege of Dragonspear 
-ainsi que quelques nouveaux objets.
+Ce composant disperse plusieurs objets réservés aux shamans dans la carte du monde. La liste suivante
+comporte des objets créés à l'origine pour BG:EE - Siege of Dragonspear, ainsi que quelques nouveaux objets.
 
-Objets disponibles :
+Objets disponibles pour BG2:EE et EET :
+- Bâton +2 Le Berger des âmes (importé de SoD)
+- Linceul des âmes (nouvel objet)
+- Gardien de l'esprit +4 (nouvel objet)
+
+Objets disponibles pour IWD:EE :
 - Bâton +2 Le Berger des âmes (importé de SoD)
 - Bandeau des âmes perdues (importé de SoD)
 - Cœur de la Montagne (importé de SoD)
 - Linceul des âmes (nouvel objet)
 - Gardien de l'esprit +4 (nouvel objet)
- 
 
 
 Description de la classe de Shaman modifiée (après installation de tous les composants).
