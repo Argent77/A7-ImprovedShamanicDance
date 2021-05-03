@@ -72,6 +72,23 @@ OUTER_FOR (slot = 6; slot > 0; --slot) BEGIN
   EXTEND_TOP ~bdshunsu.bcs~ ~.../inlined/shaman_dance/bdshunsu_init.baf~ EVAL
 END
 
+// "Return to summoner" block (combat version)
+<<<<<<<< .../inlined/shaman_dance/bdshunsu_return_combat.baf
+IF
+  Allegiance(Myself,GOODCUTOFF)
+  Global("Summoner","LOCALS",%slot%)
+  !Range(Player%slot%,26)
+  !CombatCounter(0)
+  !See(NearestEnemyOf(Myself))
+THEN
+  RESPONSE #100
+    MoveToObject(Player%slot%)
+END
+>>>>>>>>
+COPY ~.../inlined/shaman_dance/bdshunsu_return_combat.baf~ ~.../inlined/shaman_dance/bdshunsu_return_combat.baf~
+  READ_ASCII 0 block_return_combat (BUFFER_LENGTH)
+BUT_ONLY
+
 COPY_EXISTING ~bdshunsu.bcs~ ~override~
   DECOMPILE_AND_PATCH BEGIN
     // updating spirit's MoveToObject() block
@@ -99,6 +116,18 @@ COPY_EXISTING ~bdshunsu.bcs~ ~override~
         INSERT_BYTES start_offset 1
         WRITE_ASCIIE start_offset ~%LNL%~ (1)
         SET end_offset += len + 1
+      END
+
+      // adding secondary MoveToObject() blocks
+      SET start_offset = INDEX_BUFFER(~^IF$~ end_offset)
+      PATCH_IF (start_offset >= end_offset) BEGIN
+        FOR (slot = 6; slot > 0; --slot) BEGIN
+          TEXT_SPRINT block EVAL ~%block_return_combat%~
+          SET block_len = STRING_LENGTH ~%block%~
+          INSERT_BYTES start_offset block_len
+          WRITE_ASCIIE start_offset ~%block%~ (block_len)
+          SET end_offset += block_len
+        END
       END
 
       // applying spirit's unsummon action when out of range
@@ -129,7 +158,6 @@ BUT_ONLY
 
 COPY_EXISTING ~bdsum00.bcs~ ~override~
   DECOMPILE_AND_PATCH BEGIN
-    // Ensure spirits are unsummoned when leaving visual range of the summoner
     SET start_offset = 0
     SET end_offset = 0
     WHILE (start_offset >= 0) BEGIN
@@ -143,17 +171,50 @@ COPY_EXISTING ~bdsum00.bcs~ ~override~
         DELETE_BYTES start_offset (end_offset - start_offset)
         SET end_offset = start_offset
 
+        // ensure spirits are unsummoned when leaving visual range of the summoner
         INNER_PATCH_SAVE block_final ~%script_block%~ BEGIN
           PATCH_IF (INDEX_BUFFER(~See(~) < 0) BEGIN
             REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH ~THEN~ ~See(LastSeenBy(Myself))%LNL%THEN~
           END
         END
-        SET len = STRING_LENGTH ~%block_final%~
-        INSERT_BYTES start_offset len
-        WRITE_ASCIIE start_offset ~%block_final%~ (len)
-        INSERT_BYTES start_offset 1
-        WRITE_ASCIIE start_offset ~%LNL%~ (1)
-        SET end_offset += len + 1
+
+        // improving attack behavior
+        PATCH_IF (INDEX(~Allegiance(Myself,GOODCUTOFF)~ ~%block_final%~) >= 0) BEGIN
+          // ensure that spirits don't roam too far from their summoner
+          TEXT_SPRINT script_block ~%block_final%~
+          FOR (slot = 6; slot > 0; --slot) BEGIN
+            TEXT_SPRINT new_triggers ~Global("Summoner","LOCALS",%slot%) OR(2) Range(LastSeenBy(Myself),3) TriggerOverride(LastSeenBy(Myself),Range(Player%slot%,26))~
+            INNER_PATCH_SAVE block_final ~%script_block%~ BEGIN
+              REPLACE_TEXTUALLY ~Allegiance(Myself,GOODCUTOFF)~ ~%new_triggers% Allegiance(Myself,GOODCUTOFF)~
+            END
+            SET len = STRING_LENGTH ~%block_final%~
+            INSERT_BYTES start_offset len
+            WRITE_ASCIIE start_offset ~%block_final%~ (len)
+            INSERT_BYTES start_offset 1
+            WRITE_ASCIIE start_offset ~%LNL%~ (1)
+            SET end_offset += len + 1
+          END
+        END ELSE PATCH_IF (INDEX(~Allegiance(Myself,EVILCUTOFF)~ ~%block_final%~) >= 0) BEGIN
+          // this block is irrelevant for us: specifically exclude shamanic spirits
+          TEXT_SPRINT script_block ~%block_final%~
+          INNER_PATCH_SAVE block_final ~%script_block%~ BEGIN
+            REPLACE_TEXTUALLY ~Allegiance(Myself,EVILCUTOFF)~ ~Allegiance(Myself,EVILCUTOFF) !Specifics(Myself,SPIRIT)~
+          END
+          SET len = STRING_LENGTH ~%block_final%~
+          INSERT_BYTES start_offset len
+          WRITE_ASCIIE start_offset ~%block_final%~ (len)
+          INSERT_BYTES start_offset 1
+          WRITE_ASCIIE start_offset ~%LNL%~ (1)
+          SET end_offset += len + 1
+        END ELSE BEGIN
+          // no further changes
+          SET len = STRING_LENGTH ~%block_final%~
+          INSERT_BYTES start_offset len
+          WRITE_ASCIIE start_offset ~%block_final%~ (len)
+          INSERT_BYTES start_offset 1
+          WRITE_ASCIIE start_offset ~%LNL%~ (1)
+          SET end_offset += len + 1
+        END
       END
     END
   END
