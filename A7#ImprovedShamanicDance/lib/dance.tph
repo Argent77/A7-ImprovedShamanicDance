@@ -171,7 +171,7 @@ COPY_EXISTING ~bdsum00.bcs~ ~override~
         DELETE_BYTES start_offset (end_offset - start_offset)
         SET end_offset = start_offset
 
-        // ensure spirits are unsummoned when leaving visual range of the summoner
+        // ensure that spirits are unsummoned when leaving visual range of the summoner
         INNER_PATCH_SAVE block_final ~%script_block%~ BEGIN
           PATCH_IF (INDEX_BUFFER(~See(~) < 0) BEGIN
             REPLACE_TEXTUALLY CASE_SENSITIVE EXACT_MATCH ~THEN~ ~See(LastSeenBy(Myself))%LNL%THEN~
@@ -181,40 +181,31 @@ COPY_EXISTING ~bdsum00.bcs~ ~override~
         // improving attack behavior
         PATCH_IF (INDEX(~Allegiance(Myself,GOODCUTOFF)~ ~%block_final%~) >= 0) BEGIN
           // ensure that spirits don't roam too far from their summoner
+          TEXT_SPRINT temp_result ~~
           TEXT_SPRINT script_block ~%block_final%~
-          FOR (slot = 6; slot > 0; --slot) BEGIN
+          FOR (slot = 1; slot <= 6; ++slot) BEGIN
             TEXT_SPRINT new_triggers ~Global("Summoner","LOCALS",%slot%) OR(2) Range(LastSeenBy(Myself),3) TriggerOverride(LastSeenBy(Myself),Range(Player%slot%,26))~
             INNER_PATCH_SAVE block_final ~%script_block%~ BEGIN
               REPLACE_TEXTUALLY ~Allegiance(Myself,GOODCUTOFF)~ ~%new_triggers% Allegiance(Myself,GOODCUTOFF)~
             END
-            SET len = STRING_LENGTH ~%block_final%~
-            INSERT_BYTES start_offset len
-            WRITE_ASCIIE start_offset ~%block_final%~ (len)
-            INSERT_BYTES start_offset 1
-            WRITE_ASCIIE start_offset ~%LNL%~ (1)
-            SET end_offset += len + 1
+            TEXT_SPRINT temp_result ~%temp_result%%LNL%%block_final%~
           END
+          TEXT_SPRINT block_final ~%temp_result%~
         END ELSE PATCH_IF (INDEX(~Allegiance(Myself,EVILCUTOFF)~ ~%block_final%~) >= 0) BEGIN
           // this block is irrelevant for us: specifically exclude shamanic spirits
           TEXT_SPRINT script_block ~%block_final%~
           INNER_PATCH_SAVE block_final ~%script_block%~ BEGIN
             REPLACE_TEXTUALLY ~Allegiance(Myself,EVILCUTOFF)~ ~Allegiance(Myself,EVILCUTOFF) !Specifics(Myself,SPIRIT)~
           END
-          SET len = STRING_LENGTH ~%block_final%~
-          INSERT_BYTES start_offset len
-          WRITE_ASCIIE start_offset ~%block_final%~ (len)
-          INSERT_BYTES start_offset 1
-          WRITE_ASCIIE start_offset ~%LNL%~ (1)
-          SET end_offset += len + 1
-        END ELSE BEGIN
-          // no further changes
-          SET len = STRING_LENGTH ~%block_final%~
-          INSERT_BYTES start_offset len
-          WRITE_ASCIIE start_offset ~%block_final%~ (len)
-          INSERT_BYTES start_offset 1
-          WRITE_ASCIIE start_offset ~%LNL%~ (1)
-          SET end_offset += len + 1
         END
+
+        // writing changes back to script
+        SET len = STRING_LENGTH ~%block_final%~
+        INSERT_BYTES start_offset len
+        WRITE_ASCIIE start_offset ~%block_final%~ (len)
+        INSERT_BYTES start_offset 1
+        WRITE_ASCIIE start_offset ~%LNL%~ (1)
+        SET end_offset += len + 1
       END
     END
   END
