@@ -48,7 +48,11 @@ BEGIN
              NOT FILE_EXISTS_IN_GAME ~bdstaf02.spl~) BEGIN
     COPY ~%MOD_FOLDER%/items/bdstaf02.itm~ ~override~
       SAY NAME2 @500  // The Soulherder's Staff +2
-      SAY IDENTIFIED_DESC @501  // ...
+      PATCH_IF (GAME_IS ~iwdee~) BEGIN
+        SAY IDENTIFIED_DESC @501  // ...
+      END ELSE BEGIN
+        SAY IDENTIFIED_DESC @502  // ...
+      END
       // updating Shaman class name strref
       PATCH_IF (shaman_strref < 0) BEGIN
         LPF GET_SHAMAN_CLASS_NAME RET shaman_strref = strref END

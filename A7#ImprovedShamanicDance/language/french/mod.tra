@@ -108,6 +108,24 @@ Type : arme à 2 mains
 Nécessite : 5 en Force
 
 Poids : 3~
+@502 = ~Un bâton noueux coupé dans l'arbre sacré de la tribu de gobelins dak'Dekanter. Cet objet fut un symbole de puissance spirituelle durant des siècles. Il disparut durant une bataille acharnée entre les dak'Dekanters et un clan de nains dont le nom fut oublié par l'histoire. Ceux qui se rappelèrent de l'existence du bâton le crurent perdu à jamais. Il fut retrouvé dans la ville naine perdue de Kanaglym, parmi d'autres trésors que les nains avaient subtilisés à leurs ennemis gobelins au fil des années.
+
+PARAMÈTRES :
+
+Capacités d'équipement :
+- Résistance à la magie : +15 %
+- Les esprits convoqués gagnent +1 en Force
+
+TAC0 : +2
+Dégâts : 1d6, +2 (magie)
+Type de dégâts : contondant
+Facteur de vitesse : 2
+Type de compétence : bâton
+Type : arme à deux mains
+Nécessite :
+ 5 en Force
+
+Poids : 3~
 
 @510 = ~Bandeau~
 @511 = ~Bandeau des âmes perdues~

@@ -112,6 +112,25 @@ Richiede:
 Forza 5
 
 Peso: 3~
+@502 = ~Un nodoso bastone di legno intagliato dall'albero sacro della tribù goblin dak'Dekanter, questo oggetto è stato un simbolo del potere spirituale nel corso di innumerevoli secoli. Scomparve durante una battaglia combattuta tra i dak'Dekanter e un clan di nani il cui nome è sconosciuto alla storia. Coloro che un tempo ricordavano fosse esistito lo consideravano perduto per sempre. Fu invece ritrovato nella deserta città nanica di Kanaglym, tra gli altri tesori che i nani avevano rubato ai loro nemici goblin nel corso degli anni.
+
+STATISTICHE:
+
+Abilità durante l'uso:
+- Resistenza alla Magia: +15%
+- Gli spiriti evocati guadagnano 1 punto di Forza
+
+THAC0: +2
+Danno: 1d6, +2 (da magia)
+Tipo di Competenza: Contundente
+Fattore-velocità: 2
+Tipo di Competenza: Bastone Rinforzato
+Tipo: A due mani
+
+Richiede:
+Forza 5
+
+Peso: 3~
 
 @510 = ~Diadema~
 @511 = ~Diadema delle Anime Perdute~

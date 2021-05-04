@@ -85,27 +85,46 @@ Geister können weder sprechen noch Eigenschaften aus ihrem früheren Leben, wie
 @305 = ~Faust +1~
 @306 = ~Faust +2~
 @307 = ~Faust +3~
-@308 = ~Geist zurückrufen[^,]*, ~
+@308 = ~Geist zurückrufen[^,]*, ~   // ^-~
 @309 = ~„Shamanischer Pakt“, ~
 
 
 // Shamanic items
 @500 = ~Stab des Seelenhirten +2~
-@501 = ~Dieser knorrige Holzstab, geschnitzt aus einem heiligen Baum der dak'Dekanter-Goblins, war über Jahrhunderte hinweg ein Symbol spiritueller Macht. Nach einer erbitterten Schlacht gegen eine Zwergensippe, dessen Name im Lauf der Zeit verloren ging, verschwand der Stab aus dem Besitz der dak'Dekanter-Goblins. Einige Zeit später wurde er von einer Horde marodierender Orks auf dem Weg zur Abgetrennten Hand wiedergefunden.
+@501 = ~Dieser krumme Holzstab, der vom heiligen Baum des dek’Dekanter-Goblinstamms stammt, war über Jahrzehnte ein Symbol der spirituellen Stärke. Er verschwand während eines erbitterten Kampfes zwischen den dek’Dekanters und einem Zwergenclan, dessen Name mit der Zeit verloren gegangen ist. Die wenigen, die sich erinnerten, dass es einst diesen Stab gegeben hat, glaubten lange, dass er verloren sei. Einige Zeit später wurde er von einer Horde marodierender Orks auf dem Weg zur Abgetrennten Hand wiedergefunden.
 
-STATISTIK:
+EIGENSCHAFTEN:
 
-Magieresistenz: 15 %
+Magiewiderstand: +15 %
 
-Beschworene Geister erhalten eine +1 Stärkebonus.
+Vom Träger beschworene Geister bekommen einen Bonus von +1 auf Stärke.
 
-Schaden: 1W6 (Wucht), +2 (Magie)
 ETW0-Bonus: -2
-Gewicht: 3
+Schaden: 1W6 (Wucht)
+Schadensbonus: +2 (Magie)
 Initiativefaktor: 2
-Mindeststärke: 5
 Fertigkeit: Kampfstab
-Typ: 2-händig~
+Typ: 2-händig
+Mindeststärke: 5
+
+Gewicht: 3~
+@502 = ~Dieser krumme Holzstab, der vom heiligen Baum des dek’Dekanter-Goblinstamms stammt, war über Jahrzehnte ein Symbol der spirituellen Stärke. Er verschwand während eines erbitterten Kampfes zwischen den dek’Dekanters und einem Zwergenclan, dessen Name mit der Zeit verloren gegangen ist. Die wenigen, die sich erinnerten, dass es einst diesen Stab gegeben hat, glaubten lange, dass er verloren sei. Er wurde in der verlassenen Zwergenstadt Kanaglym unter anderen Schätzen, die die Zwerge von ihren Goblinfeinden gestohlen hatten, entdeckt.
+
+EIGENSCHAFTEN:
+
+Vom Träger beschworene Geister bekommen einen Bonus von +1 auf Stärke.
+
+Magiewiderstand: +15 %
+
+ETW0-Bonus: -2
+Schaden: 1W6 (Wucht)
+Schadensbonus: +2 (Magie)
+Initiativefaktor: 2
+Fertigkeit: Kampfstab
+Typ: 2-händig
+Mindeststärke: 5
+
+Gewicht: 3~
 
 @510 = ~Reif~
 @511 = ~Reif der verlorenen Seelen~
@@ -114,7 +133,7 @@ Typ: 2-händig~
 Gewicht: 1~
 @513 = ~Vor Jahrhunderten wurde eine Gruppe Abenteurer von Geistern und Gespenstern gejagt, als sie bei Erforschen einer Gruft die Hauptkrypta betraten. Die Abenteurer kämpften tapfer, aber einer nach dem anderen fielen sie den Angriffen der Geister zum Opfer. Jahre später heuerte die Tochter einer der Abenteurer eine Gruppe an, um in die Gruft hinabzusteigen und die Körper der Gefallenen zu bergen. Die Tochter wies die Gruppe an, die Ruhe der Toten möglichst nicht zu stören und ausschließlich die toten Abenteurer, wegen derer sie losgeschickt worden sind, zu holen. Daher ließen die Geister sie gewähren. Die Frau behielt den Reif ihres Vaters als ein Andenken an seinen Heldenmut.
 
-STATISTIK:
+EIGENSCHAFTEN:
 
 Vom Träger beschworene Geister haben permanent den Zauber „Segen“ auf sich liegen.
 
@@ -127,7 +146,7 @@ Gewicht: 1~
 
 Das Herz des Berges ist besonders für jene von Nutzen, die einen Schamanentanz aufführen. Solche Leute halten sich zeitweilig im Reich der Geister auf. Das Amulett stärkt die Verbindung zwischen ihnen und der Erde, sodass es dem Träger Stärke im Angesicht leiblichen Ungemachs verleiht.
 
-STATISTIK:
+EIGENSCHAFTEN:
 
 Vom Träger beschworene Geister erhalten +10 Trefferpunkte.
 
@@ -138,7 +157,7 @@ Gewicht: 0~
 @530 = ~Geisterführer +4~
 @531 = ~Diesem Lederharnisch umgibt ein großes Geheimnis. Niemand weiß, wie oder wo er enstand. Er scheint aber aus der Haut eines weißen Drachen erschaffen worden zu sein. Der Harnisch ist äußerst widerstandfähig und überdies mit mächtigen Geistern verwoben. Diese Geister schützen den Träger vor Gedankenmanipulationen und erlauben Schamanen, in die Gedanken beschworener Geister einzudringen, um eine gewisse Kontrolle über sie auszuüben.
 
-STATISTIK:
+EIGENSCHAFTEN:
 
 Schützt vor Berserkerrausch, Personen bezaubern, Verwirrung, Befehl, und Striktes Denken.
 
@@ -157,11 +176,11 @@ Gewicht: 10~
 @540 = ~Seelenschleier~
 @541 = ~Dieser Schleier scheint aus dem Haar von Meerjungfrauen gewoben worden zu sein. Er ist überraschend leicht und fast durchsichtig. Allerding wenn er getragen wird, lenken die Seelen der Mehrjungfrauen jegliche Aufmerksamkeit vom Träger ab. Dadurch wird es für Angreifer schwer, einen Treffer zu landen, falls sie den Träger überhaupt wahrnehmen.
 
-STATISTIK:
+EIGENSCHAFTEN:
 
 Rüstungsklasse: +%ac_bonus% Bonus
 
-Kann nicht durch magische Mittel wie den Zauber "Unsichtbares entdecken" und Erkenntniszauber entdeckt werden.
+Kann nicht durch magische Mittel wie den Zauber „Unsichtbares entdecken“ und Erkenntniszauber entdeckt werden.
 
 Verhindert, dass der Schamanentanz jegliche Form von Unsichtbarkeit bannt.
 

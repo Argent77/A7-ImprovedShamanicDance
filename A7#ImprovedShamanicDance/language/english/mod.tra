@@ -109,6 +109,24 @@ Requires:
  5 Strength
 
 Weight: 3~
+@502 = ~A gnarled wooden staff cut from the dak'Dekanter goblin tribe's sacred tree, this item was a symbol of spiritual power for centuries. It disappeared during a hard-fought battle between the dak'Dekanters and a dwarven clan whose name is lost to history, and those few who remembered it once existed thought it lost forever. It was found discarded in the lost dwarven town of Kanaglym, among other treasures the dwarves stole from their goblin enemies over the years.
+
+STATISTICS:
+
+Equipped abilities:
+– Magic Resistance: +15%
+– Summoned spirits gain a +1 to Strength
+
+THAC0: +2
+Damage: 1d6, +2 (magic)
+Damage Type: Crushing
+Speed Factor: 2
+Proficiency Type: Quarterstaff
+Type: Two-handed
+Requires:
+ 5 Strength
+
+Weight: 3~
 
 @510 = ~Circlet~
 @511 = ~Circlet of Lost Souls~

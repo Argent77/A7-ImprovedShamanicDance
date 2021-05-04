@@ -80,7 +80,7 @@ The following Shaman kits are confirmed to be compatible:
 - Dreadful Witch (I hate Undead, by Raduziel)
 
 
-5. Shaman-specific items (requires BG2:EE, EET or IWD:EE)
+5. Shaman-specific items (independent component, requires BG2:EE, EET or IWD:EE)
 
 This component scatters several Shaman-specific items all over the region. The list includes items
 that were originally created for the "Siege of Dragonspear" expansion as well as several new items.

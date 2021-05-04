@@ -83,7 +83,7 @@ Les profils de Shaman suivants sont garantis compatibles :
 - Sorcière funeste (I hate Undead, de Raduziel)
 
 
-5. Objets spécifiques aux Shamans (nécessite BG2:EE, EET ou IWD:EE).
+5. Objets spécifiques aux Shamans (composant indépendant, nécessite BG2:EE, EET ou IWD:EE).
 
 Ce composant disperse plusieurs objets réservés aux shamans dans la carte du monde. La liste suivante
 comporte des objets créés à l'origine pour BG:EE - Siege of Dragonspear, ainsi que quelques nouveaux objets.
