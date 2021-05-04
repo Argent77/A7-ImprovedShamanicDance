@@ -1,0 +1,275 @@
+// *** Preparations required for adding shaman-specific items ***
+
+// Required by "Shroud of Souls" item
+LAF ADD_IDS_ENTRY
+STR_VAR
+  idsFile = ~splstate.ids~
+  identifier = ~A7_SHROUDED~
+RET
+  splstate_shrouded = value
+END
+
+// Retrieve check for SPLSTATE value
+LAF ADD_SPLPROT_ENTRY
+INT_VAR
+  stat = 0x112
+STR_VAR
+  value = ~-1~
+  relation = ~1~
+RET
+  splprot_splstate = index
+END
+
+
+// Determines the correct strref of the Shaman class name
+DEFINE_DIMORPHIC_FUNCTION GET_SHAMAN_CLASS_NAME
+RET strref
+BEGIN
+  ACTION_IF (GAME_IS ~bgee~) BEGIN
+    OUTER_SET strref = 32342
+  END ELSE ACTION_IF (GAME_IS ~bg2ee eet~) BEGIN
+    OUTER_SET strref = 103061
+  END ELSE ACTION_IF (GAME_IS ~iwdee~) BEGIN
+    OUTER_SET strref = 40880
+  END ELSE BEGIN
+    OUTER_SET strref = "-1"
+  END
+END
+
+// Install "The Soulherder's Staff +2"
+DEFINE_ACTION_FUNCTION INSTALL_SOULHERDERS_STAFF
+INT_VAR
+  shaman_strref = "-1"  // default: autodetect
+RET
+  installed
+BEGIN
+  OUTER_SET installed = 0
+  ACTION_IF (NOT FILE_EXISTS_IN_GAME ~bdstaf02.itm~ &&
+             NOT FILE_EXISTS_IN_GAME ~bdstaf02.spl~) BEGIN
+    COPY ~%MOD_FOLDER%/items/bdstaf02.itm~ ~override~
+      SAY NAME2 @500  // The Soulherder's Staff +2
+      SAY IDENTIFIED_DESC @501  // ...
+      // updating Shaman class name strref
+      PATCH_IF (shaman_strref < 0) BEGIN
+        LPF GET_SHAMAN_CLASS_NAME RET shaman_strref = strref END
+      END
+      LPF ALTER_ITEM_EFFECT
+      INT_VAR
+        check_globals = 1
+        match_opcode = 319
+        special = shaman_strref
+      END
+
+    COPY ~%MOD_FOLDER%/spells/bdstaf02.spl~ ~override~
+      // Updating strref: Strengthened
+      PATCH_IF (GAME_IS ~bgee~) BEGIN
+        SET strref = 31775
+      END ELSE PATCH_IF (GAME_IS ~bg2ee eet~) BEGIN
+        SET strref = 1452
+      END ELSE PATCH_IF (GAME_IS ~iwdee~) BEGIN
+        SET strref = 37790
+      END ELSE BEGIN
+        SET strref = "-1"
+      END
+      LPF ALTER_SPELL_EFFECT
+      INT_VAR
+        check_headers = 1
+        match_opcode = 139
+        parameter1 = strref
+      END
+
+    OUTER_SET installed = 1
+  END
+END
+
+
+// Installs the "Circlet of Lost Souls"
+DEFINE_ACTION_FUNCTION INSTALL_CIRCLET_OF_LOST_SOULS
+INT_VAR
+  shaman_strref = "-1"  // default: autodetect
+RET
+  installed
+BEGIN
+  OUTER_SET installed = 0
+  ACTION_IF (NOT FILE_EXISTS_IN_GAME ~bdhelm16.itm~ && 
+             NOT FILE_EXISTS_IN_GAME ~bdhelm16.spl~) BEGIN
+    COPY ~%MOD_FOLDER%/items/bdhelm16.itm~ ~override~
+      SAY NAME1 @510  // Circlet
+      SAY NAME2 @511  // Circlet of Lost Souls
+      SAY UNIDENTIFIED_DESC @512  // ...
+      SAY IDENTIFIED_DESC @513  // ...
+      // updating Shaman class name strref
+      PATCH_IF (shaman_strref < 0) BEGIN
+        LPF GET_SHAMAN_CLASS_NAME RET shaman_strref = strref END
+      END
+      LPF ALTER_ITEM_EFFECT
+      INT_VAR
+        check_globals = 1
+        match_opcode = 319
+        special = shaman_strref
+      END
+
+    COPY ~%MOD_FOLDER%/items/ibdhel16.bam~ ~override~
+         ~%MOD_FOLDER%/spells/bdhelm16.spl~ ~override~
+
+    OUTER_SET installed = 1
+  END
+END
+
+
+// Installs the "Heart of the Mountain"
+DEFINE_ACTION_FUNCTION INSTALL_HEART_OF_THE_MOUNTAIN
+INT_VAR
+  shaman_strref = "-1"  // default: autodetect
+RET
+  installed
+BEGIN
+  OUTER_SET installed = 0
+  ACTION_IF (NOT FILE_EXISTS_IN_GAME ~bdamul26.itm~ &&
+             NOT FILE_EXISTS_IN_GAME ~bdamul26.spl~) BEGIN
+    COPY ~%MOD_FOLDER%/items/bdamul26.itm~ ~override~
+      SAY NAME2 @520  // Heart of the Mountain
+      SAY IDENTIFIED_DESC @521  // ...
+      // updating Shaman class name strref
+      PATCH_IF (shaman_strref < 0) BEGIN
+        LPF GET_SHAMAN_CLASS_NAME RET shaman_strref = strref END
+      END
+      LPF ALTER_ITEM_EFFECT
+      INT_VAR
+        check_globals = 1
+        match_opcode = 319
+        special = shaman_strref
+      END
+
+    COPY ~%MOD_FOLDER%/items/ibdamu26.bam~ ~override~
+         ~%MOD_FOLDER%/spells/bdamul26.spl~ ~override~
+
+    OUTER_SET installed = 1
+  END
+END
+
+
+// Installs the "Shroud of Souls" item
+DEFINE_ACTION_FUNCTION INSTALL_SHROUD_OF_SOULS
+INT_VAR
+  ac_bonus = "-1"       // default: don't set
+  shaman_strref = "-1"  // default: autodetect
+  spell_state = "-1"    // default: autodetect
+BEGIN
+  COPY ~%MOD_FOLDER%/items/a7#iclk1.bam~ ~override~
+
+  COPY ~%MOD_FOLDER%/items/a7#clck1.itm~ ~override~
+    SAY NAME2 @540  // Shroud of Souls
+    SAY IDENTIFIED_DESC @541  // ...
+    // updating Shaman class name strref
+    PATCH_IF (shaman_strref < 0) BEGIN
+      LPF GET_SHAMAN_CLASS_NAME RET shaman_strref = strref END
+    END
+    LPF ALTER_ITEM_EFFECT
+    INT_VAR
+      check_globals = 1
+      match_opcode = 319
+      special = shaman_strref  // Shaman
+    END
+    // applying ac bonus
+    PATCH_IF (ac_bonus >= 0) BEGIN
+      LPF ALTER_ITEM_EFFECT
+      INT_VAR
+        check_globals = 1
+        match_opcode = 0  // AC bonus
+        parameter1 = ac_bonus
+      END
+    END
+    // applying spell state
+    PATCH_IF (spell_state < 0) BEGIN
+      SET spell_state = splstate_shrouded
+    END
+    LPF ADD_ITEM_EQEFFECT
+    INT_VAR
+      opcode = 328  // Set spell state
+      target = 1    // Self
+      timing = 2    // While equipped
+      parameter2 = spell_state
+      special = 1   // IWD2 mode
+    END
+
+  // Updating shaman dance spell
+  COPY ~%MOD_FOLDER%/spells/a7#shd1.spl~ ~override~
+
+  COPY_EXISTING ~spsh004.spl~ ~override~
+    // Effect is outsourced into separate SPL resource
+    LPF DELETE_EFFECT
+    INT_VAR
+      check_globals = 1
+      check_headers = 0
+      match_opcode = 136  // Force visible
+    END
+    // Adding protection
+    LPF ADD_SPELL_CFEFFECT
+      INT_VAR
+        opcode = 318  // Protection from resource
+        target = 1    // Self
+        timing = 10   // Instant/limited (ticks)
+        duration = 1
+        parameter1 = splstate_shrouded
+        parameter2 = splprot_splstate
+        insert_point = "-1"
+      STR_VAR
+        resource = ~A7#SHD1~
+    END
+    LPF ADD_SPELL_CFEFFECT
+    INT_VAR
+      opcode = 146    // Cast spell
+      target = 1      // Self
+      parameter1 = 1  // Cast at level 1
+      parameter2 = 1  // Cast instantly
+      timing = 1      // Instant/permanent
+      insert_point = "-1"
+    STR_VAR
+      resource = ~A7#SHD1~
+    END
+  BUT_ONLY
+END
+
+
+// Installs the "Spirit Guide"
+DEFINE_ACTION_FUNCTION INSTALL_SPIRIT_GUIDE
+INT_VAR
+  shaman_strref = "-1"  // default: autodetect
+BEGIN
+  COPY ~%MOD_FOLDER%/items/a7#leat1.itm~ ~override~
+    SAY NAME2 @530  // Spirit Guide +4
+    SAY IDENTIFIED_DESC @531  // ...
+    // updating Shaman class name strref
+    PATCH_IF (shaman_strref < 0) BEGIN
+      LPF GET_SHAMAN_CLASS_NAME RET shaman_strref = strref END
+    END
+    LPF ALTER_ITEM_EFFECT
+    INT_VAR
+      check_globals = 1
+      match_opcode = 319
+      special = shaman_strref
+    END
+
+  COPY ~%MOD_FOLDER%/items/a7#ilet1.bam~ ~override~
+
+  COPY_EXISTING ~bdspirim.itm~ ~override/a7#sprt1.itm~
+    LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 365 END
+
+  COPY_EXISTING ~bdspnaim.itm~ ~override/a7#sprt2.itm~
+    LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 365 END
+
+  COPY ~%MOD_FOLDER%/spells/a7#leat1.spl~ ~override~
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      match_opcode = 139
+      parameter1 = RESOLVE_STR_REF(@535)  // Controlled
+    END
+
+  COPY ~%MOD_FOLDER%/spells/a7#leatx.spl~ ~override~
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      match_opcode = 139
+      parameter1 = RESOLVE_STR_REF(@536)  // Failed to control
+    END
+END

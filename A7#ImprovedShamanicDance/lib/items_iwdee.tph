@@ -1,27 +1,22 @@
 // *** Add shaman-specific items to IWD:EE ***
 
+INCLUDE ~%MOD_FOLDER%/lib/items_prep.tph~
 
 // The Soulherder's Staff +2
-ACTION_IF (NOT FILE_EXISTS_IN_GAME ~bdstaf02.itm~ &&
-           NOT FILE_EXISTS_IN_GAME ~bdstaf02.spl~) BEGIN
-  COPY ~%MOD_FOLDER%/items/bdstaf02.itm~ ~override~
-    SAY NAME2 @500  // The Soulherder's Staff +2
-    SAY IDENTIFIED_DESC @501  // ...
-
-  COPY ~%MOD_FOLDER%/spells/bdstaf02.spl~ ~override~
-
+LAF INSTALL_SOULHERDERS_STAFF RET installed END
+ACTION_IF (installed) BEGIN
   // adding item to Orc Shaman in Severed Hand, second level
-<<<<<<<< .../inlined/a7#staf.baf
-IF
-  AreaCheck("AR5002")
-  Global("BDSTAF02","LOCALS",0)
-THEN
-  RESPONSE #100
-    SetGlobal("BDSTAF02","LOCALS",1)
-    CreateItem("bdstaf02",0,0,0)
-    Continue()
-END
->>>>>>>>
+  <<<<<<<< .../inlined/a7#staf.baf
+  IF
+    AreaCheck("AR5002")
+    Global("BDSTAF02","LOCALS",0)
+  THEN
+    RESPONSE #100
+      SetGlobal("BDSTAF02","LOCALS",1)
+      CreateItem("bdstaf02",0,0,0)
+      Continue()
+  END
+  >>>>>>>>
   COPY_EXISTING ~ar5002.are~ ~override~
     READ_LONG 0x54 ofsActors
     READ_SHORT 0x58 numActors
@@ -44,17 +39,8 @@ END
 
 
 // Circlet of Lost Souls
-ACTION_IF (NOT FILE_EXISTS_IN_GAME ~bdhelm16.itm~ && 
-           NOT FILE_EXISTS_IN_GAME ~bdhelm16.spl~) BEGIN
-  COPY ~%MOD_FOLDER%/items/bdhelm16.itm~ ~override~
-    SAY NAME1 @510  // Circlet
-    SAY NAME2 @511  // Circlet of Lost Souls
-    SAY UNIDENTIFIED_DESC @512  // ...
-    SAY IDENTIFIED_DESC @513  // ...
-
-  COPY ~%MOD_FOLDER%/items/ibdhel16.bam~ ~override~
-       ~%MOD_FOLDER%/spells/bdhelm16.spl~ ~override~
-
+LAF INSTALL_CIRCLET_OF_LOST_SOULS RET installed END
+ACTION_IF (installed) BEGIN
   // adding item to Skeletal Mage in the Vale of Shadows Crypt
 <<<<<<<< .../inlined/a7#helm.baf
 IF
@@ -89,15 +75,8 @@ END
 
 
 // Heart of the Mountain
-ACTION_IF (NOT FILE_EXISTS_IN_GAME ~bdamul26.itm~ &&
-           NOT FILE_EXISTS_IN_GAME ~bdamul26.spl~) BEGIN
-  COPY ~%MOD_FOLDER%/items/bdamul26.itm~ ~override~
-    SAY NAME2 @520  // Heart of the Mountain
-    SAY IDENTIFIED_DESC @521  // ...
-
-  COPY ~%MOD_FOLDER%/items/ibdamu26.bam~ ~override~
-       ~%MOD_FOLDER%/spells/bdamul26.spl~ ~override~
-
+LAF INSTALL_HEART_OF_THE_MOUNTAIN RET installed END
+ACTION_IF (installed) BEGIN
   // adding item to Krilag in Dorn's Deep
   COPY_EXISTING ~neoorogc.cre~ ~override~
     ADD_CRE_ITEM ~BDAMUL26~ #0 #0 #0 ~none~ ~inv1 inv2 inv3 inv4 inv5 inv6 inv7 inv8 inv9 inv10 inv11 inv12 inv13 inv14 inv15 inv16~
@@ -106,12 +85,7 @@ END
 
 
 // Shroud of Souls
-COPY ~%MOD_FOLDER%/items/a7#clck1.itm~ ~override~
-  SET ac_bonus = 3
-  SAY NAME2 @540  // Shroud of Souls
-  SAY IDENTIFIED_DESC @541  // ...
-
-COPY ~%MOD_FOLDER%/items/a7#iclk1.bam~ ~override~
+LAF INSTALL_SHROUD_OF_SOULS END
 
 // add item to HoW Seer
 COPY_EXISTING ~seer.cre~ ~override~
@@ -122,31 +96,7 @@ BUT_ONLY IF_EXISTS
 
 
 // Spirit Guide +4
-COPY ~%MOD_FOLDER%/items/a7#leat1.itm~ ~override~
-  SAY NAME2 @530  // Spirit Guide +4
-  SAY IDENTIFIED_DESC @531  // ...
-
-COPY ~%MOD_FOLDER%/items/a7#ilet1.bam~ ~override~
-
-COPY_EXISTING ~bdspirim.itm~ ~override/a7#sprt1.itm~
-  LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 365 END
-
-COPY_EXISTING ~bdspnaim.itm~ ~override/a7#sprt2.itm~
-  LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 365 END
-
-COPY ~%MOD_FOLDER%/spells/a7#leat1.spl~ ~override~
-  LPF ALTER_SPELL_EFFECT
-  INT_VAR
-    match_opcode = 139
-    parameter1 = RESOLVE_STR_REF(@535)  // Controlled
-  END
-
-COPY ~%MOD_FOLDER%/spells/a7#leatx.spl~ ~override~
-  LPF ALTER_SPELL_EFFECT
-  INT_VAR
-    match_opcode = 139
-    parameter1 = RESOLVE_STR_REF(@536)  // Failed to control
-  END
+LAF INSTALL_SPIRIT_GUIDE END
 
 // adding item to a rakshasa inventory in TotLM castle
 COPY_EXISTING ~rakshinv.cre~ ~override/a7#rak01.cre~

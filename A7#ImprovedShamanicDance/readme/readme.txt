@@ -212,6 +212,7 @@ Version 4.2
 - Fixed compatibility issues with EE patch 2.6
 - Spirits will stay close to the summoner if combat is not active
 - Made component "Shaman-specific items" available for BG2:EE and EET
+- Fixed "Shroud of Souls" item effects
 
 Version 4.1
 - Added Project Infinity metadata

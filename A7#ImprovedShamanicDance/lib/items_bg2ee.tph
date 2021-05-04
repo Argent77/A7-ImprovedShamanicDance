@@ -1,27 +1,10 @@
 // *** Add shaman-specific items to BG2:EE ***
 
+INCLUDE ~%MOD_FOLDER%/lib/items_prep.tph~
 
 // The Soulherder's Staff +2
-ACTION_IF (NOT FILE_EXISTS_IN_GAME ~bdstaf02.itm~ &&
-           NOT FILE_EXISTS_IN_GAME ~bdstaf02.spl~) BEGIN
-  COPY ~%MOD_FOLDER%/items/bdstaf02.itm~ ~override~
-    SAY NAME2 @500  // The Soulherder's Staff +2
-    SAY IDENTIFIED_DESC @501  // ...
-    LPF ALTER_ITEM_EFFECT
-    INT_VAR
-      check_globals = 1
-      match_opcode = 319
-      special = 103061  // Shaman
-    END
-
-  COPY ~%MOD_FOLDER%/spells/bdstaf02.spl~ ~override~
-    LPF ALTER_SPELL_EFFECT
-    INT_VAR
-      check_headers = 1
-      match_opcode = 139
-      parameter1 = 1452   // strref: Strengthened
-    END
-
+LAF INSTALL_SOULHERDERS_STAFF RET installed END
+ACTION_IF (installed) BEGIN
   // adding item to Troll Mound in the Druid Grove
   COPY_EXISTING ~AR1904.ARE~ ~override~
     LPF ADD_AREA_ITEM
@@ -35,25 +18,10 @@ END
 
 
 // Shroud of Souls
-COPY ~%MOD_FOLDER%/items/a7#clck1.itm~ ~override~
-  SET ac_bonus = 2
-  SAY NAME2 @540  // Shroud of Souls
-  SAY IDENTIFIED_DESC @541  // ...
-  // reducing armor class bonus
-  LPF ALTER_ITEM_EFFECT
-  INT_VAR
-    check_globals = 1
-    match_opcode = 0  // AC bonus
-    parameter1 = 2
-  END
-  LPF ALTER_ITEM_EFFECT
-  INT_VAR
-    check_globals = 1
-    match_opcode = 319
-    special = 103061  // Shaman
-  END
-
-COPY ~%MOD_FOLDER%/items/a7#iclk1.bam~ ~override~
+LAF INSTALL_SHROUD_OF_SOULS
+INT_VAR
+  ac_bonus = 2
+END
 
 // add item to Kuo-toa priest in Abazigal's Lair
 COPY_EXISTING ~GORKUO03.CRE~ ~override/a7#kuo03.cre~
@@ -76,31 +44,7 @@ COPY_EXISTING ~AR6002.ARE~ ~override~
 
 
 // Spirit Guide +4
-COPY ~%MOD_FOLDER%/items/bg2ee/a7#leat1.itm~ ~override~
-  SAY NAME2 @530  // Spirit Guide +4
-  SAY IDENTIFIED_DESC @531  // ...
-
-COPY ~%MOD_FOLDER%/items/a7#ilet1.bam~ ~override~
-
-COPY_EXISTING ~bdspirim.itm~ ~override/a7#sprt1.itm~
-  LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 365 END
-
-COPY_EXISTING ~bdspnaim.itm~ ~override/a7#sprt2.itm~
-  LPF DELETE_ITEM_EQEFFECT INT_VAR opcode_to_delete = 365 END
-
-COPY ~%MOD_FOLDER%/spells/a7#leat1.spl~ ~override~
-  LPF ALTER_SPELL_EFFECT
-  INT_VAR
-    match_opcode = 139
-    parameter1 = RESOLVE_STR_REF(@535)  // Controlled
-  END
-
-COPY ~%MOD_FOLDER%/spells/a7#leatx.spl~ ~override~
-  LPF ALTER_SPELL_EFFECT
-  INT_VAR
-    match_opcode = 139
-    parameter1 = RESOLVE_STR_REF(@536)  // Failed to control
-  END
+LAF INSTALL_SPIRIT_GUIDE END
 
 // adding item to container in Watcher's Keep, Level 4, Illithid Lair
 COPY_EXISTING ~AR3021.ARE~ ~override~

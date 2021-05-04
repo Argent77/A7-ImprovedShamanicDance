@@ -217,3 +217,199 @@ BEGIN
     END
   END
 END
+
+
+/**
+ * Converts any decimal number into a hexadecimal number.
+ */
+DEFINE_DIMORPHIC_FUNCTION TO_HEX_NUMBER
+INT_VAR
+  value     = 0   // the decimal number
+  minDigits = 1   // min. number of digits in return value (not counting sign)
+  prefix    = 0   // whether to return number with "0x" prefix
+  signed    = 1   // whether number is treated as a signed number
+  upperCase = 0   // whether to represent alphabetic digits in upper case
+RET
+  hexNumber       // returned as string without prefix
+BEGIN
+  ACTION_IF (minDigits < 1) BEGIN OUTER_SET minDigits = 1 END
+  ACTION_IF (minDigits > 8) BEGIN OUTER_SET minDigits = 8 END
+  OUTER_TEXT_SPRINT hexNumber ~~
+  ACTION_DEFINE_ARRAY digit BEGIN ~0~ ~1~ ~2~ ~3~ ~4~ ~5~ ~6~ ~7~ ~8~ ~9~ ~a~ ~b~ ~c~ ~d~ ~e~ ~f~ END
+
+  ACTION_IF (signed && value < 0) BEGIN
+    OUTER_SET isSigned = 1
+    OUTER_SET value = 0 - value
+  END ELSE BEGIN
+    OUTER_SET isSigned = 0
+  END
+
+  OUTER_WHILE (value != 0) BEGIN
+    OUTER_SET curDigit = value BAND 0xf
+    OUTER_SET value = value BLSR 4
+    OUTER_TEXT_SPRINT hexDigit $EVAL digit(~%curDigit%~)
+    OUTER_TEXT_SPRINT hexNumber ~%hexDigit%%hexNumber%~
+  END
+
+  OUTER_WHILE (STRING_LENGTH ~%hexNumber%~ < minDigits) BEGIN
+    OUTER_TEXT_SPRINT hexNumber ~0%hexNumber%~
+  END
+
+  ACTION_IF (upperCase) BEGIN
+    ACTION_TO_UPPER ~hexNumber~
+  END
+
+  ACTION_IF (prefix) BEGIN
+    OUTER_TEXT_SPRINT hexNumber ~0x%hexNumber%~
+  END
+
+  ACTION_IF (isSigned) BEGIN
+    OUTER_TEXT_SPRINT hexNumber ~-%hexNumber%~
+  END
+END
+
+
+/**
+ * Adds a new entry to a specified IDS file and returns its IDS value.
+ *
+ * INT_VAR minValue       Minimum IDS value to consider. (Default: 0)
+ * INT_VAR maxValue       Maximum IDS value to consider. (Default: 255)
+ * INT_VAR preferredValue Try this IDS value first if available. (Default: unset)
+ * INT_VAR hexadecimal    Set to nonzero to add IDS value in hexadecimal notation. (Default: 0)
+ * STR_VAR idsFile        The IDS file to add the entry to.
+ * STR_VAR identifier     The identifier name for the IDS value. Must not contain whitespace.
+ * RET value              The IDS value if entry has been added successfully. -1 if entry could not be added.
+ */
+DEFINE_ACTION_FUNCTION ADD_IDS_ENTRY
+INT_VAR
+  minValue        = 0
+  maxValue        = 255
+  preferredValue  = "-1"
+  hexadecimal     = 0
+STR_VAR
+  idsFile         = ""
+  identifier      = ""
+RET
+  value
+BEGIN
+  OUTER_SET value = "-1"
+
+  ACTION_IF (minValue < 0) BEGIN OUTER_SET minValue = 0 END
+  ACTION_IF (maxValue < minValue) BEGIN OUTER_SET maxValue = minValue END
+
+  ACTION_IF (~%idsFile%~ STRING_MATCHES_REGEXP ~.+\..+~ = 0) BEGIN
+    OUTER_PATCH_SAVE idsFile ~%idsFile%~ BEGIN REPLACE_TEXTUALLY ~\(.+\)\.[^.]+~ ~\1~ END
+  END
+
+  ACTION_IF (FILE_EXISTS_IN_GAME ~%idsFile%.ids~) BEGIN
+    // Try preferred value first
+    OUTER_PATCH ~~ BEGIN
+      PATCH_IF (preferredValue >= minValue AND preferredValue <= maxValue) BEGIN
+        LOOKUP_IDS_SYMBOL_OF_INT retVal ~%idsFile%~ preferredValue
+        PATCH_IF (~%retVal%~ STRING_EQUAL ~%preferredValue%~) BEGIN
+          SET value = preferredValue
+        END
+      END
+    END
+
+    // Looking for available IDS slot
+    ACTION_IF (value = "-1") BEGIN
+      OUTER_PATCH ~~ BEGIN
+        FOR (v = minValue; v <= maxValue; v += 1) BEGIN
+          LOOKUP_IDS_SYMBOL_OF_INT retVal ~%idsFile%~ v
+          PATCH_IF (~%retVal%~ STRING_EQUAL ~%v%~) BEGIN
+            SET value = v
+            SET v = maxValue + 1
+          END
+        END
+      END
+    END
+
+    // Falling back to preferred value if no free slot found
+    ACTION_IF (value = "-1" AND preferredValue >= minValue AND preferredValue <= maxValue) BEGIN
+      OUTER_SET value = preferredValue
+    END
+
+    // Adding new entry
+    ACTION_IF (value != "-1") BEGIN
+      ACTION_IF (hexadecimal) BEGIN
+        LAF TO_HEX_NUMBER INT_VAR value = value RET hexNumber END
+        OUTER_TEXT_SPRINT idsValue ~0x%hexNumber%~
+      END ELSE BEGIN
+        OUTER_TEXT_SPRINT idsValue ~%value%~
+      END
+
+      APPEND ~%idsFile%.ids~ ~%idsValue% %identifier%~ UNLESS ~%identifier%~
+      OUTER_SET value = IDS_OF_SYMBOL (~%idsFile%~ ~%identifier%~)
+      ACTION_IF (value < minValue OR value > maxValue) BEGIN
+        OUTER_SET value = "-1"
+      END
+    END
+  END
+END
+
+
+/**
+ * Adds a new entry to SPLPROT.2DA and returns its index. If an identical entry already exists it will return
+ * the index of that entry instead.
+ * INT_VAR stat     A code from STATS.IDS or an extended stat code starting at 0x100 (256).
+ * STR_VAR value    Either a numeric value that is evaluated by "stat", or a default value "*" for specific stats.
+ *                  (Note: "-1" indicates a user-defined value.)
+ * STR_VAR relation Specifies how to evaluate the value.
+ *                  (Note: Not all extended stats require a relation code. Use "*" in this case.)
+ * RET index        Entry number that can be used to refer to this operation in various effect opcodes.
+ *                  Returns -1 on error.
+ */
+DEFINE_ACTION_FUNCTION ADD_SPLPROT_ENTRY
+INT_VAR
+  stat      = "-1"
+STR_VAR
+  value     = "*"
+  relation  = "*"
+RET
+  index
+BEGIN
+  OUTER_SET index = "-1"
+
+  ACTION_IF (stat >= 0) BEGIN
+    LAF TO_HEX_NUMBER INT_VAR value = stat RET hexNumber END
+    OUTER_TEXT_SPRINT valueHex ~0x%hexNumber%~
+    ACTION_IF (~%value%~ STRING_EQUAL ~~) BEGIN
+      OUTER_TEXT_SPRINT value ~*~
+    END
+    ACTION_IF (~%relation%~ STRING_EQUAL ~~) BEGIN
+      OUTER_TEXT_SPRINT relation ~*~
+    END
+
+    ACTION_IF (FILE_EXISTS_IN_GAME ~splprot.2da~) BEGIN
+      COPY_EXISTING ~splprot.2da~ ~override~
+        READ_2DA_ENTRIES_NOW table 4
+        // Search for identical entries
+        FOR (idx = 0; idx < table; idx += 1) BEGIN
+          READ_2DA_ENTRY_FORMER table idx 1 curStat
+          PATCH_IF (~%stat%~ STRING_EQUAL ~%curStat%~ OR ~%valueHex%~ STRING_EQUAL_CASE ~%curStat%~) BEGIN
+            READ_2DA_ENTRY_FORMER table idx 2 curValue
+            PATCH_IF (~%value%~ STRING_EQUAL ~%curValue%~) BEGIN
+              READ_2DA_ENTRY_FORMER table idx 3 curRelation
+              PATCH_IF (~%relation%~ STRING_EQUAL ~%curRelation%~) BEGIN
+                SET index = idx
+                SET idx = table
+              END
+            END
+          END
+        END
+
+        PATCH_IF (index < 0) BEGIN
+          // Add new entry
+          PATCH_IF (stat >= 0x100) BEGIN
+            TEXT_SPRINT line ~%table%        %valueHex%        %value%         %relation%~
+          END ELSE BEGIN
+            TEXT_SPRINT line ~%table%        %stat%          %value%         %relation%~
+          END
+          INSERT_2DA_ROW table 4 ~%line%~
+          SET index = table
+        END
+      BUT_ONLY IF_EXISTS
+    END
+  END
+END
