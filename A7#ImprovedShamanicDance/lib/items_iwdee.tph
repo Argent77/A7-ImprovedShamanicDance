@@ -6,17 +6,17 @@ INCLUDE ~%MOD_FOLDER%/lib/items_prep.tph~
 LAF INSTALL_SOULHERDERS_STAFF RET installed END
 ACTION_IF (installed) BEGIN
   // adding item to Orc Shaman in Severed Hand, second level
-  <<<<<<<< .../inlined/a7#staf.baf
-  IF
-    AreaCheck("AR5002")
-    Global("BDSTAF02","LOCALS",0)
-  THEN
-    RESPONSE #100
-      SetGlobal("BDSTAF02","LOCALS",1)
-      CreateItem("bdstaf02",0,0,0)
-      Continue()
-  END
-  >>>>>>>>
+<<<<<<<< .../inlined/a7#staf.baf
+IF
+  AreaCheck("AR5002")
+  Global("BDSTAF02","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("BDSTAF02","LOCALS",1)
+    CreateItem("bdstaf02",0,0,0)
+    Continue()
+END
+>>>>>>>>
   COPY_EXISTING ~ar5002.are~ ~override~
     READ_LONG 0x54 ofsActors
     READ_SHORT 0x58 numActors
