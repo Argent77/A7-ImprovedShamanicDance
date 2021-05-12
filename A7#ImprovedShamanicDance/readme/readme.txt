@@ -86,7 +86,7 @@ This component scatters several Shaman-specific items all over the region. The l
 that were originally created for the "Siege of Dragonspear" expansion as well as several new items.
 
 Available items for BG2:EE and EET:
-- The Soulherder's Staff +2 (imported from SoD, BG2:EE only)
+- The Soulherder's Staff +2 (imported from SoD)
 - Shroud of Souls (new item)
 - Spirit Guide +4 (new item)
 

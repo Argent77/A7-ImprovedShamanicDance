@@ -3,18 +3,30 @@
 INCLUDE ~%MOD_FOLDER%/lib/items_prep.tph~
 
 // The Soulherder's Staff +2
-LAF INSTALL_SOULHERDERS_STAFF RET installed END
-ACTION_IF (installed) BEGIN
-  // adding item to Troll Mound in the Druid Grove
-  COPY_EXISTING ~AR1904.ARE~ ~override~
-    LPF ADD_AREA_ITEM
-    INT_VAR
-      container_to_add_to = 2
-    STR_VAR
-      item_to_add = ~BDSTAF02~
-    END
-  BUT_ONLY
+LAF INSTALL_SOULHERDERS_STAFF END
+
+// adding item to Troll Mound in the Druid Grove
+COPY_EXISTING ~AR1904.ARE~ ~override~
+  LPF ADD_AREA_ITEM
+  INT_VAR
+    container_to_add_to = 2
+  STR_VAR
+    item_to_add = ~A7#STAF1~
+  END
+BUT_ONLY
+
+// Staff is not available if original staff from SoD is detected
+<<<<<<<< .../inlined/items/a7#staf1.baf
+IF
+  Global("A7#STAF1","AR1904",0)
+  PartyHasItem("BDSTAF02")
+THEN
+  RESPONSE #100
+    SetGlobal("A7#STAF1","AR1904",1)
+    ActionOverride("Container2",DestroyItem("A7#STAF1"))
 END
+>>>>>>>>
+EXTEND_BOTTOM ~AR1904.BCS~ ~.../inlined/items/a7#staf1.baf~
 
 
 // Shroud of Souls
@@ -93,13 +105,13 @@ END
 
 COPY_EXISTING ~bdshunsu.bcs~ ~override~
   DECOMPILE_AND_PATCH BEGIN
-    PATCH_FOR_EACH item IN ~BDSTAF02~ ~BDHELM16~ ~BDAMUL26~ BEGIN
+    PATCH_FOR_EACH item IN ~A7#STAF1~ ~BDHELM16~ ~BDAMUL26~ BEGIN
       PATCH_IF (INDEX_BUFFER(~"%item%"~) < 0) BEGIN
         SET ofs = INDEX_BUFFER(~Allegiance(Myself,EVILCUTOFF)~)
         PATCH_IF (ofs > 0) BEGIN
           SET ofs = RINDEX_BUFFER(~^IF$~ ofs)
           PATCH_IF (ofs >= 0) BEGIN
-            PATCH_IF (~%item%~ STR_EQ ~BDSTAF02~) BEGIN TEXT_SPRINT cmd_equipped ~HasItemEquipedReal~ END ELSE BEGIN TEXT_SPRINT cmd_equipped ~HasItemEquiped~ END
+            PATCH_IF (~%item%~ STR_EQ ~A7#STAF1~) BEGIN TEXT_SPRINT cmd_equipped ~HasItemEquipedReal~ END ELSE BEGIN TEXT_SPRINT cmd_equipped ~HasItemEquiped~ END
             TEXT_SPRINT block ~IF Global("%item%","LOCALS",0) %cmd_equipped%("%item%",LastSummonerOf(Myself)) THEN RESPONSE #100 SetGlobal("%item%","LOCALS",1) ApplySpellRES("%item%",Myself) END%LNL%~
             SET strlen = STRING_LENGTH ~%block%~
             INSERT_BYTES ofs strlen

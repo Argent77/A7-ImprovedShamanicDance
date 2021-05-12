@@ -40,50 +40,46 @@ END
 DEFINE_ACTION_FUNCTION INSTALL_SOULHERDERS_STAFF
 INT_VAR
   shaman_strref = "-1"  // default: autodetect
-RET
-  installed
 BEGIN
-  OUTER_SET installed = 0
-  ACTION_IF (NOT FILE_EXISTS_IN_GAME ~bdstaf02.itm~ &&
-             NOT FILE_EXISTS_IN_GAME ~bdstaf02.spl~) BEGIN
-    COPY ~%MOD_FOLDER%/items/bdstaf02.itm~ ~override~
-      SAY NAME2 @500  // The Soulherder's Staff +2
-      PATCH_IF (GAME_IS ~iwdee~) BEGIN
-        SAY IDENTIFIED_DESC @501  // ...
-      END ELSE BEGIN
-        SAY IDENTIFIED_DESC @502  // ...
-      END
-      // updating Shaman class name strref
-      PATCH_IF (shaman_strref < 0) BEGIN
-        LPF GET_SHAMAN_CLASS_NAME RET shaman_strref = strref END
-      END
-      LPF ALTER_ITEM_EFFECT
-      INT_VAR
-        check_globals = 1
-        match_opcode = 319
-        special = shaman_strref
-      END
+  COPY ~%MOD_FOLDER%/items/a7#staf1.itm~ ~override~
+    SAY NAME2 @500  // The Soulherder's Staff +2
+    PATCH_IF (GAME_IS ~iwdee~) BEGIN
+      SAY IDENTIFIED_DESC @501  // ...
+    END ELSE BEGIN
+      SAY IDENTIFIED_DESC @502  // ...
+    END
+    // updating Shaman class name strref
+    PATCH_IF (shaman_strref < 0) BEGIN
+      LPF GET_SHAMAN_CLASS_NAME RET shaman_strref = strref END
+    END
+    LPF ALTER_ITEM_EFFECT
+    INT_VAR
+      check_globals = 1
+      match_opcode = 319
+      special = shaman_strref
+    END
 
-    COPY ~%MOD_FOLDER%/spells/bdstaf02.spl~ ~override~
-      // Updating strref: Strengthened
-      PATCH_IF (GAME_IS ~bgee~) BEGIN
-        SET strref = 31775
-      END ELSE PATCH_IF (GAME_IS ~bg2ee eet~) BEGIN
-        SET strref = 1452
-      END ELSE PATCH_IF (GAME_IS ~iwdee~) BEGIN
-        SET strref = 37790
-      END ELSE BEGIN
-        SET strref = "-1"
-      END
-      LPF ALTER_SPELL_EFFECT
-      INT_VAR
-        check_headers = 1
-        match_opcode = 139
-        parameter1 = strref
-      END
+  COPY ~%MOD_FOLDER%/spells/a7#staf1.spl~ ~override~
+    // Updating strref: Strengthened
+    PATCH_IF (GAME_IS ~bgee~) BEGIN
+      SET strref = 31775
+    END ELSE PATCH_IF (GAME_IS ~bg2ee eet~) BEGIN
+      SET strref = 1452
+    END ELSE PATCH_IF (GAME_IS ~iwdee~) BEGIN
+      SET strref = 37790
+    END ELSE BEGIN
+      SET strref = "-1"
+    END
+    LPF ALTER_SPELL_EFFECT
+    INT_VAR
+      check_headers = 1
+      match_opcode = 139
+      parameter1 = strref
+    END
 
-    OUTER_SET installed = 1
-  END
+  COPY ~%MOD_FOLDER%/spells/a7#strng.wav~ ~override~
+       ~%MOD_FOLDER%/spells/a7#strng.vvc~ ~override~
+       ~%MOD_FOLDER%/spells/a7#strng.bam~ ~override~
 END
 
 
@@ -241,7 +237,13 @@ DEFINE_ACTION_FUNCTION INSTALL_SPIRIT_GUIDE
 INT_VAR
   shaman_strref = "-1"  // default: autodetect
 BEGIN
-  COPY ~%MOD_FOLDER%/items/a7#leat1.itm~ ~override~
+  ACTION_IF (GAME_IS ~iwdee~) BEGIN
+    OUTER_TEXT_SPRINT item_path ~%MOD_FOLDER%/items~
+  END ELSE BEGIN
+    OUTER_TEXT_SPRINT item_path ~%MOD_FOLDER%/items/bg2ee~
+  END
+
+  COPY ~%item_path%/a7#leat1.itm~ ~override~
     SAY NAME2 @530  // Spirit Guide +4
     SAY IDENTIFIED_DESC @531  // ...
     // updating Shaman class name strref
@@ -269,6 +271,9 @@ BEGIN
       match_opcode = 139
       parameter1 = RESOLVE_STR_REF(@535)  // Controlled
     END
+
+  COPY ~%MOD_FOLDER%/spells/a7#encht.vvc~ ~override~
+       ~%MOD_FOLDER%/spells/a7#encht.bam~ ~override~
 
   COPY ~%MOD_FOLDER%/spells/a7#leatx.spl~ ~override~
     LPF ALTER_SPELL_EFFECT
