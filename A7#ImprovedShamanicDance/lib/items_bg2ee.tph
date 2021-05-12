@@ -15,6 +15,7 @@ COPY_EXISTING ~AR1904.ARE~ ~override~
   END
 BUT_ONLY
 
+ACTION_IF (FILE_EXISTS_IN_GAME ~BDSTAF02.ITM~) BEGIN
 // Staff is not available if original staff from SoD is detected
 <<<<<<<< .../inlined/items/a7#staf1.baf
 IF
@@ -26,7 +27,8 @@ THEN
     ActionOverride("Container2",DestroyItem("A7#STAF1"))
 END
 >>>>>>>>
-EXTEND_BOTTOM ~AR1904.BCS~ ~.../inlined/items/a7#staf1.baf~
+  EXTEND_BOTTOM ~AR1904.BCS~ ~.../inlined/items/a7#staf1.baf~
+END
 
 
 // Shroud of Souls
