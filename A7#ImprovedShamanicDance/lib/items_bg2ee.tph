@@ -107,6 +107,27 @@ END
 
 COPY_EXISTING ~bdshunsu.bcs~ ~override~
   DECOMPILE_AND_PATCH BEGIN
+    // Fixing script issues in EE patch 2.6+
+    LPF GET_SCRIPT_BLOCK
+      STR_VAR search_regexp = ~MoveToObject(\[~
+      RET script_block start_offset end_offset
+    END
+    PATCH_IF (start_offset >= 0) BEGIN
+      DELETE_BYTES start_offset (end_offset - start_offset)
+      INNER_PATCH_SAVE block_final ~%script_block%~ BEGIN
+        PATCH_IF (INDEX_BUFFER(~[^!]CombatCounter(0)~) >= 0) BEGIN
+          REPLACE_TEXTUALLY ~[^!]Detect(~ ~!Detect(~
+          REPLACE_TEXTUALLY ~[^!]Range(~ ~!Range(~
+        END
+      END
+      SET len = STRING_LENGTH ~%block_final%~
+      INSERT_BYTES start_offset len
+      WRITE_ASCIIE start_offset ~%block_final%~ (len)
+      INSERT_BYTES start_offset 1
+      WRITE_ASCIIE start_offset ~%LNL%~ (1)
+    END
+
+    // Adding item support
     PATCH_FOR_EACH item IN ~A7#STAF1~ ~BDHELM16~ ~BDAMUL26~ BEGIN
       PATCH_IF (INDEX_BUFFER(~"%item%"~) < 0) BEGIN
         SET ofs = INDEX_BUFFER(~Allegiance(Myself,EVILCUTOFF)~)
