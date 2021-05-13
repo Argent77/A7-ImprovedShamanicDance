@@ -64,7 +64,7 @@ LAF INSTALL_SPIRIT_GUIDE END
 COPY_EXISTING ~AR3021.ARE~ ~override~
   LPF ADD_AREA_ITEM
   INT_VAR
-    container_to_add_to = 2
+    container_to_add_to = 3
   STR_VAR
     item_to_add = ~A7#LEAT1~
   END
