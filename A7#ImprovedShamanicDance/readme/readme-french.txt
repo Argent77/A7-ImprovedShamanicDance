@@ -1,7 +1,7 @@
 Danse shamanique améliorée
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version        : 4.1
+Version        : 4.2
 Auteur         : Argent77
 
 Téléchargement : https://github.com/Argent77/A7-ImprovedShamanicDance/releases/latest
