@@ -180,6 +180,18 @@ COPY_EXISTING ~bdsum00.bcs~ ~override~
 
         // improving attack behavior
         PATCH_IF (INDEX(~Allegiance(Myself,GOODCUTOFF)~ ~%block_final%~) >= 0) BEGIN
+          // duplicate and adapt for non-spirit summons
+          TEXT_SPRINT block_summons ~%block_final%~
+          INNER_PATCH_SAVE block_summons ~%block_summons%~ BEGIN
+            REPLACE_TEXTUALLY ~^[ %TAB%]*OR([0-9]+)~ ~~
+            REPLACE_TEXTUALLY ~^[ %TAB%]*\(Specifics([^,]+,SPIRIT)\)~ ~!\1~
+          END
+
+          // restrict original script block to spirits only
+          INNER_PATCH_SAVE block_final ~%block_final%~ BEGIN
+            REPLACE_TEXTUALLY ~^[ %TAB%]*OR([0-9]+)~ ~~
+          END
+
           // ensure that spirits don't roam too far from their summoner
           TEXT_SPRINT temp_result ~~
           TEXT_SPRINT script_block ~%block_final%~
@@ -191,6 +203,9 @@ COPY_EXISTING ~bdsum00.bcs~ ~override~
             TEXT_SPRINT temp_result ~%temp_result%%LNL%%block_final%~
           END
           TEXT_SPRINT block_final ~%temp_result%~
+
+          // adding block for non-spirit summons
+          TEXT_SPRINT block_final ~%block_summons%%LNL%%block_final%~
         END ELSE PATCH_IF (INDEX(~Allegiance(Myself,EVILCUTOFF)~ ~%block_final%~) >= 0) BEGIN
           // this block is irrelevant for us: specifically exclude shamanic spirits
           TEXT_SPRINT script_block ~%block_final%~

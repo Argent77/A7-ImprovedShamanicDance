@@ -215,6 +215,9 @@ ShareAlike 4.0 International License" (http://creativecommons.org/licenses/by-sa
 History
 ~~~~~~~
 
+Version 4.3
+- Fixed a bug that caused passive combat behavior of regular summoned creatures, devas and planetars
+
 Version 4.2
 - Fixed compatibility issues with EE patch 2.6
 - Spirits will stay close to the summoner if combat is not active
