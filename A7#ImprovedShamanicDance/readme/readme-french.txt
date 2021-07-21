@@ -36,6 +36,13 @@ de suivre les instructions.
 Il n'est pas nécessaire de commencer une nouvelle partie après avoir installé ce mod, sauf si 
 vous installez le composant Ajouter le sort "Pacte shamanique".
 
+Note spéciale pour Siege of Dragonspear fourni par Steam/GOG:
+Good Old Games (GOG) et Steam fournissent le contenu de Siege of Dragonspear dans un format que
+WeiDU, l'outil utilisé pour installer ce mod, ne peut pas reconnaitre. Vous devez donc lancer
+le programme DLC Merger dans votre répertoire de SoD avant d'installer ce mod, ou tout autre mod
+utilisant WeiDU.
+Vous pouvez le télécharger ici : https://github.com/Argent77/A7-DlcMerger/releases/latest
+
 
 Composants
 ~~~~~~~~~~
