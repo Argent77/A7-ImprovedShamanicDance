@@ -22,7 +22,7 @@ to improve this ability by allowing the shaman to move at reduced speed while pe
 The dance can be further improved by a number of optional components. More details can be found in 
 the "Components" chapter below.
 
-Available languages: English, French, German, Italian, Polish
+Available languages: English, French, German, Italian, Polish and Russian
 
 
 Installation
@@ -202,6 +202,7 @@ Writing, coding and testing: Argent77
 Polish translation: Cahir
 Italian translation: Aedan
 French translation: LamaPatate and Gwendolyne
+Russian translation: dim-chek
 
 
 Copyright Notice
@@ -213,6 +214,9 @@ ShareAlike 4.0 International License" (http://creativecommons.org/licenses/by-sa
 
 History
 ~~~~~~~
+
+Version 4.4
+- Added Russian translation (thanks dim-chek)
 
 Version 4.3
 - Fixed a bug that caused passive combat behavior of regular summoned creatures, devas and planetars
