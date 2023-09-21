@@ -72,21 +72,9 @@ COMPILE ~%MOD_FOLDER%/scripts/a7#sh61c.baf~
 
 // Adding new spell to shaman CLAB
 OUTER_TEXT_SPRINT clabCache ~~  // store updated CLAB filenames to prevent updating tables multiple times
-OUTER_TEXT_SPRINT clabReg ~clabsh0.\.2da~
-COPY_EXISTING - ~luabbr.2da~ ~override~
-  COUNT_2DA_COLS numCols
-  COUNT_2DA_ROWS numCols numRows
-  FOR (row = 0; row < numRows; row += 1) BEGIN
-    READ_2DA_ENTRY row 0 numCols name
-    PATCH_IF (~%name%~ STR_EQ ~SHAMAN~) BEGIN
-      READ_2DA_ENTRY row 1 numCols id
-      TEXT_SPRINT clabReg ~clab%id%.\.2da~
-      SET row = numRows
-    END
-  END
 
 // Update default shaman CLABs
-COPY_EXISTING_REGEXP ~%clabReg%~ ~override~
+COPY_EXISTING ~clabsh01.2da~ ~override~
   LPF ADD_CLAB_ENTRY
     INT_VAR level = 6
     STR_VAR entry = ~GA_A7#SH61~
