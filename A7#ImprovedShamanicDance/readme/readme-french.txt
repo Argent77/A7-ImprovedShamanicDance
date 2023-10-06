@@ -1,7 +1,7 @@
 Danse shamanique améliorée
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Version        : 4.4
+Version        : 4.5
 Auteur         : Argent77
 
 Téléchargement : https://github.com/Argent77/A7-ImprovedShamanicDance/releases/latest
@@ -222,6 +222,9 @@ ShareAlike 4.0 International License" (http://creativecommons.org/licenses/by-sa
 
 History
 ~~~~~~~
+
+Version 4.5
+- Fixed a conflict between subcomponent "Shamanic Pact" and the "Faiths and Powers" mod
 
 Version 4.4
 - Added Russian translation (thanks dim-chek)
