@@ -45,9 +45,18 @@ END
 
 IF
   Global("Summoner","LOCALS",%slot%)
-  OR(2)
-    !ModalStateObject(Player%slot%,SHAMANDANCE)
-    StateCheck(Player%slot%,CD_STATE_NOTVALID)
+  !CheckSpellState(Player%slot%,SHAMANIC_DANCE)
+  Global("Unsummon","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("Unsummon","LOCALS",1)
+    SetGlobalTimer("UnsummonTimer","LOCALS",0)
+    Continue()
+END
+
+IF
+  Global("Summoner","LOCALS",%slot%)
+  StateCheck(Player%slot%,CD_STATE_NOTVALID)
   Global("Unsummon","LOCALS",0)
 THEN
   RESPONSE #100
@@ -58,7 +67,9 @@ END
 
 IF
   Global("Summoner","LOCALS",%slot%)
-  ModalStateObject(Player%slot%,SHAMANDANCE)
+  OR(2)
+    ModalStateObject(Player%slot%,SHAMANDANCE)
+    CheckSpellState(Player%slot%,SHAMANIC_DANCE)
   !StateCheck(Player%slot%,CD_STATE_NOTVALID)
   Global("Unsummon","LOCALS",1)
 THEN
