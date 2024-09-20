@@ -31,6 +31,16 @@ END
 END
 
 
+// Dancing Shoes
+LAF INSTALL_DANCING_SHOES END
+
+// Adding as reward from Raelis Shai
+<<<<<<<< .../inlined/dialogs/a7#boot1.d
+ADD_TRANS_ACTION ~RAELIS~ BEGIN 17 END BEGIN 0 END ~GiveItemCreate("a7#boot1",LastTalkedToBy,0,0,0)~
+>>>>>>>>
+COMPILE ~.../inlined/dialogs/a7#boot1.d~
+
+
 // Shroud of Souls
 LAF INSTALL_SHROUD_OF_SOULS
 INT_VAR

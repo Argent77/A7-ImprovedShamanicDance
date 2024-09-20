@@ -149,6 +149,18 @@ BEGIN
 END
 
 
+// Installs the "Dancing Shoes" item
+DEFINE_ACTION_FUNCTION INSTALL_DANCING_SHOES
+BEGIN
+  COPY ~%MOD_FOLDER%/items/a7#ibot1.bam~ ~override~
+       ~%MOD_FOLDER%/items/a7#cbot1.bam~ ~override~
+
+  COPY ~%MOD_FOLDER%/items/a7#boot1.itm~ ~override~
+    SAY NAME2 @550  // Dancing Shoes
+    SAY IDENTIFIED_DESC @551  // ...
+END
+
+
 // Installs the "Shroud of Souls" item
 DEFINE_ACTION_FUNCTION INSTALL_SHROUD_OF_SOULS
 INT_VAR

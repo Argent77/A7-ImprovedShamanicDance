@@ -93,6 +93,7 @@ that were originally created for the "Siege of Dragonspear" expansion as well as
 
 Available items for BG2:EE and EET:
 - The Soulherder's Staff +2 (imported from SoD)
+- Dancing Shoes (new item)
 - Shroud of Souls (new item)
 - Spirit Guide +4 (new item)
 
@@ -100,6 +101,7 @@ Available items for IWD:EE:
 - The Soulherder's Staff +2 (imported from SoD)
 - Circlet of Lost Souls (imported from SoD)
 - Heart of the Mountain (imported from SoD)
+- Dancing Shoes (new item)
 - Shroud of Souls (new item)
 - Spirit Guide +4 (new item)
 

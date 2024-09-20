@@ -83,6 +83,39 @@ ACTION_IF (installed) BEGIN
 END
 
 
+// Dancing Shoes
+LAF INSTALL_DANCING_SHOES END
+
+// Adding to Severed Hand (main tower, 4th floor) - in front of the performing stage
+COPY_EXISTING ~ar5004.are~ ~override~
+  LPF fj_are_structure
+  INT_VAR
+    fj_loc_x = 418
+    fj_loc_y = 1454
+    fj_type = 4   // Pile
+    fj_flags = BIT6 // Don't clear
+    fj_box_left = 410
+    fj_box_top = 1448
+    fj_box_right = 426
+    fj_box_bottom = 1460
+  STR_VAR
+    fj_structure_type = ~container~
+    fj_name = ~Bard Treasure~
+  RET
+    fj_return_offset
+  END
+  READ_LONG 0x70 ofs_containers
+  SET container_idx = (fj_return_offset - ofs_containers) / 192
+  LPF fj_are_structure
+  INT_VAR
+    fj_con_itm_idx = container_idx
+  STR_VAR
+    fj_structure_type = ~itm~
+    fj_name = ~A7#BOOT1~
+  END
+BUT_ONLY
+
+
 // Shroud of Souls
 LAF INSTALL_SHROUD_OF_SOULS END
 
