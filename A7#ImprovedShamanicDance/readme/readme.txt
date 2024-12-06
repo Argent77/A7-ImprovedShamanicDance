@@ -82,6 +82,7 @@ Note: Since Shamanic Dance can be implemented in many different ways, it is not 
 
 The following Shaman kits are confirmed to be compatible:
 - Witchlight Shaman (Will of the Wisps, by Lava Del'Vortel)
+- Town Medium (Will of the Wisps, by Lava Del'Vortel)
 - Spiritwalker Shaman (by Ulb)
 - Dreadful Witch (I hate Undead, by Raduziel)
 
