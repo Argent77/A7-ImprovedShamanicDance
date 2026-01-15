@@ -5,8 +5,6 @@ VERSION ~4.6~
 ASK_EVERY_COMPONENT
 
 ALWAYS
-  // required because of non-standard BACKUP path
-  OUTER_TEXT_SPRINT MOD_FOLDER ~A7#ImprovedShamanicDance~
   // root folder for mutable data
   OUTER_TEXT_SPRINT WORK_FOLDER ~weidu_external~
 
