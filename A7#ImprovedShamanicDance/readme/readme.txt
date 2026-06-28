@@ -204,7 +204,7 @@ Writing, coding and testing: Argent77
 
 Polish translation: Cahir
 Italian translation: Aedan
-French translation: LamaPatate and Gwendolyne
+French translation: LamaPatate, Gwendolyne, Deratiseur
 Russian translation: dim-chek
 
 

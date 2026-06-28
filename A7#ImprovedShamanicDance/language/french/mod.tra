@@ -184,6 +184,18 @@ Capacités d'équipement :
 
 Poids : 1~
 
+@550 = ~Chaussons dansants~
+@551 = ~Confectionnées dans une fine soie rouge et noire, du coton doux et de la filigrane dorée, ces pantoufles exquises pourraient valoir une somme considérable, même sans leurs enchantements. Elles ont été enchantées par la barde demi-elfe Prophia Feudecuivre afin de divertir le public lors de ses représentations musicales à travers tout Faerûn. Une fois portées, ces pantoufles guidaient la prestation musicale de leur porteur et continuaient même de jouer d’elles-mêmes si celui-ci était distrait par d’autres activités. Les pantoufles furent finalement transmises à sa fille, qui ne manifestait aucun intérêt pour les arts bardiques et les vendit à une troupe de théâtre d'Eauprofonde.
+
+PARAMÈTRES :
+
+Capacités d'équipement :
+– Dextérité : +1
+– Classe d'armure : +3 contre les missiles
+– Les effets liés au chant et à la danse persistent pendant 2 rounds supplémentaires après que la personne qui les porte a cessé sa prestation.
+
+Poids : 1~
+
 
 // vanilla game strings
 @1000 = ~Esprit renard~           // Fox Spirit
