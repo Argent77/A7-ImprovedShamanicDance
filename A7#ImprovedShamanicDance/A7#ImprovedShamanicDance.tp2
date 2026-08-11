@@ -48,6 +48,12 @@ LANGUAGE ~Russian (Translation by dim-chek)~
          ~A7#ImprovedShamanicDance/language/english/mod.tra~
          ~A7#ImprovedShamanicDance/language/russian/setup.tra~
          ~A7#ImprovedShamanicDance/language/russian/mod.tra~
+LANGUAGE ~Simplified Chinese (Translation by Yoshimo0417)~
+         ~schinese~
+         ~A7#ImprovedShamanicDance/language/english/setup.tra~
+         ~A7#ImprovedShamanicDance/language/english/mod.tra~
+         ~A7#ImprovedShamanicDance/language/schinese/setup.tra~
+         ~A7#ImprovedShamanicDance/language/schinese/mod.tra~
 
 BEGIN @1  // Improved Shamanic Dance
   REQUIRE_PREDICATE GAME_IS ~bgee bg2ee eet iwdee~ @50  // Enhanced Edition game is required.
