@@ -206,6 +206,7 @@ Polish translation: Cahir
 Italian translation: Aedan
 French translation: LamaPatate, Gwendolyne, Deratiseur
 Russian translation: dim-chek
+Simplified Chinese translation: Yoshimo0417
 
 
 Copyright Notice
